@@ -26,6 +26,16 @@ namespace app {
       templateUrl: '/templates/landingPage.html',
       controller: app.Controllers.LandingPageController,
       controllerAs: 'vm'
+    }).state('Feed', {
+      url: '/feed',
+      templateUrl: '/templates/feed.html',
+      controller: app.Controllers.FeedController,
+      controllerAs: 'vm'
+    }).state('CreatePost', {
+      url: '/createPost',
+      templateUrl: '/templates/createPost.html',
+      controller: app.Controllers.FeedController,
+      controllerAs: 'vm'
     });
 
     $urlRouterProvider.otherwise('/');

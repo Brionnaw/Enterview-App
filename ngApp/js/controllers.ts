@@ -71,10 +71,34 @@ namespace app.Controllers {
     }
       }
     }
+    export class FeedController{
+        public postInput;
+        public question;
+
+      addPost(){
+        let token = window.localStorage["token"];
+        let payload = JSON.parse(window.atob(token.split('.')[1]));
+        console.log(this.question)
+
+      //   this.feedService.createPost().then((res) =>  {
+      //     this.$state.go('Home')
+      //
+      // })
+        }
+        constructor(
+          private feedService: app.Services.FeedService,
+          public $state: ng.ui.IStateService
+
+
+        ){
+        }
+    }
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
   angular.module('app').controller('RegisterController', RegisterController);
   angular.module('app').controller('LandingPageController', LandingPageController);
+  angular.module('app').controller('FeedController', FeedController);
+
 
 
 

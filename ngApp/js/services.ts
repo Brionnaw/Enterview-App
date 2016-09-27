@@ -1,4 +1,5 @@
 namespace app.Services {
+  // UserService for users.ts
   export class UserService {
       public RegisterResource;
       public LoginResource;
@@ -16,6 +17,27 @@ namespace app.Services {
         this.LoginResource = $resource('api/users/login');
       }
   }
-  angular.module('app').service('userService', UserService)
+  // Feed service for post.ts
+  export class FeedService {
+      public FeedResource;
+      public createPost(postData) {
+      let post = {
+        text: postData.text,
+        id: postData.id,
+        author:postData.username
+      }
+      console.log(postData)
+      return this.FeedResource.save(post).$promise 
+    }
+    constructor(
+      private $resource: ng.resource.IResourceService
+    ){
+
+    }
+
+  }
+
+  angular.module('app').service('userService', UserService);
+  angular.module('app').service('feedService', FeedService);
 
 }

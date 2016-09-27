@@ -30,6 +30,8 @@ app.use(cookieParser());
 app.use(express.static('./ngApp'));
 app.use('/scripts', express.static('bower_components'));
 app.use('/api', require('./api/users'));
+app.use('/api', require('./api/posts'));
+
 
 
 app.get('/*', function(req, res, next) {
