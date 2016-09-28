@@ -21,20 +21,24 @@ namespace app.Services {
   export class FeedService {
       public FeedResource;
       public createPost(postData) {
-      let post = {
+        let post = {
         text: postData.text,
         id: postData.id,
         author:postData.username
       }
       console.log(postData)
-      return this.FeedResource.save(post).$promise 
+      return this.FeedResource.save(postData).$promise
     }
+      public getAllPosts(){
+        return this.FeedResource.query();
+
+      }
     constructor(
       private $resource: ng.resource.IResourceService
     ){
+      this.FeedResource = $resource('api/posts/feed');
 
     }
-
   }
 
   angular.module('app').service('userService', UserService);

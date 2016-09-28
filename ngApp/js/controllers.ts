@@ -71,28 +71,48 @@ namespace app.Controllers {
     }
       }
     }
+
     export class FeedController{
-        public postInput;
-        public question;
+        public posts;
 
-      addPost(){
-        let token = window.localStorage["token"];
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        console.log(this.question)
 
-      //   this.feedService.createPost().then((res) =>  {
-      //     this.$state.go('Home')
-      //
-      // })
-        }
+
         constructor(
           private feedService: app.Services.FeedService,
           public $state: ng.ui.IStateService
-
-
         ){
+          this.posts = this.feedService.getAllPosts();
+
         }
+
+
+
     }
+    export class createPostController {
+      public post;
+      addPost(){
+        let token = window.localStorage["token"];
+        let payload = JSON.parse(window.atob(token.split('.')[1]));
+        let info = {
+          question: this.post,
+          username:payload.username,
+        }
+        console.log(this.post)
+
+        this.feedService.createPost(info).then((res) => {
+          this.$state.go('Feed')
+
+      })
+        }
+      constructor(
+        private feedService: app.Services.FeedService,
+        public $state: ng.ui.IStateService
+      ){
+
+
+      }
+    }
+
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
   angular.module('app').controller('RegisterController', RegisterController);

@@ -34,7 +34,7 @@ namespace app {
     }).state('CreatePost', {
       url: '/createPost',
       templateUrl: '/templates/createPost.html',
-      controller: app.Controllers.FeedController,
+      controller: app.Controllers.createPostController,
       controllerAs: 'vm'
     });
 

@@ -1,3 +1,30 @@
+<div ng-repeat="p in vm.posts track by $index ">
+  <div>
+  
+      {{p.author}}
+    </p>
+  </div>
+  <div>
+ Interview Question #1:   {{p.question.one}}
+</div>
+<div>
+ Interview Question #2: {{p.question.two}}
+</div>
+<div>
+ Interview Question #3: {{p.question.three}}
+</div>
+<div>
+ Interview Question #4: {{p.question.four}}
+</div>
+<div>
+ Interview Question #5: {{p.question.five}}
+</div>
+<div>
 
-
+Additional Comments: {{p.question.six}}
+</div>
+<div>
+  {{p.dateCreated  | date: 'short'}} <!-- this filter shortens time format -->
+</div>
+</div>
 <a ui-sref="CreatePost">Create post</a>
