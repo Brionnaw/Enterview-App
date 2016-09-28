@@ -26,12 +26,10 @@ namespace app.Services {
         id: postData.id,
         author:postData.username
       }
-      console.log(postData)
       return this.FeedResource.save(postData).$promise
     }
       public getAllPosts(){
         return this.FeedResource.query();
-
       }
     constructor(
       private $resource: ng.resource.IResourceService

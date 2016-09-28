@@ -123,29 +123,34 @@ namespace app.Controllers {
           public id;
           public update(){
           let info = {
-            questionOne: this.questionOne,
-            questionTwo: this.questionTwo,
-            questionThree: this.questionThree,
-            questionFour: this.questionFour,
-            questionFive: this.questionFive,
-            questionSix: this.questionSix,
+            question:{
+              one: this.questionOne,
+              two: this.questionTwo,
+              three: this.questionThree,
+              four: this.questionFour,
+              five: this.questionFive,
+              six: this.questionSix
+            },
             id: this.id
+
         }
-          console.log(info)
-          }
+        this.feedService.createPost(info).then((res) =>  {
+                  this.$state.go('Feed')
+                })          }
        constructor(
         public $stateParams: ng.ui.IStateParamsService,
         private feedService: app.Services.FeedService,
-       ){
+        public $state:ng.ui.IStateService
+      ){
          if($stateParams){
         let seperate = $stateParams["info"].split(",");
-        this.id = seperate[0]
-        this.questionOne = seperate[1]
-        this.questionTwo = seperate[2]
-        this.questionThree = seperate[3]
-        this.questionFour = seperate[4]
-        this.questionFive = seperate[5]
-        this.questionSix = seperate[6]
+          this.id = seperate[0]
+          this.questionOne = seperate[1]
+          this.questionTwo = seperate[2]
+          this.questionThree = seperate[3]
+          this.questionFour = seperate[4]
+          this.questionFive = seperate[5]
+          this.questionSix = seperate[6]
       }
       else {
         console.log('Do not exist!')

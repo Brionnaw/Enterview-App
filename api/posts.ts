@@ -10,26 +10,38 @@ let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of
       },
       author: String,
       dateCreated: Date,
+})
+// POST TO UPDATE OR CREATE POSTS
+router.post('/posts/feed', function(req, res) {
+  if(req.body.id === undefined){
+    let newPost = new Post ({
+      question: req.body.question,
+      author:req.body.username,
+      dateCreated:new Date()
   })
-
-  router.post('/posts/feed', function(req, res) {
-      let newPost = new Post({
-        question: req.body.question,
-        author:req.body.username,
-        dateCreated:new Date()
-      })
       newPost.save((err, post) => {
         if(err){
           console.log(err)
           res.end()
-        } else {
+      } else {
           res.send(post);
-         }
-      })
-  })
+       }
+    })
+  } else {
+      Post.findByIdAndUpdate(req.body.id, {$set:{question: req.body.question}}, (err, res) => {
+          if (err) {
+             console.log(err);
+           } else {
+             console.log(res);
+           }
+         });
+         res.send('200')
+    }
+
+})
 
 
-//get all posts
+//GET ALL POSTS
 router.get('/posts/feed', function(req , res) {
   Post.find({}).then(function(allPosts) {
     res.json(allPosts)
