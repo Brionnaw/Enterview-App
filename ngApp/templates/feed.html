@@ -1,30 +1,32 @@
 <div ng-repeat="p in vm.posts track by $index ">
   <div>
-  
-      {{p.author}}
+    <p>
+      @{{p.author}}
     </p>
   </div>
   <div>
- Interview Question #1:   {{p.question.one}}
+    Interview Question #1:   {{p.question.one}}
+  </div>
+  <div>
+    Interview Question #2: {{p.question.two}}
+  </div>
+  <div>
+    Interview Question #3: {{p.question.three}}
+  </div>
+  <div>
+    Interview Question #4: {{p.question.four}}
+  </div>
+  <div>
+    Interview Question #5: {{p.question.five}}
+  </div>
+  <div>
+    Additional Comments: {{p.question.six}}
+  </div>
+  <div>
+    {{p.dateCreated  | date: 'short'}} <!-- this filter shortens time format -->
+  </div>
+    <button class="btn btn-default btn-sm" ng-click="vm.remove(p._id, $index) ">Delete</button>
+    <button class="btn btn-default btn-sm" ui-sref="EditPost({info: [p._id, p.question.one, p.question.two, p.question.three, p.question.four, p.question.five, p.question.six]})">Edit</button>
 </div>
-<div>
- Interview Question #2: {{p.question.two}}
-</div>
-<div>
- Interview Question #3: {{p.question.three}}
-</div>
-<div>
- Interview Question #4: {{p.question.four}}
-</div>
-<div>
- Interview Question #5: {{p.question.five}}
-</div>
-<div>
 
-Additional Comments: {{p.question.six}}
-</div>
-<div>
-  {{p.dateCreated  | date: 'short'}} <!-- this filter shortens time format -->
-</div>
-</div>
 <a ui-sref="CreatePost">Create post</a>

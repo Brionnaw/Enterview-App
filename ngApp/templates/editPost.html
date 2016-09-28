@@ -1,0 +1,20 @@
+<form ng-submit="vm.save()">
+     <div>
+       <label>Edit your post:</label>
+
+          <br>Interview Question #1   <input ng-model="vm.questionOne"></input>
+          <br>Interview Question #2   <input ng-model="vm.questionTwo" ></input>
+          <br>Interview Question #3   <input ng-model="vm.questionThree" ></input>
+          <br>Interview Question #4   <input ng-model="vm.questionFour" ></input>
+          <br>Interview Question #5   <input ng-model="vm.questionFive" ></input>
+          <br>Interview Question #6   <input ng-model="vm.questionSix" ></input>
+
+
+
+
+
+     </div>
+     <div>
+       <button class="btn btn-primary btn-sm" ng-click="vm.update()">Edit post</button>
+     </div>
+   </form>

@@ -34,7 +34,12 @@ namespace app {
     }).state('CreatePost', {
       url: '/createPost',
       templateUrl: '/templates/createPost.html',
-      controller: app.Controllers.createPostController,
+      controller: app.Controllers.CreatePostController,
+      controllerAs: 'vm'
+    }).state('EditPost', {
+      url: '/editPost/:info',
+      templateUrl: '/templates/editPost.html',
+      controller: app.Controllers.EditController,
       controllerAs: 'vm'
     });
 
