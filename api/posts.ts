@@ -10,6 +10,10 @@ let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of
       },
       author: String,
       dateCreated: Date,
+      dateDeleted: {
+        type: Date,
+        default: null
+  }
 })
 // POST TO UPDATE OR CREATE POSTS
 router.post('/posts/feed', function(req, res) {
@@ -40,14 +44,26 @@ router.post('/posts/feed', function(req, res) {
 
 })
 
-
 //GET ALL POSTS
 router.get('/posts/feed', function(req , res) {
-  Post.find({}).then(function(allPosts) {
+  Post.find({dateDeleted:null}).then(function(allPosts) {
     res.json(allPosts)
 
   });
 });
+router.delete('/posts/:id', function (req, res) {
+    console.log('hit')
+  Post.findByIdAndUpdate(req.params["id"], {$set:{dateDeleted:new Date()}}, (err, res) => {
+    if (err) {
+         console.log(err);
+       } else {
+         console.log(res);
+       }
+     });
+
+     res.send('success!')
+  });
+
 
 
 

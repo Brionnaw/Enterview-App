@@ -31,6 +31,9 @@ namespace app.Services {
       public getAllPosts(){
         return this.FeedResource.query();
       }
+      public deletePost(id) {
+      return this.FeedResource.remove({id: id}).$promise
+      }
     constructor(
       private $resource: ng.resource.IResourceService
     ){

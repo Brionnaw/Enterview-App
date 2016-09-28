@@ -78,6 +78,17 @@ namespace app.Controllers {
       //SHOW POSTS IN FEED.HTML
     export class FeedController{
         public posts;
+        public remove(postId:string, index:number) {
+          let answer = confirm('Are you sure you want to delete?')
+          if(answer === true) {
+            this.feedService.deletePost(postId).then(() => {
+              this.posts.splice(index, 1);
+
+            });
+          } else {
+            console.log('not deleted')
+      }
+  }
         constructor(
           private feedService: app.Services.FeedService,
           public $state: ng.ui.IStateService
