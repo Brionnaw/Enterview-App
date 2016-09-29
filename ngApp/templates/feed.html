@@ -5,6 +5,9 @@
     </p>
   </div>
   <div>
+    Type of interview: {{p.interviewType}}
+  </div>
+  <div>
     Interview Question #1:   {{p.question.one}}
   </div>
   <div>
@@ -26,7 +29,7 @@
     {{p.dateCreated  | date: 'short'}} <!-- this filter shortens time format -->
   </div>
     <button class="btn btn-default btn-sm" ng-click="vm.remove(p._id, $index) ">Delete</button>
-    <button class="btn btn-default btn-sm" ui-sref="EditPost({info: [p. _id, p.question.one, p.question.two, p.question.three, p.question.four, p.question.five, p.question.six]})">Edit</button>
+    <button class="btn btn-default btn-sm" ui-sref="EditPost({info: [p. _id, p.interviewType, p.question.one, p.question.two, p.question.three, p.question.four, p.question.five, p.question.six]})">Edit</button>
 </div>
 
 <a ui-sref="CreatePost">Create post</a>

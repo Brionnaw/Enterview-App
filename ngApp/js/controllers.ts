@@ -83,7 +83,6 @@ namespace app.Controllers {
           if(answer === true) {
             this.feedService.deletePost(postId).then(() => {
               this.posts.splice(index, 1);
-
             });
           } else {
             console.log('not deleted')
@@ -99,25 +98,69 @@ namespace app.Controllers {
     //CREATE POSTS IN CREATEPOST.HTML
     export class CreatePostController {
       public post;
-      addPost(){
-        let token = window.localStorage["token"];
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        let info = {
-          question: this.post,
-          username:payload.username,
+      public optionOne;
+      public optionTwo;
+      public optionThree;
+      public addPost(){
+        //TYPE OF INTERVIEW
+        if(this.optionOne === 'checked') {
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            question: this.post,
+            username:payload.username,
+            interviewType:'Phone Screen'
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Feed')
+          })
+        } else if (this.optionTwo === 'checked'){
+          console.log(this.optionTwo)
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            question: this.post,
+            username:payload.username,
+            interviewType:'In-Person 1:1'
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Feed')
+          })
+        } else if(this.optionThree ==='checked'){
+          console.log(this.optionThree)
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            question: this.post,
+            username:payload.username,
+            interviewType:'Group/Panel'
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Feed')
+          })
         }
-        console.log(this.post)
+      }
+      public check(num) {
+      console.log(num)
+      if(num === 'one'){
+        this.optionOne = 'checked';
+        console.log(this.optionOne)
+      } else if(num === 'two') {
+          this.optionTwo = 'checked';
+          console.log(this.optionTwo)
 
-        this.feedService.createPost(info).then((res) => {
-          this.$state.go('Feed')
-
-      })
-        }
+      } else if (num === 'three') {
+        this.optionThree = 'checked';
+      }
+    }
       constructor(
         private feedService: app.Services.FeedService,
         public $state: ng.ui.IStateService
       ){
-        
+        // set values to false
+        this.optionOne = false;
+        this.optionTwo = false;
+        this.optionThree = false;
       }
     }
     //UPDATE POST IN EDITPOST.HTML
@@ -129,17 +172,19 @@ namespace app.Controllers {
           public questionFive;
           public questionSix;
           public id;
+          public interviewType;
           public update(){
           let info = {
-            question:{
+            question: {
               one: this.questionOne,
               two: this.questionTwo,
               three: this.questionThree,
               four: this.questionFour,
               five: this.questionFive,
-              six: this.questionSix
+              six: this.questionSix,
             },
-            id: this.id
+            id: this.id,
+            interviewType: this.interviewType
 
         }
         this.feedService.createPost(info).then((res) =>  {
@@ -153,12 +198,13 @@ namespace app.Controllers {
          if($stateParams){
         let seperate = $stateParams["info"].split(",");
           this.id = seperate[0]
-          this.questionOne = seperate[1]
-          this.questionTwo = seperate[2]
-          this.questionThree = seperate[3]
-          this.questionFour = seperate[4]
-          this.questionFive = seperate[5]
-          this.questionSix = seperate[6]
+          this.interviewType = seperate[1]
+          this.questionOne = seperate[2]
+          this.questionTwo = seperate[3]
+          this.questionThree = seperate[4]
+          this.questionFour = seperate[5]
+          this.questionFive = seperate[6]
+          this.questionSix = seperate[7]
       }
       else {
         console.log('Do not exist!')
