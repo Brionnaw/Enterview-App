@@ -37,7 +37,8 @@ namespace app.Services {
     constructor(
       private $resource: ng.resource.IResourceService
     ){
-      this.FeedResource = $resource('api/posts/feed');
+      this.FeedResource = $resource('api/posts/feed/:id');
+
 
     }
   }

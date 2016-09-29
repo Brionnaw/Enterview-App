@@ -94,9 +94,7 @@ namespace app.Controllers {
           public $state: ng.ui.IStateService
         ){
           this.posts = this.feedService.getAllPosts();
-
         }
-
     }
     //CREATE POSTS IN CREATEPOST.HTML
     export class CreatePostController {
@@ -119,8 +117,7 @@ namespace app.Controllers {
         private feedService: app.Services.FeedService,
         public $state: ng.ui.IStateService
       ){
-
-
+        
       }
     }
     //UPDATE POST IN EDITPOST.HTML

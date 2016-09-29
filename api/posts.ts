@@ -51,7 +51,7 @@ router.get('/posts/feed', function(req , res) {
 
   });
 });
-router.delete('/posts/:id', function (req, res) {
+router.delete('/posts/feed/:id', function (req, res) {
     console.log('hit')
   Post.findByIdAndUpdate(req.params["id"], {$set:{dateDeleted:new Date()}}, (err, res) => {
     if (err) {
