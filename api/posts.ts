@@ -9,6 +9,7 @@ let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of
         default: null
       },
       interviewType: String,
+      positionTitle:String,
       author: String,
       dateCreated: Date,
       dateDeleted: {
@@ -21,6 +22,7 @@ router.post('/posts/feed', function(req, res) {
   if(req.body.id === undefined){
     let newPost = new Post ({
       interviewType: req.body.interviewType,
+      positionTitle:req.body.positionTitle,
       question: req.body.question,
       author:req.body.username,
       dateCreated:new Date()
@@ -34,7 +36,7 @@ router.post('/posts/feed', function(req, res) {
        }
     })
   } else {
-      Post.findByIdAndUpdate(req.body.id, {$set:{question: req.body.question, interviewType:req.body.interviewType}}, (err, res) => {
+      Post.findByIdAndUpdate(req.body.id, {$set:{question: req.body.question, interviewType:req.body.interviewType, positionTitle:req.body.positionTitle}}, (err, res) => {
           if (err) {
              console.log(err);
            } else {
