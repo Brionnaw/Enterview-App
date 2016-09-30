@@ -173,6 +173,7 @@ namespace app.Controllers {
           public interviewType;
           public update(){
             //UPDATE INTERVIEW TYPE
+
             if(this.optionOne === 'checked') {
               let token = window.localStorage["token"];
               let payload = JSON.parse(window.atob(token.split('.')[1]));
