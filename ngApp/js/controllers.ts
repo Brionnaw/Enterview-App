@@ -165,31 +165,70 @@ namespace app.Controllers {
     }
     //UPDATE POST IN EDITPOST.HTML
      export class EditController {
-          public questionOne;
-          public questionTwo;
-          public questionThree;
-          public questionFour;
-          public questionFive;
-          public questionSix;
+          public post;
+          public optionOne;
+          public optionTwo;
+          public optionThree;
           public id;
           public interviewType;
           public update(){
-          let info = {
-            question: {
-              one: this.questionOne,
-              two: this.questionTwo,
-              three: this.questionThree,
-              four: this.questionFour,
-              five: this.questionFive,
-              six: this.questionSix,
-            },
-            id: this.id,
-            interviewType: this.interviewType
+            //UPDATE INTERVIEW TYPE
+            if(this.optionOne === 'checked') {
+              let token = window.localStorage["token"];
+              let payload = JSON.parse(window.atob(token.split('.')[1]));
+              let info = {
+                question: this.post,
+                username:payload.username,
+                id: this.id,
+                interviewType:'Phone Screen'
+              }
+              this.feedService.createPost(info).then((res) => {
+                this.$state.go('Feed')
+              })
+            } else if (this.optionTwo === 'checked'){
+              console.log(this.optionTwo)
+              let token = window.localStorage["token"];
+              let payload = JSON.parse(window.atob(token.split('.')[1]));
+              let info = {
+                question: this.post,
+                username:payload.username,
+                id: this.id,
+                interviewType:'In-Person 1:1'
+              }
+              this.feedService.createPost(info).then((res) => {
+                this.$state.go('Feed')
+              })
+            } else if(this.optionThree ==='checked'){
+              console.log(this.optionThree)
+              let token = window.localStorage["token"];
+              let payload = JSON.parse(window.atob(token.split('.')[1]));
+              let info = {
+                id: this.id,
+                question: this.post,
+                username:payload.username,
+                interviewType:'Group/Panel'
+              }
+              this.feedService.createPost(info).then((res) => {
+                this.$state.go('Feed')
+              })
+            }
+               }
+               //INTERVIEW TYPE CHECK() METHOD
+               public check(num) {
+               console.log(num)
+               if(num === 'one'){
+                 this.optionOne = 'checked';
+                 console.log(this.optionOne)
+               } else if(num === 'two') {
+                   this.optionTwo = 'checked';
+                   console.log(this.optionTwo)
 
-        }
-        this.feedService.createPost(info).then((res) =>  {
-                  this.$state.go('Feed')
-                })          }
+               } else if (num === 'three') {
+                 this.optionThree = 'checked';
+               }
+             }
+           //QUESTION UPDATE
+
        constructor(
         public $stateParams: ng.ui.IStateParamsService,
         private feedService: app.Services.FeedService,
@@ -199,12 +238,10 @@ namespace app.Controllers {
         let seperate = $stateParams["info"].split(",");
           this.id = seperate[0]
           this.interviewType = seperate[1]
-          this.questionOne = seperate[2]
-          this.questionTwo = seperate[3]
-          this.questionThree = seperate[4]
-          this.questionFour = seperate[5]
-          this.questionFive = seperate[6]
-          this.questionSix = seperate[7]
+          // set values to false
+          this.optionOne = false;
+          this.optionTwo = false;
+          this.optionThree = false;
       }
       else {
         console.log('Do not exist!')

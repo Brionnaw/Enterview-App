@@ -21,8 +21,10 @@ namespace app.Services {
   export class FeedService {
       public FeedResource;
       public createPost(postData) {
+        console.log(postData)
         let post = {
         text: postData.text,
+        interviewType:postData.interviewType,
         id: postData.id,
         author:postData.username
       }
