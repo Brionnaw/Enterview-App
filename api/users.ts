@@ -13,6 +13,9 @@ let User = mongoose.model('User', {
     type:String,
     unique:true
   },
+  photoUrl:{
+    type:String,
+    default:'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'},
   password: String,
   salt:String,
 })
@@ -89,6 +92,20 @@ let hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64).toString('hex');
     }
   })
   });
+
+  //UPDATE photo
+  router.post('/users/photo', function(req, res) {
+  User.findByIdAndUpdate(req.body.id, {$set:{photoUrl: req.body.url}}, (err, user) => {
+      if (err) {
+         console.log(err);
+         res.end()
+       } else {
+         console.log(user);
+         res.end()
+       }
+     });
+
+})
 
     // export router
     export = router;

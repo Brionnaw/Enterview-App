@@ -3,6 +3,7 @@ namespace app.Services {
   export class UserService {
       public RegisterResource;
       public LoginResource;
+      public PhotoResource;
 
       public login(user){
         return this.LoginResource.save(user).$promise;
@@ -10,11 +11,17 @@ namespace app.Services {
       public register(user){
         return this.RegisterResource.save(user).$promise;
       }
+      public updateUserImage(url){
+        return this.PhotoResource.save(url).$promise
+
+      }
       constructor(
         $resource:ng.resource.IResourceService
       ){
         this.RegisterResource = $resource('api/users/register');
         this.LoginResource = $resource('api/users/login');
+        this.PhotoResource = $resource('api/users/photo');
+
       }
   }
   // Feed service for post.ts

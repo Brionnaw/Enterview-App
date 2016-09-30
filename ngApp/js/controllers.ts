@@ -3,6 +3,8 @@
 namespace app.Controllers {
   //HOME CONSTROLLER USED FOR HOME.HTML
   export class HomeController {
+    public file;
+    public bioInfo;
 
 
 // METHOD FOR LOGOUT BUTTON ON HOME.HTML
@@ -10,13 +12,39 @@ namespace app.Controllers {
             window.localStorage.removeItem('token');
             this.$state.go("Login");
           }
+          public pickFile() {
+               this.filepickerService.pick(
+                   { mimetype: 'image/*' },
+                   this.fileUploaded.bind(this)
+               );
+           }
+           public fileUploaded(file) {
+                // save file url to database
+                this.file = file;
+                this.$scope.$apply(); // force page to update
 
+                let fileInfo = {
+                  id:this.bioInfo[0]._id,
+                  url:this.file.url
+                }
+                console.log(fileInfo)
+                this.userService.updateUserImage(fileInfo).then((res) => {
+            })
+          }
 
     constructor(
-      public $state: ng.ui.IStateService
-
+      public $state: ng.ui.IStateService,
+      private userService: app.Services.UserService,
+      private filepickerService,
+      private $scope: ng.IScope
     ) {
-
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          if(token) {
+          console.log('logged in')
+        } else {
+          this.$state.go('Login')
+       }
     }
   }
   //LOGIN USER IN LOGIN.HTML

@@ -1,10 +1,13 @@
 'use strict';
 namespace app {
-  angular.module('app', ['ui.router', 'ngResource', 'ui.bootstrap'])
+  angular.module('app', ['ui.router', 'ngResource', 'ui.bootstrap', 'angular-filepicker'])
     .config((
+
     $stateProvider: ng.ui.IStateProvider,
     $locationProvider: ng.ILocationProvider,
-    $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+    $urlRouterProvider: ng.ui.IUrlRouterProvider,
+    filepickerProvider) => {
+    filepickerProvider.setKey('APC947uh2T46mDGrkcws5z')
 
     $stateProvider.state('Home', {
       url: '/home',
@@ -40,6 +43,11 @@ namespace app {
       url: '/editPost/:info',
       templateUrl: '/templates/editPost.html',
       controller: app.Controllers.EditController,
+      controllerAs: 'vm'
+    }).state('EditProfile', {
+      url: '/editProfile',
+      templateUrl: '/templates/editProfile.html',
+      controller: app.Controllers.HomeController,
       controllerAs: 'vm'
     });
 
