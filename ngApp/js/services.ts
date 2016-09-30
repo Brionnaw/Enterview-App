@@ -23,10 +23,12 @@ namespace app.Services {
       public createPost(postData) {
         console.log(postData)
         let post = {
-        text: postData.text,
-        interviewType:postData.interviewType,
         id: postData.id,
-        author:postData.username
+        author:postData.username,
+        interviewType:postData.interviewType,
+        positionTitle:postData.postion,
+        text: postData.text
+
       }
       return this.FeedResource.save(postData).$promise
     }

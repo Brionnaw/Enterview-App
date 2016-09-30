@@ -97,6 +97,7 @@ namespace app.Controllers {
     }
     //CREATE POSTS IN CREATEPOST.HTML
     export class CreatePostController {
+      public position;
       public post;
       public optionOne;
       public optionTwo;
@@ -107,9 +108,10 @@ namespace app.Controllers {
           let token = window.localStorage["token"];
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           let info = {
-            question: this.post,
             username:payload.username,
-            interviewType:'Phone Screen'
+            interviewType:'Phone Screen',
+            positionTitle:this.position,
+            question: this.post
           }
           this.feedService.createPost(info).then((res) => {
             this.$state.go('Feed')
@@ -119,9 +121,10 @@ namespace app.Controllers {
           let token = window.localStorage["token"];
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           let info = {
-            question: this.post,
             username:payload.username,
-            interviewType:'In-Person 1:1'
+            interviewType:'In Person 1:1',
+            positionTitle:this.position,
+            question: this.post
           }
           this.feedService.createPost(info).then((res) => {
             this.$state.go('Feed')
@@ -131,9 +134,10 @@ namespace app.Controllers {
           let token = window.localStorage["token"];
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           let info = {
-            question: this.post,
             username:payload.username,
-            interviewType:'Group/Panel'
+            interviewType:'Group/Panel',
+            positionTitle:this.position,
+            question: this.post
           }
           this.feedService.createPost(info).then((res) => {
             this.$state.go('Feed')
@@ -165,6 +169,7 @@ namespace app.Controllers {
     }
     //UPDATE POST IN EDITPOST.HTML
      export class EditController {
+       public position;
           public post;
           public optionOne;
           public optionTwo;
@@ -173,15 +178,15 @@ namespace app.Controllers {
           public interviewType;
           public update(){
             //UPDATE INTERVIEW TYPE
-
             if(this.optionOne === 'checked') {
               let token = window.localStorage["token"];
               let payload = JSON.parse(window.atob(token.split('.')[1]));
               let info = {
-                question: this.post,
-                username:payload.username,
                 id: this.id,
-                interviewType:'Phone Screen'
+                username:payload.username,
+                interviewType:'Phone Screen',
+                positionTitle:this.position,
+                question: this.post
               }
               this.feedService.createPost(info).then((res) => {
                 this.$state.go('Feed')
@@ -191,10 +196,12 @@ namespace app.Controllers {
               let token = window.localStorage["token"];
               let payload = JSON.parse(window.atob(token.split('.')[1]));
               let info = {
-                question: this.post,
-                username:payload.username,
                 id: this.id,
-                interviewType:'In-Person 1:1'
+                username:payload.username,
+                interviewType:'In-Person 1:1',
+                positionTitle:this.position,
+                question: this.post,
+
               }
               this.feedService.createPost(info).then((res) => {
                 this.$state.go('Feed')
@@ -205,9 +212,10 @@ namespace app.Controllers {
               let payload = JSON.parse(window.atob(token.split('.')[1]));
               let info = {
                 id: this.id,
-                question: this.post,
                 username:payload.username,
-                interviewType:'Group/Panel'
+                interviewType:'Group/Panel',
+                positionTitle:this.position,
+                question: this.post,
               }
               this.feedService.createPost(info).then((res) => {
                 this.$state.go('Feed')
