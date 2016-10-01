@@ -14,6 +14,7 @@
     placeholder="Username"
     ng-model="vm.user.username">
   </div>
+  </p>
   <div class="form-group">
     <label>Password</label>
     <input type="text"
@@ -28,6 +29,13 @@
     placeholder="Confirm Password"
     ng-model="vm.user.confirmpassword">
   </div>
+  <!-- PHOTO UPLOAD-->
+  <label>  Upload profile photo:</label>
+  <button class="btn btn-default" ng-click="vm.pickFile()">Upload</button>
+  <h2>{{vm.file.filename}}</h2>
+  <img ng-src="{{vm.file.url | fpConvert:{w: 400} }}"/>
+
+    <!-- LOGIN BUTTON-->
   <input type="submit"
   class="btn btn-primary btn-block"
   value="Register" ng-click="vm.register()">

@@ -14,8 +14,8 @@ let User = mongoose.model('User', {
     unique:true
   },
   photoUrl:{
-    type:String,
-    default:'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'},
+      type:String,
+      default:'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'},
   password: String,
   salt:String,
 })
@@ -79,6 +79,7 @@ let hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64).toString('hex');
        exp.setDate(today.getDate()+ 36500);
        //TOKEN
         let token = jwt.sign({
+          photoUrl:user[0].photoUrl,
           id:user[0]. id,
           username: user[0].username,
           exp: exp.getTime()/ 1000},
@@ -94,7 +95,7 @@ let hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64).toString('hex');
   });
 
   //UPDATE photo
-  router.post('/users/photo', function(req, res) {
+router.post('/users/photo', function(req, res) {
   User.findByIdAndUpdate(req.body.id, {$set:{photoUrl: req.body.url}}, (err, user) => {
       if (err) {
          console.log(err);

@@ -4,7 +4,7 @@ namespace app.Controllers {
   //HOME CONSTROLLER USED FOR HOME.HTML
   export class HomeController {
     public file;
-    public bioInfo;
+    public id;
 
 
 // METHOD FOR LOGOUT BUTTON ON HOME.HTML
@@ -19,13 +19,10 @@ namespace app.Controllers {
                );
            }
            public fileUploaded(file) {
-                // save file url to database
-                this.file = file;
-                this.$scope.$apply(); // force page to update
-
+             console.log(file)
                 let fileInfo = {
-                  id:this.bioInfo[0]._id,
-                  url:this.file.url
+                  url:file.url,
+                  id:this.id
                 }
                 console.log(fileInfo)
                 this.userService.updateUserImage(fileInfo).then((res) => {
@@ -35,12 +32,14 @@ namespace app.Controllers {
     constructor(
       public $state: ng.ui.IStateService,
       private userService: app.Services.UserService,
+      public $stateParams: ng.ui.IStateParamsService,
       private filepickerService,
       private $scope: ng.IScope
     ) {
           let token = window.localStorage["token"];
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           if(token) {
+          this.id = payload.id
           console.log('logged in')
         } else {
           this.$state.go('Login')
