@@ -4,7 +4,6 @@ namespace app.Services {
       public RegisterResource;
       public LoginResource;
       public PhotoResource;
-
       public login(user){
         return this.LoginResource.save(user).$promise;
       }
@@ -13,7 +12,6 @@ namespace app.Services {
       }
       public updateUserImage(url){
         return this.PhotoResource.save(url).$promise
-
       }
       constructor(
         $resource:ng.resource.IResourceService
@@ -21,7 +19,6 @@ namespace app.Services {
         this.RegisterResource = $resource('api/users/register');
         this.LoginResource = $resource('api/users/login');
         this.PhotoResource = $resource('api/users/photo');
-
       }
   }
   // Feed service for post.ts
@@ -35,7 +32,6 @@ namespace app.Services {
         interviewType:postData.interviewType,
         positionTitle:postData.postion,
         text: postData.text
-
       }
       return this.FeedResource.save(postData).$promise
     }
@@ -52,12 +48,8 @@ namespace app.Services {
       private $resource: ng.resource.IResourceService
     ){
       this.FeedResource = $resource('api/posts/feed/:id');
-
-
-
     }
   }
-
   angular.module('app').service('userService', UserService);
   angular.module('app').service('feedService', FeedService);
 

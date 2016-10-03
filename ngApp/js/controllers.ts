@@ -1,12 +1,10 @@
 //CONTROLLER PAGE FOR EACH VIEW IN APP.TS
-
 namespace app.Controllers {
   //HOME CONSTROLLER USED FOR HOME.HTML
   export class HomeController {
     public file;
     public id;
     public photoUrl;
-
 // METHOD FOR LOGOUT BUTTON ON HOME.HTML
     public logout(){
             window.localStorage.removeItem('token');
@@ -28,32 +26,30 @@ namespace app.Controllers {
                 this.userService.updateUserImage(fileInfo).then((res) => {
             })
           }
-
-    constructor(
-      public $state: ng.ui.IStateService,
-      private userService: app.Services.UserService,
-      public $stateParams: ng.ui.IStateParamsService,
-      private filepickerService,
-      private $scope: ng.IScope
-    ) {
-          let token = window.localStorage["token"];
-          let payload = JSON.parse(window.atob(token.split('.')[1]));
-          if(token) {
-          this.id = payload.id,
-          this.photoUrl = payload.photoUrl
-          console.log('logged in')
-        } else {
-          this.$state.go('Login')
-       }
-    }
-  }
+          constructor(
+            public $state: ng.ui.IStateService,
+            private userService: app.Services.UserService,
+            public $stateParams: ng.ui.IStateParamsService,
+            private filepickerService,
+            private $scope: ng.IScope
+          ) {
+            let token = window.localStorage["token"];
+            let payload = JSON.parse(window.atob(token.split('.')[1]));
+            if(token) {
+              this.id = payload.id,
+              this.photoUrl = payload.photoUrl
+              console.log('logged in')
+            } else {
+              this.$state.go('Login')
+            }
+          }
+        }
   //LOGIN USER IN LOGIN.HTML
   export class LoginController {
     public user;
     public login(){
       this.userService.login(this.user).then((res) => {
         if(res.message === "Correct"){
-
           window.localStorage["token" ] =res.jwt;
           this.$state.go('Home');
         } else {
@@ -63,7 +59,6 @@ namespace app.Controllers {
     }
     constructor( private  userService: app.Services.UserService,
                   public $state: ng.ui.IStateService,
-
     ){
       // TOKEN
       let token = window.localStorage["token"];
@@ -71,7 +66,6 @@ namespace app.Controllers {
       let payload = JSON.parse(window.atob(token.split('.')[1]));
       if(payload.exp > Date.now()/ 1000) {
         this.$state.go('Home');
-
       }
     }
   }
@@ -89,34 +83,30 @@ namespace app.Controllers {
             window.localStorage["token" ] =res.token;
             this.$state.go("Home");
           }
-      });
-  }
+        });
+    }
         public pickFile() {
           this.filepickerService.pick(
             { mimetype: 'image/*' },
            this.fileUploaded.bind(this)
-       );
-   }
+         );
+     }
         public fileUploaded(file) {
           this.photoUrl = file.url
-
-  }
+        }
       constructor(
         private userService: app.Services.UserService,
         public $state: ng.ui.IStateService,
         private filepickerService,
-
       ){
         let token = window.localStorage["token"];
         if(token) {
         let payload = JSON.parse(window.atob(token.split('.')[1]));
         if(payload.exp > Date.now()/ 1000) {
           this.$state.go('Home');
-
         }
       }
       }
-
     }
     export class LandingPageController {
         public loggedIn;
@@ -288,13 +278,11 @@ namespace app.Controllers {
                } else if(num === 'two') {
                    this.optionTwo = 'checked';
                    console.log(this.optionTwo)
-
                } else if (num === 'three') {
                  this.optionThree = 'checked';
                }
              }
            //QUESTION UPDATE
-
        constructor(
         public $stateParams: ng.ui.IStateParamsService,
         private feedService: app.Services.FeedService,
@@ -330,25 +318,27 @@ namespace app.Controllers {
         }
     }
   constructor(
-
     private $uibModal: angular.ui.bootstrap.IModalService,
     private feedService: app.Services.FeedService,
     public $stateParams: ng.ui.IStateParamsService,
     public $state:ng.ui.IStateService
-
   ) {
     let token = window.localStorage["token"];
     let payload = JSON.parse(window.atob(token.split('.')[1]));
-
      this.posts = this.feedService.getAllProfilePosts(payload.username) // this line get all posts
      console.log(this.posts)
-
      if(token) {
       console.log('logged in') // redirect user to login if token is expired.
      } else {
        this.$state.go('Login')
    }
  }
+     }
+     export class SearchCompanyController{
+       
+       constructor(){
+
+       }
      }
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
@@ -357,10 +347,5 @@ namespace app.Controllers {
   angular.module('app').controller('FeedController', FeedController);
   angular.module('app').controller('EditController', EditController);
   angular.module('app').controller('ProfileController', ProfileController);
-
-
-
-
-
-
+  angular.module('app').controller('SearchCompanyController', SearchCompanyController);
 }

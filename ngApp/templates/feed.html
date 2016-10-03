@@ -1,5 +1,4 @@
-
-<a ui-sref="CreatePost">Create post</a>
+<h4>Feed</h4>
 <div ng-repeat="p in vm.posts track by $index ">
   <div>
   <img ng-src="{{p.authorPhoto}}" width="75" heigh="75"/>
@@ -8,6 +7,7 @@
     <p>
       @{{p.author}}
     </p>
+  </div>
   <div>
     Type of interview: {{p.interviewType}}
   </div>
@@ -38,7 +38,7 @@
     <button class="btn btn-default btn-sm" ng-click="vm.remove(p._id, $index) ">Delete</button>
     <button class="btn btn-default btn-sm"
     ui-sref="EditPost
-    ({info: [p. _id,
+      ({info: [p. _id,
       p.interviewType,
       p.positionTitle,
       p.question.one,
@@ -46,7 +46,13 @@
       p.question.three,
       p.question.four,
       p.question.five,
-      p.question.six]})">Edit</button>
+      p.question.six]})">
+        Edit
+    </button>
 </div>
-
-<a ui-sref="CreatePost">Create post</a>
+<!-- CREATE POST BUTTON -->
+    <button
+      class ="btn btn-primary btn-sm"
+      ui-sref="CreatePost">
+      Create post
+    </button>

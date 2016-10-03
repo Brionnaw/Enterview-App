@@ -2,6 +2,9 @@
 
 <div ng-repeat="p in vm.posts track by $index ">
   <div>
+    <img ng-src="{{p.authorPhoto}}" width="75" height="75"/>
+  </div>
+  <div>
     <p>
       @{{p.author}}
     </p>

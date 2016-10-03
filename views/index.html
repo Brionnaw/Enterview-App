@@ -12,8 +12,21 @@
 
 <body>
   <div>
-    <a ui-sref="Home">Home</a>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active"><a ui-sref="Home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+      <li role="presentation"><a ui-sref="Profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+      <li role="presentation"><a ui-sref="Feed" aria-controls="messages" role="tab" data-toggle="tab">Feed</a></li>
+      <li role="presentation"><a ui-sref="SearchCompany" aria-controls="messages" role="tab" data-toggle="tab">Search</a></li>
+
+    </ul>
+
+
+
   </div>
+
+
 
   <ui-view></ui-view>
 

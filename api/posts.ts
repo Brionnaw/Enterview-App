@@ -2,7 +2,6 @@
 import express = require ('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-
 let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of model , object w| properties, values types}
       question:{
         type: Object,
@@ -38,7 +37,12 @@ router.post('/posts/feed', function(req, res) {
        }
     })
   } else {
-      Post.findByIdAndUpdate(req.body.id, {$set:{question: req.body.question, interviewType:req.body.interviewType, positionTitle:req.body.positionTitle}}, (err, res) => {
+      Post.findByIdAndUpdate(req.body.id,
+        {$set:{question: req.body.question,
+          interviewType:req.body.interviewType,
+          positionTitle:req.body.positionTitle}
+        },
+          (err, res) => {
           if (err) {
              console.log(err);
            } else {
@@ -47,14 +51,11 @@ router.post('/posts/feed', function(req, res) {
          });
          res.send('200')
     }
-
 })
-
 //GET ALL POSTS
 router.get('/posts/feed', function(req , res) {
   Post.find({dateDeleted:null}).then(function(allPosts) {
     res.json(allPosts)
-
   });
 });
 router.delete('/posts/feed/:id', function (req, res) {
@@ -66,18 +67,13 @@ router.delete('/posts/feed/:id', function (req, res) {
          console.log(res);
        }
      });
-
      res.send('success!')
   });
-
   // get all profile prost that arent deleted //
    router.get('/posts/feed/:id', function (req, res){
      Post.find({author:req.params["id"], dateDeleted:null}).then(function(allProfilePosts){
        res.send(allProfilePosts);
       })
    })
-
-
-
 
 export = router;
