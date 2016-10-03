@@ -61,7 +61,8 @@ namespace app.Controllers {
       });
     }
     constructor( private  userService: app.Services.UserService,
-                  public $state: ng.ui.IStateService
+                  public $state: ng.ui.IStateService,
+
     ){
       // TOKEN
       let token = window.localStorage["token"];
@@ -75,19 +76,34 @@ namespace app.Controllers {
   }
 }   //REGISTER USER IN REGISTER.HTML
     export class RegisterController{
+      public id;
       public user;
+      public photoUrl;
       public register(){
+        this.user.photoUrl = this.photoUrl,
         this.userService.register(this.user).then((res) => {
           if(res.message === "username already exist") {
             alert(res.message);
           } else {
             this.$state.go("Home");
           }
-        });
+      });
+  }
+        public pickFile() {
+          this.filepickerService.pick(
+            { mimetype: 'image/*' },
+           this.fileUploaded.bind(this)
+       );
+   }
+        public fileUploaded(file) {
+          this.photoUrl = file.url
+
   }
       constructor(
         private userService: app.Services.UserService,
-        public $state: ng.ui.IStateService
+        public $state: ng.ui.IStateService,
+        private filepickerService,
+
       ){
       }
     }

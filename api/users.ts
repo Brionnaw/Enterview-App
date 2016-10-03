@@ -13,9 +13,7 @@ let User = mongoose.model('User', {
     type:String,
     unique:true
   },
-  photoUrl:{
-      type:String,
-      default:'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'},
+  photoUrl:String,
   password: String,
   salt:String,
 })
@@ -31,7 +29,8 @@ router.post('/users/register', function(req, res) {
         email: req.body.email,
         username:req.body.username,
         password:hash,
-        salt:salt
+        salt:salt,
+        photoUrl:req.body.photoUrl
       })
     // Post - save user
     newUser.save((err, user) => {
@@ -47,24 +46,6 @@ router.post('/users/register', function(req, res) {
       res.send({message:'username already exist'});
     }
 
-let salt = crypto.randomBytes(16).toString('hex');
-let hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64).toString('hex');
-
-    let newUser = new User({
-    email: req.body.email,
-    username:req.body.username,
-    password:hash,
-    salt:salt
-    });
-    newUser.save((err, user) => {
-      if(err) {
-        console.log;
-        res.send(err);
-      }else {
-        console.log(res);
-        res.send(user);
-      }
-      });
     });
 })
     //POST - login user
