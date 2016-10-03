@@ -5,7 +5,7 @@ namespace app.Controllers {
   export class HomeController {
     public file;
     public id;
-
+    public photoUrl;
 
 // METHOD FOR LOGOUT BUTTON ON HOME.HTML
     public logout(){
@@ -39,7 +39,8 @@ namespace app.Controllers {
           let token = window.localStorage["token"];
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           if(token) {
-          this.id = payload.id
+          this.id = payload.id,
+          this.photoUrl = payload.photoUrl
           console.log('logged in')
         } else {
           this.$state.go('Login')
@@ -85,6 +86,7 @@ namespace app.Controllers {
           if(res.message === "username already exist") {
             alert(res.message);
           } else {
+            window.localStorage["token" ] =res.token;
             this.$state.go("Home");
           }
       });
@@ -105,7 +107,16 @@ namespace app.Controllers {
         private filepickerService,
 
       ){
+        let token = window.localStorage["token"];
+        if(token) {
+        let payload = JSON.parse(window.atob(token.split('.')[1]));
+        if(payload.exp > Date.now()/ 1000) {
+          this.$state.go('Home');
+
+        }
       }
+      }
+
     }
     export class LandingPageController {
         public loggedIn;

@@ -32,14 +32,26 @@ router.post('/users/register', function(req, res) {
         salt:salt,
         photoUrl:req.body.photoUrl
       })
+
     // Post - save user
     newUser.save((err, user) => {
        if(err) {
-         console.log;
          res.send(err);
        }else {
-         console.log(res);
-         res.end(); // end response
+         let hash =  crypto.pbkdf2Sync(req.body.password, user.salt, 1000, 64).toString('hex');
+         let today = new Date();
+         let exp = new Date(today);
+        exp.setDate(today.getDate()+ 36500);
+        //TOKEN
+         let token = jwt.sign({
+           photoUrl: user.photoUrl,
+           id: user.id,
+           username: user.username,
+           exp: exp.getTime()/ 1000},
+           'SecretKey'
+         );
+          console.log(token)
+         res.send({token:token}); // end response
       }
       })
     } else {
