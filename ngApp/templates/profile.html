@@ -1,13 +1,14 @@
+<h1>Profile:</h1>
 
-<a ui-sref="CreatePost">Create post</a>
 <div ng-repeat="p in vm.posts track by $index ">
-  <div>
-  <img ng-src="{{p.authorPhoto}}" width="75" heigh="75"/>
-  </div>
   <div>
     <p>
       @{{p.author}}
     </p>
+  </div>
+  <div>
+    {{p.photoUrl}}
+  </div>
   <div>
     Type of interview: {{p.interviewType}}
   </div>
@@ -48,5 +49,3 @@
       p.question.five,
       p.question.six]})">Edit</button>
 </div>
-
-<a ui-sref="CreatePost">Create post</a>

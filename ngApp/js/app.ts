@@ -48,6 +48,11 @@ namespace app {
       templateUrl: '/templates/editProfile.html',
       controller: app.Controllers.HomeController,
       controllerAs: 'vm'
+    }).state('Profile', {
+      url: '/profile',
+      templateUrl: '/templates/profile.html',
+      controller: app.Controllers.ProfileController,
+      controllerAs: 'vm'
     });
 
     $urlRouterProvider.otherwise('/');

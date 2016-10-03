@@ -10,6 +10,7 @@ let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of
       },
       interviewType: String,
       positionTitle:String,
+      authorPhoto:String,
       author: String,
       dateCreated: Date,
       dateDeleted: {
@@ -22,6 +23,7 @@ router.post('/posts/feed', function(req, res) {
   if(req.body.id === undefined){
     let newPost = new Post ({
       interviewType: req.body.interviewType,
+      authorPhoto: req.body.authorPhoto,
       positionTitle:req.body.positionTitle,
       question: req.body.question,
       author:req.body.username,
@@ -68,7 +70,12 @@ router.delete('/posts/feed/:id', function (req, res) {
      res.send('success!')
   });
 
-
+  // get all profile prost that arent deleted //
+   router.get('/posts/feed/:id', function (req, res){
+     Post.find({author:req.params["id"], dateDeleted:null}).then(function(allProfilePosts){
+       res.send(allProfilePosts);
+      })
+   })
 
 
 

@@ -162,6 +162,7 @@ namespace app.Controllers {
           let token = window.localStorage["token"];
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           let info = {
+            authorPhoto: payload.photoUrl,
             username:payload.username,
             interviewType:'Phone Screen',
             positionTitle:this.position,
@@ -175,6 +176,7 @@ namespace app.Controllers {
           let token = window.localStorage["token"];
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           let info = {
+            authorPhoto: payload.photoUrl,
             username:payload.username,
             interviewType:'In Person 1:1',
             positionTitle:this.position,
@@ -188,6 +190,7 @@ namespace app.Controllers {
           let token = window.localStorage["token"];
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           let info = {
+            authorPhoto: payload.photoUrl,
             username:payload.username,
             interviewType:'Group/Panel',
             positionTitle:this.position,
@@ -311,13 +314,50 @@ namespace app.Controllers {
       }
        }
      }
+     export class ProfileController{
+       public posts;
 
+  // Delete Comment
+  public remove(postId:string, index:number) {
+    let answer = confirm('Are you sure you want to delete?')
+    if(answer === true) {
+      this.feedService.deletePost(postId).then(() => {
+        this.posts.splice(index, 1);
+            //splice - take out the array
+        });
+      } else {
+        console.log('not deleted')
+        }
+    }
+  constructor(
+
+    private $uibModal: angular.ui.bootstrap.IModalService,
+    private feedService: app.Services.FeedService,
+    public $stateParams: ng.ui.IStateParamsService,
+    public $state:ng.ui.IStateService
+
+  ) {
+    let token = window.localStorage["token"];
+    let payload = JSON.parse(window.atob(token.split('.')[1]));
+
+     this.posts = this.feedService.getAllProfilePosts(payload.username) // this line get all posts
+     console.log(this.posts)
+
+     if(token) {
+      console.log('logged in') // redirect user to login if token is expired.
+     } else {
+       this.$state.go('Login')
+   }
+ }
+     }
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
   angular.module('app').controller('RegisterController', RegisterController);
   angular.module('app').controller('LandingPageController', LandingPageController);
   angular.module('app').controller('FeedController', FeedController);
   angular.module('app').controller('EditController', EditController);
+  angular.module('app').controller('ProfileController', ProfileController);
+
 
 
 

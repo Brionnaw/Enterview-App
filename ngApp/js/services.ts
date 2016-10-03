@@ -45,10 +45,14 @@ namespace app.Services {
       public deletePost(id) {
       return this.FeedResource.remove({id: id}).$promise
       }
+      public getAllProfilePosts(username){
+          return this.FeedResource.query({id:username});
+        }
     constructor(
       private $resource: ng.resource.IResourceService
     ){
       this.FeedResource = $resource('api/posts/feed/:id');
+
 
 
     }
