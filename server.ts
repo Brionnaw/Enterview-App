@@ -31,6 +31,8 @@ app.use(express.static('./ngApp'));
 app.use('/scripts', express.static('bower_components'));
 app.use('/api', require('./api/users'));
 app.use('/api', require('./api/posts'));
+app.use('/api', require('./api/company'));
+
 
 
 

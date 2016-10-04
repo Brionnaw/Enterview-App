@@ -37,7 +37,7 @@ namespace app.Controllers {
             let token = window.localStorage["token"];
             let payload = JSON.parse(window.atob(token.split('.')[1]));
             if(token) {
-              this.username = payload.usernamw
+              this.username = payload.username
               this.id = payload.id,
               this.photoUrl = payload.photoUrl
               console.log('logged in')
@@ -338,11 +338,25 @@ namespace app.Controllers {
      }
     //  SEARCHCOMPANY.HTML
      export class SearchCompanyController {
+        public companyName;
+        public companyDomain;
+        public research(){
+            let info ={
+              company: this.companyName,
+              domain: this.companyDomain
+            }
+            console.log(info)
+            this.companyService.researchCompany(info).then
+            
+        }
+       constructor(
+         private companyService: app.Services.CompanyService,
 
-       constructor(){
+       ){
 
        }
      }
+
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
   angular.module('app').controller('RegisterController', RegisterController);

@@ -50,7 +50,28 @@ namespace app.Services {
       this.FeedResource = $resource('api/posts/feed/:id');
     }
   }
+      //Company.html
+    export class CompanyService {
+          public CompanyResource;
+          public researchCompany(companyInfo){
+            let company = {
+              company: companyInfo.company,
+              domain: companyInfo.domain
+            }
+            console.log(company)
+            return this.CompanyResource.save(companyInfo);
+
+          }
+    constructor(
+      private $resource: ng.resource.IResourceService
+
+    ){
+      this.CompanyResource = $resource('api/company/');
+
+    }
+  }
   angular.module('app').service('userService', UserService);
   angular.module('app').service('feedService', FeedService);
+  angular.module('app').service('companyService', CompanyService);
 
 }
