@@ -5,6 +5,7 @@ namespace app.Controllers {
     public file;
     public id;
     public photoUrl;
+    public username;
 // METHOD FOR LOGOUT BUTTON ON HOME.HTML
     public logout(){
             window.localStorage.removeItem('token');
@@ -36,6 +37,7 @@ namespace app.Controllers {
             let token = window.localStorage["token"];
             let payload = JSON.parse(window.atob(token.split('.')[1]));
             if(token) {
+              this.username = payload.usernamw
               this.id = payload.id,
               this.photoUrl = payload.photoUrl
               console.log('logged in')
