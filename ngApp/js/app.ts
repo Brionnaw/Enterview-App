@@ -55,7 +55,7 @@ namespace app {
       controllerAs: 'vm'
     }).state('SearchCompany', {
       url: '/searchCompany',
-      templateUrl: '//searchCompany.html',
+      templateUrl: '/templates/searchCompany.html',
       controller: app.Controllers.SearchCompanyController,
       controllerAs: 'vm'
     });

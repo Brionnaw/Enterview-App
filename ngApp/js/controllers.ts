@@ -334,8 +334,9 @@ namespace app.Controllers {
    }
  }
      }
-     export class SearchCompanyController{
-       
+    //  SEARCHCOMPANY.HTML
+     export class SearchCompanyController {
+
        constructor(){
 
        }
