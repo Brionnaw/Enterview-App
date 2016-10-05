@@ -59,7 +59,7 @@ namespace app.Services {
               domain: companyInfo.domain
             }
             console.log(company)
-            return this.CompanyResource.save(companyInfo);
+            return this.CompanyResource.save(companyInfo).$promise
 
           }
     constructor(

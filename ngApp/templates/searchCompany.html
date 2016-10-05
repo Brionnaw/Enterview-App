@@ -32,8 +32,25 @@
 </form>
 </div>
 
+<div class="row">
+<div class="col-sm-12">
+  <div class="col-sm-4">
+      <h5><u>About</u></h5>
+      Company:  {{vm.companyData.name}}
+      Email:  {{vm.companyData.email}}
+  </div>
+    <div class="col-sm-4">
+    <h5> <u>Social Profiles:</u></h5>
+      Website:  {{vm.companyData.domain}}
+      Linkedin:  {{vm.companyData.linkdedin}}
+      facebook:  {{vm.companyData.facebook}}
+      twitter:  <span ng-click="vm.goToTwitter(vm.companyData.twitter.handle)">{{vm.companyData.twitter.handle}}</span>
 
 
-<!-- create input with button.
-take the domain to the controller to services and pass the backend input.
-npm module. make request to backend to api.  -->
+    </div>
+
+      <div class="col-sm-4">
+        <h5><u>Contact</u></h5>
+      </div>
+    </div>
+</div>

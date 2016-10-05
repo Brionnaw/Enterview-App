@@ -340,22 +340,35 @@ namespace app.Controllers {
      export class SearchCompanyController {
         public companyName;
         public companyDomain;
+        public companyData;
         public research(){
             let info ={
               company: this.companyName,
               domain: this.companyDomain
             }
             console.log(info)
-            this.companyService.researchCompany(info).then
-            
+            this.companyService.researchCompany(info).then((res) => {
+              this.companyData = (JSON.parse(res.body))
+              console.log(JSON.parse(res.body)) // turn into json into actual object.
+            })
+          }
+          //twitter click //change to external href
+        public goToTwitter(handle) {
+          console.log(this.$location.url)
+          this.$window.location.href = 'https://twitter.com/' + handle;
         }
+
        constructor(
          private companyService: app.Services.CompanyService,
-
+         public $state:ng.ui.IStateService,
+         public $window: ng.IWindowService,
+         public $document,
+         public $location:ng.ILocationService
        ){
 
        }
      }
+
 
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
