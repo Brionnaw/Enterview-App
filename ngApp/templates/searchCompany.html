@@ -1,56 +1,48 @@
-
-
-
 <div>
   <p class ="text-center">
     <br> We have tools that are designed to make you more than prepared for your big day.
     <br> Impress the hiring manager with your knowledge about the company to ace your interview.
   </p>
-
 </div>
-<div>
-<form class="col-sm-6 col-sm-offset-3">
-  <h3 class="page-header text-center">Reseach Company</h3>
-  <div class="form-group">
-    <label>Company Name</label>
-    <input type="text"
-    class="form-control"
-    placeholder="Name"
-    ng-model="vm.companyName">
+  <div>
+    <form class="col-sm-6 col-sm-offset-3">
+      <h3 class="page-header text-center">Reseach Company</h3>
+      <div class="form-group">
+        <label>Company Name</label>
+        <input type="text"
+        class="form-control"
+        placeholder="Name"
+        ng-model="vm.companyName">
+      </div>
+      <div class="form-group">
+        <label>Company Domain</label>
+        <input type="text"
+        class="form-control"
+        placeholder="Domain"
+        ng-model="vm.companyDomain">
+      </div>
+      <input type="submit"
+      class="btn btn-default btn-block"
+      value="Research"
+      ng-click="vm.research()">
+    </form>
   </div>
-  <div class="form-group">
-    <label>Company Domain</label>
-    <input type="text"
-    class="form-control"
-    placeholder="Domain"
-    ng-model="vm.companyDomain">
-  </div>
-  <input type="submit"
-  class="btn btn-default btn-block"
-  value="Research"
-  ng-click="vm.research()">
-</form>
-</div>
-
-<div class="row">
-<div class="col-sm-12">
-  <div class="col-sm-4">
-      <h5><u>About</u></h5>
-      Company:  {{vm.companyData.name}}
-      Email:  {{vm.companyData.email}}
-  </div>
-    <div class="col-sm-4">
-    <h5> <u>Social Profiles:</u></h5>
-      Website:  {{vm.companyData.domain}}
-      Linkedin:  {{vm.companyData.linkdedin}}
-      facebook:  {{vm.companyData.facebook}}
-      twitter:  <span ng-click="vm.goToTwitter(vm.companyData.twitter.handle)">{{vm.companyData.twitter.handle}}</span>
-
-
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-4">
+        <h5><u>About</u></h5>
+        Company:  {{vm.companyData.name}}
+        Email:  {{vm.companyData.email}}
+      </div>
+      <div class="col-sm-4">
+        <h5> <u>Social Profiles:</u></h5>
+        <br>Website:  <span ng-click="vm.goToWebsite(vm.companyData.twitter.handle)">{{vm.companyData.domain}}</span>
+        <br>Linkedin: <span ng-click="vm.goToLinkedin(vm.companyData.twitter.handle)"> {{vm.companyData.linkdedin}}</span>
+        <br>Facebook:  <span ng-click="vm.goToFacebook">(vm.companyData.twitter.handle)">{{vm.companyData.facebook}}</span>
+        <br>Twitter:  <span ng-click="vm.goToTwitter(vm.companyData.twitter.handle)">{{vm.companyData.twitter.handle}}</span>
     </div>
-
       <div class="col-sm-4">
         <h5><u>Contact</u></h5>
       </div>
-    </div>
+  </div>
 </div>

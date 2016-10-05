@@ -1,9 +1,9 @@
-namespace app.Services {
+  namespace app.Services {
   // UserService for users.ts
   export class UserService {
-      public RegisterResource;
-      public LoginResource;
-      public PhotoResource;
+    public RegisterResource;
+    public LoginResource;
+    public PhotoResource;
       public login(user){
         return this.LoginResource.save(user).$promise;
       }
@@ -23,10 +23,10 @@ namespace app.Services {
   }
   // Feed service for post.ts
   export class FeedService {
-      public FeedResource;
-      public createPost(postData) {
-        console.log(postData)
-        let post = {
+    public FeedResource;
+    public createPost(postData) {
+      console.log(postData)
+      let post = {
         id: postData.id,
         author:postData.username,
         interviewType:postData.interviewType,
@@ -35,39 +35,36 @@ namespace app.Services {
       }
       return this.FeedResource.save(postData).$promise
     }
-      public getAllPosts(){
-        return this.FeedResource.query();
-      }
-      public deletePost(id) {
+    public getAllPosts(){
+      return this.FeedResource.query();
+    }
+    public deletePost(id) {
       return this.FeedResource.remove({id: id}).$promise
-      }
-      public getAllProfilePosts(username){
-          return this.FeedResource.query({id:username});
-        }
+    }
+    public getAllProfilePosts(username){
+      return this.FeedResource.query({id:username});
+    }
     constructor(
       private $resource: ng.resource.IResourceService
     ){
       this.FeedResource = $resource('api/posts/feed/:id');
     }
   }
-      //Company.html
-    export class CompanyService {
-          public CompanyResource;
-          public researchCompany(companyInfo){
-            let company = {
-              company: companyInfo.company,
-              domain: companyInfo.domain
-            }
-            console.log(company)
-            return this.CompanyResource.save(companyInfo).$promise
-
-          }
+  //Company.html
+  export class CompanyService {
+    public CompanyResource;
+    public researchCompany(companyInfo){
+      let company = {
+        company: companyInfo.company,
+        domain: companyInfo.domain
+      }
+      console.log(company)
+      return this.CompanyResource.save(companyInfo).$promise
+    }
     constructor(
       private $resource: ng.resource.IResourceService
-
     ){
       this.CompanyResource = $resource('api/company/');
-
     }
   }
   angular.module('app').service('userService', UserService);

@@ -1,7 +1,7 @@
 <h4>Feed</h4>
 <div ng-repeat="p in vm.posts track by $index ">
   <div>
-  <img ng-src="{{p.authorPhoto}}" width="75" heigh="75"/>
+    <img ng-src="{{p.authorPhoto}}" width="75" heigh="75"/>
   </div>
   <div>
     <p>
@@ -35,9 +35,14 @@
   <div>
     {{p.dateCreated  | date: 'short'}} <!-- this filter shortens time format -->
   </div>
-    <button class="btn btn-default btn-sm" ng-click="vm.remove(p._id, $index) ">Delete</button>
-    <button class="btn btn-default btn-sm"
-    ui-sref="EditPost
+    <button
+      class="btn btn-default btn-sm"
+      ng-click="vm.remove(p._id, $index) ">
+      Delete
+    </button>
+    <button
+      class="btn btn-default btn-sm"
+      ui-sref="EditPost
       ({info: [p. _id,
       p.interviewType,
       p.positionTitle,
