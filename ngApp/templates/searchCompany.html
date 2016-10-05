@@ -6,7 +6,9 @@
 </div>
   <div>
     <form class="col-sm-6 col-sm-offset-3">
-      <h3 class="page-header text-center">Reseach Company</h3>
+      <h3 class="page-header text-center">
+        Reseach Company
+      </h3>
       <div class="form-group">
         <label>Company Name</label>
         <input type="text"
@@ -22,27 +24,81 @@
         ng-model="vm.companyDomain">
       </div>
       <input type="submit"
-      class="btn btn-default btn-block"
+      class="btn btn-info btn-block"
       value="Research"
       ng-click="vm.research()">
+      Note: Some companies results may lack if there is no strong online presence.
     </form>
   </div>
   <div class="row">
     <div class="col-sm-12">
+
+      <!-- ABOUT SECTION -->
       <div class="col-sm-4">
-        <h5><u>About</u></h5>
-        Company:  {{vm.companyData.name}}
-        Email:  {{vm.companyData.email}}
-      </div>
+        <span ng-show="vm.companyData">
+           <h5>
+             <u>
+               About
+             </u>
+           </h5>
+         </span>
+         <p> <img ng-src="{{vm.companyData.logo}}" ng-click="vm.goToWebsite(vm.companyData.domain)" width="50" length="50"/></p>
+         <p> <span ng-show="vm.companyData"> <b>Company:</b> {{vm.companyData.name}} </p></span>
+         <p> <span ng-show="vm.companyData"> <b>Approximate employees:</b> {{vm.companyData.metrics.employees}} </p></span>
+         <p> <span ng-show="vm.companyData"> <b>Founded Year:</b> {{vm.companyData.foundedYear}} </p></span>
+         <p> <span ng-show="vm.companyData"> <b>Sector:</b> {{vm.companyData.category.sector}} </p></span>
+         <p> <span ng-show="vm.companyData"> <b>Industry group:</b> {{vm.companyData.category.industryGroup}} </p></span>
+         <p> <span ng-show="vm.companyData"> <b>Industry:</b> {{vm.companyData.category.industry}} </p> </span>
+         <p> <span ng-show="vm.companyData"> <b>SubIndustry:</b> {{vm.companyData.category.subIndustry}} </p> </span>
+         <p> <span ng-show="vm.companyData"> <b>Description:</b> <br> {{vm.companyData.description}} </p></span>
+
+       </div>
+
+
+       <!-- SOCIAL PROFILES SECTION -->
       <div class="col-sm-4">
-        <h5> <u>Social Profiles:</u></h5>
-        <br>Website:  <span ng-click="vm.goToWebsite(vm.companyData.twitter.handle)">{{vm.companyData.domain}}</span>
-        <br>Linkedin: <span ng-click="vm.goToLinkedin(vm.companyData.twitter.handle)"> {{vm.companyData.linkdedin}}</span>
-        <br>Facebook:  <span ng-click="vm.goToFacebook">(vm.companyData.twitter.handle)">{{vm.companyData.facebook}}</span>
-        <br>Twitter:  <span ng-click="vm.goToTwitter(vm.companyData.twitter.handle)">{{vm.companyData.twitter.handle}}</span>
+        <span ng-show="vm.companyData">
+          <h5>
+            <u>
+              Social Profiles:
+            </u>
+          </h5>
+        </span>
+      <i class="fa fa-linkedin" aria-hidden="true" ng-show="vm.companyData"
+      ng-click="vm.goToLinkedin(vm.companyData.linkedin.handle)">{{vm.companyData.linkedin.bio}}</i>
+
+      <br>
+      <i class="fa fa-facebook" aria-hidden="true" ng-show="vm.companyData"
+      ng-click="vm.goToFacebook
+      (vm.companyData.facebook.handle)"></i>
+
+      <br>
+      <i class="fa fa-twitter" aria-hidden="true" ng-show="vm.companyData"
+      ng-click="vm.goToTwitter(vm.companyData.twitter.handle)">{{vm.companyData.twitter.bio}}</i>
+
+    <br>
+    <img
+      ng-src="https://pbs.twimg.com/profile_images/775382507223076865/H2TUGumm.jpg"
+      width="20" width="20"
+      ng-show="vm.companyData"
+      ng-click="vm.goToCrunchBase
+      (vm.companyData.crunchbase.handle)">
+    </img>
+    </br>
     </div>
+    <!-- CONTACT SECTION -->
       <div class="col-sm-4">
-        <h5><u>Contact</u></h5>
+        <span ng-show="vm.companyData">
+          <h5>
+            <u>
+              Contact:
+            </u>
+          </h5>
+        </span>
+          <span ng-show="vm.companyData"> <p><b> Headquarter address:</b> <br>{{vm.companyData.location}} </p></span>
       </div>
   </div>
 </div>
+<!--footer-->
+<hr>
+<center>Brionna White @2016</center>

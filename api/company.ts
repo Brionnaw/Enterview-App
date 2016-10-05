@@ -6,7 +6,7 @@
   let crypto = require('crypto');
   let jwt= require('JSonwebtoken');
   let request = require('request');
-
+  let Glassdoor = require('machinepack-glassdoor');
 
 
   //Model

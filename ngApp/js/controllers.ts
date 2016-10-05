@@ -349,10 +349,29 @@
         console.log(JSON.parse(res.body)) // turn into json into actual object.
       })
     }
+    //webpage click //change to external href
+    public goToWebsite(domain) {
+      console.log(this.$location.url)
+      this.$window.location.href = 'https://'+ domain;
+    }
+    //webpage click //change to external href
+    public goToLinkedin(handle) {
+      console.log(this.$location.url)
+      this.$window.location.href = 'https://linkedin.com/'+ handle;
+    }
+    //webpage click //change to external href
+    public goToFacebook(handle) {
+      console.log(this.$location.url)
+      this.$window.location.href = 'https://facebook.com/'+ handle;
+    }
   //twitter click //change to external href
   public goToTwitter(handle) {
     console.log(this.$location.url)
     this.$window.location.href = 'https://twitter.com/' + handle;
+  }
+  public goToCrunchBase(handle) {
+    console.log(this.$location.url)
+    this.$window.location.href = 'https://crunchbase.com/' + handle;
   }
   constructor(
     private companyService: app.Services.CompanyService,
