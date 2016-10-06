@@ -373,6 +373,14 @@
     console.log(this.$location.url)
     this.$window.location.href = 'https://crunchbase.com/' + handle;
   }
+  public glassdoor(glassdoorInfo){
+    let info = {
+      company: this.companyName
+    }
+    this.companyService.researchCompany(info).then((res) => {
+      this.$state.go('CompanyGlassdoor')
+    })
+  }
   constructor(
     private companyService: app.Services.CompanyService,
     public $state:ng.ui.IStateService,
@@ -383,18 +391,18 @@
   }
 }
   export class CompanyGlassdoorController{
-      public companyName;
-      public glassdoor(glassdoorInfo){
-        let info = {
-          company: this.companyName
-        }
-        console.log(info)
-      }
-    constructor(
-      private companyService: app.Services.CompanyService,
-
-    ){
-    }
+    //   public glassdoorData;
+    // constructor(
+    //   private companyService: app.Services.CompanyService,
+    //   public $window: ng.IWindowService,
+    //   public $document,
+    //   public $location:ng.ILocationService
+    // ){
+    //   this.companyService.glassdoor().then((res) => {
+    //     this.glassdoorData = (JSON.parse(res.body.glassdoor))
+    //     console.log(JSON.parse(req.body)) // turn into json into actual object.
+    //   })
+    // }
   }
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
@@ -405,5 +413,4 @@
   angular.module('app').controller('ProfileController', ProfileController);
   angular.module('app').controller('SearchCompanyController', SearchCompanyController);
   angular.module('app').controller('CompanyGlassdoorController', CompanyGlassdoorController);
-
 }

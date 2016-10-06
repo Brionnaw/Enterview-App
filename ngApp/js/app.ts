@@ -59,7 +59,7 @@ namespace app {
       controller: app.Controllers.SearchCompanyController,
       controllerAs: 'vm'
     }).state('CompanyGlassdoor', {
-      url: '/companyGlassdoor',
+      url: '/companyGlassdoor/:info',
       templateUrl: '/templates/companyGlassdoor.html',
       controller: app.Controllers.CompanyGlassdoorController,
       controllerAs: 'vm'
