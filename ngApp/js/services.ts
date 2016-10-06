@@ -62,15 +62,17 @@
       console.log(company)
       return this.CompanyResource.save(companyInfo).$promise
     }
+
     public glassdoor(glassdoorInfo){
       console.log(glassdoorInfo)
       return this.GlassdoorResource.save(glassdoorInfo).$promise
     }
+
     constructor(
       private $resource: ng.resource.IResourceService
     ){
       this.CompanyResource = $resource('api/company/');
-      this.GlassdoorResource = $resource;('api/company/glassdoor');
+      this.GlassdoorResource = $resource('api/company/glassdoor');
     }
   }
   angular.module('app').service('userService', UserService);

@@ -391,18 +391,23 @@
   }
 }
   export class CompanyGlassdoorController{
-    //   public glassdoorData;
-    // constructor(
-    //   private companyService: app.Services.CompanyService,
-    //   public $window: ng.IWindowService,
-    //   public $document,
-    //   public $location:ng.ILocationService
-    // ){
-    //   this.companyService.glassdoor().then((res) => {
-    //     this.glassdoorData = (JSON.parse(res.body.glassdoor))
-    //     console.log(JSON.parse(req.body)) // turn into json into actual object.
-    //   })
-    // }
+      public glassdoorData;
+      public companyName;
+    constructor(
+      private companyService: app.Services.CompanyService,
+      public $stateParams: ng.ui.IStateParamsService
+    ){
+      if($stateParams){
+        this.companyName = $stateParams['info']
+        let company = {
+          name:this.companyName
+        }
+        this.companyService.glassdoor(company).then((res) => {
+          this.glassdoorData = (JSON.parse(res.body))
+          console.log(JSON.parse(res.body))
+        })
+      }
+    }
   }
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
