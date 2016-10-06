@@ -8,7 +8,6 @@
   let request = require('request');
   let Glassdoor = require('machinepack-glassdoor');
 
-
   //Model
   let Company = mongoose.model('Company', {
     companyName:String,
@@ -26,6 +25,27 @@
         res.send(response)
       }
     })
+  })
+  //glassdoor api
+  router.post('/company/glassdoor', function(req, res) {
+    // Get company information
+      Glassdoor.getCompany({
+        partnerId: '98780',
+        partnerKey: 'f1fG9TfuznC',
+        userIp: '0.0.0.0',
+        userAgent: '',
+        q: req.body.glassdoorCompany,
+        l: '',
+      }).exec({
+        // An unexpected error occurred.
+        error: function (err){
+
+        },
+        // OK.
+        success: function (){
+
+        },
+      });
   })
 
 

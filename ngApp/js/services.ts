@@ -53,6 +53,7 @@
   //Company.html
   export class CompanyService {
     public CompanyResource;
+    public GlassdoorResource;
     public researchCompany(companyInfo){
       let company = {
         company: companyInfo.company,
@@ -61,10 +62,20 @@
       console.log(company)
       return this.CompanyResource.save(companyInfo).$promise
     }
+    public glassdoor(glassdoorInfo){
+      let company = {
+        company:glassdoorInfo.company
+      }
+      return this.GlassdoorResource.save(glassdoorInfo).$promise
+    }
+
     constructor(
       private $resource: ng.resource.IResourceService
     ){
       this.CompanyResource = $resource('api/company/');
+      this.GlassdoorResource = $resource;('api/company/glassdoor');
+
+
     }
   }
   angular.module('app').service('userService', UserService);

@@ -58,6 +58,11 @@ namespace app {
       templateUrl: '/templates/searchCompany.html',
       controller: app.Controllers.SearchCompanyController,
       controllerAs: 'vm'
+    }).state('CompanyGlassdoor', {
+      url: '/companyGlassdoor',
+      templateUrl: '/templates/companyGlassdoor.html',
+      controller: app.Controllers.CompanyGlassdoorController,
+      controllerAs: 'vm'
     });
 
     $urlRouterProvider.otherwise('/');
