@@ -1,27 +1,42 @@
 <div class="row">
-  <div class="col-sm-12">
-    <div class="col-sm-3">
-      <h5><u>REVIEW:</u></h5>
-      <div ng-repeat="r in vm.reviews">
-
-        <br><img ng-src="{{r.ceo.image.src}}" width="100" height="100">
-      <br><b>Ceo:</b> {{r.ceo.name}}
-        <br><b>Number Of Ratings:</b> {{r.ceo.numberOfRatings}}
-        <br><b>Percentage Approve: </b>
-        <br><b>Percentage Disapprove:<br></b>
-
+  <div class="col-sm-12" ng-repeat="r in vm.reviews">
+    <div class="col-sm-6">
+      <h5><u>Review:</u></h5>
+      <div>
+        <!-- company ratings review-->
+        <br><img ng-src="{{r.squareLogo}}" width-"100" height="100">
+        <br><b>Name:</b> {{r.name}}
+        <br><b>Website url:</b> {{r.website}}
+        <br><b>Industry:</b> {{r.industry}}
+        <br><b>Overall Ratings:</b> {{r.overallRating}}
+        <br><b>Rating Description:</b> {{r.ratingDescription}}
+        <br><b>Culture And Values Rating:</b> {{r.cultureAndValuesRating}}
+        <br><b>Senior Leadership Rating:</b> {{r.seniorLeadershipRating}}
+        <br><b>Compensation And Benefits Rating:</b> {{r.compensationAndBenefitsRating}}
+        <br><b>Work Life Balance Rating:</b> {{r.workLifeBalanceRating}}
+        <br><b>Recommend To FriendRating:</b> {{r.recommendToFriendRating}}
+        <br><b>Sector Name:</b> {{r.sectorName}}
+        <br><b>Industry Name:</b> {{r.industryName}}
       </div>
     </div>
-    <div class="col-sm-3">
-
+    <div class="col-sm-6">
+      <!-- ceo ratings-->
+      <br><img ng-src="{{r.ceo.image.src}}" width="100" height="100">
+      <br><b>Name:</b> {{r.ceo.name}}
+      <br><b>Title:</b> {{r.ceo.title}}
+      <br><b>Number Of Ratings:</b> {{r.ceo.numberOfRatings}}
+      <br><b>Percentage Approve:</b> {{r.ceo.pctApprove}}%
+      <br><b>Percentage Disapprove:</b> {{r.ceo.pctDisapprove}}%
     </div>
-    <div class="col-sm-3">
-
-    </div>
-    <div class="col-sm-3">
-
-    </div>
-
-
+  </div>
+  <div class="col-sm-12" ng-repeat="r in vm.reviews">
+    <h5><u>Featured Review:</u></h5>
+    <br><b>Job Title:</b> {{r.featuredReview.jobTitle}}
+    <br><b>Location:</b> {{r.featuredReview.location}}
+    <br><b>Headline:</b> {{r.featuredReview.headline}}
+    <br><b>Pros:</b> {{r.featuredReview.pros}}
+    <br><b>Cons:</b> {{r.featuredReview.cons}}
+    <br><b>Overall:</b> {{r.featuredReview.overall}}
+    <br>Click here for <a ui-sref="Feed">Enterview Reviews about {{r.name}}</a>
   </div>
 </div>
