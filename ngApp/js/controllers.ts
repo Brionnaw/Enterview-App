@@ -394,6 +394,7 @@
       public glassdoorData;
       public companyName;
       public reviews;
+      public employer;
     constructor(
       private companyService: app.Services.CompanyService,
       public $stateParams: ng.ui.IStateParamsService
@@ -405,9 +406,9 @@
         }
         this.companyService.glassdoor(company).then((res) => {
           this.glassdoorData = (JSON.parse(res.body))
-          console.log(this.glassdoorData.response)
-          this.reviews = this.glassdoorData.response.employers
-          console.log(this.reviews)
+          this.employer = this.glassdoorData.response.employers[0]
+          console.log(this.employer)
+          // this.reviews = this.employer.featured
         })
       }
     }
