@@ -3,6 +3,8 @@ import express = require ('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of model , object w| properties, values types}
+    companyName: String,
+    companyDomain: String,
       question:{
         type: Object,
         default: null
@@ -21,6 +23,8 @@ let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of
 router.post('/posts/feed', function(req, res) {
   if(req.body.id === undefined){
     let newPost = new Post ({
+      companyName: req.body.name,
+      companyDomain: req.body.domain,
       interviewType: req.body.interviewType,
       authorPhoto: req.body.authorPhoto,
       positionTitle:req.body.positionTitle,
@@ -38,7 +42,8 @@ router.post('/posts/feed', function(req, res) {
     })
   } else {
       Post.findByIdAndUpdate(req.body.id,
-        {$set:{question: req.body.question,
+        {$set:{
+          question: req.body.question,
           interviewType:req.body.interviewType,
           positionTitle:req.body.positionTitle}
         },

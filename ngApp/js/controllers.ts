@@ -148,12 +148,16 @@
     public optionOne;
     public optionTwo;
     public optionThree;
+    public companyName;
+    public companyDomain;
     public addPost(){
       //TYPE OF INTERVIEW
       if(this.optionOne === 'checked') {
         let token = window.localStorage["token"];
         let payload = JSON.parse(window.atob(token.split('.')[1]));
         let info = {
+          name: this.companyName,
+          domain: this.companyDomain,
           authorPhoto: payload.photoUrl,
           username:payload.username,
           interviewType:'Phone Screen',
@@ -168,6 +172,8 @@
         let token = window.localStorage["token"];
         let payload = JSON.parse(window.atob(token.split('.')[1]));
         let info = {
+          name: this.companyName,
+          domain: this.companyDomain,
           authorPhoto: payload.photoUrl,
           username:payload.username,
           interviewType:'In Person 1:1',
@@ -182,6 +188,8 @@
         let token = window.localStorage["token"];
         let payload = JSON.parse(window.atob(token.split('.')[1]));
         let info = {
+          name: this.companyName,
+          domain: this.companyDomain,
           authorPhoto: payload.photoUrl,
           username:payload.username,
           interviewType:'Group/Panel',
@@ -207,8 +215,20 @@
     }
     constructor(
       private feedService: app.Services.FeedService,
+      public $stateParams: ng.ui.IStateParamsService,
       public $state: ng.ui.IStateService
+
     ){
+      if($stateParams){
+        let seperate = $stateParams["info"].split(",");
+        this.companyName = seperate[0]
+        this.companyDomain = seperate[1]
+        let company = {
+          company:this.companyName,
+          domain:this.companyDomain
+        }
+        console.log(company)
+      }
       // set values to false
       this.optionOne = false;
       this.optionTwo = false;
@@ -338,6 +358,7 @@
     public companyName;
     public companyDomain;
     public companyData;
+    public addReview;
     public research(){
       let info ={
         company: this.companyName,
@@ -423,3 +444,4 @@
   angular.module('app').controller('SearchCompanyController', SearchCompanyController);
   angular.module('app').controller('CompanyGlassdoorController', CompanyGlassdoorController);
 }
+// split the url - using split dot notation.- controllers;

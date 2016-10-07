@@ -25,8 +25,10 @@
   export class FeedService {
     public FeedResource;
     public createPost(postData) {
-      console.log(postData)
+    console.log(postData)
       let post = {
+        name:postData.name,
+        domain:postData.doman,
         id: postData.id,
         author:postData.username,
         interviewType:postData.interviewType,

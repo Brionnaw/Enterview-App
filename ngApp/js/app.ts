@@ -34,7 +34,7 @@ namespace app {
       controller: app.Controllers.FeedController,
       controllerAs: 'vm'
     }).state('CreatePost', {
-      url: '/createPost',
+      url: '/createPost/:info',
       templateUrl: '/templates/createPost.html',
       controller: app.Controllers.CreatePostController,
       controllerAs: 'vm'

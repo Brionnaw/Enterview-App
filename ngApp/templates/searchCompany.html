@@ -85,7 +85,7 @@
       (vm.companyData.crunchbase.handle)">
     </img>
     </br>
-    <!-- contact-->
+    <!-- contact section-->
     <span ng-show="vm.companyData">
       <h5>
         <u>
@@ -95,10 +95,11 @@
     </span>
       <span ng-show="vm.companyData"> <p><b> Headquarter address:</b> <br>{{vm.companyData.location}} </p></span>
     </div>
-    <!-- CONTACT SECTION -->
-      <div class="col-sm-4">
 
-          <button ng-show="vm.companyData" class="btn btn-default" ui-sref="CompanyGlassdoor({info:vm.companyName})">View Company Glassdoor</button>
+      <div class="col-sm-4">
+        <br> <button ng-show="vm.companyData" class="btn btn-default" ui-sref="CompanyGlassdoor({info:vm.companyName})">View Company Glassdoor</button>
+        <br><br><button  class="btn btn-defualt" ui-sref="CreatePost({info:[vm.companyName, vm.companyDomain]})">Create Review</button>
+
       </div>
   </div>
 </div>
