@@ -1,14 +1,16 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="col-sm-3">
+      <h5><u>REVIEW:</u></h5>
+      <div ng-repeat="r in vm.reviews">
 
-      <h5>REVIEW:
-      <p>Id: {{vm.glassdoorData.id}}  </p>
-      <p>Name: {{vm.glassdoorData.name}} <p>
-      <p>industry: {{vm.glassdoorData.industry}} </p>
-      <p>Number Of Ratings: {{vm.glassdoorData.numberOfRatings}} </p>
-      <p>Overall Rating: {{vm.glassdoorData.overallRatings}} </p>
-      <p>Rating Description: {{vm.glassdoorData.ratingDescription}} </p>
+        <br><img ng-src="{{r.ceo.image.src}}" width="100" height="100">
+      <br><b>Ceo:</b> {{r.ceo.name}}
+        <br><b>Number Of Ratings:</b> {{r.ceo.numberOfRatings}}
+        <br><b>Percentage Approve: </b>
+        <br><b>Percentage Disapprove:<br></b>
+
+      </div>
     </div>
     <div class="col-sm-3">
 

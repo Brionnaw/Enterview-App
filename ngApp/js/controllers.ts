@@ -393,6 +393,7 @@
   export class CompanyGlassdoorController{
       public glassdoorData;
       public companyName;
+      public reviews;
     constructor(
       private companyService: app.Services.CompanyService,
       public $stateParams: ng.ui.IStateParamsService
@@ -400,11 +401,13 @@
       if($stateParams){
         this.companyName = $stateParams['info']
         let company = {
-          name:this.companyName
+          company:this.companyName
         }
         this.companyService.glassdoor(company).then((res) => {
           this.glassdoorData = (JSON.parse(res.body))
-          console.log(JSON.parse(res.body))
+          console.log(this.glassdoorData.response)
+          this.reviews = this.glassdoorData.response.employers
+          console.log(this.reviews)
         })
       }
     }
