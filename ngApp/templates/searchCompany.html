@@ -98,7 +98,8 @@
 
       <div class="col-sm-4">
         <br> <button ng-show="vm.companyData" class="btn btn-default" ui-sref="CompanyGlassdoor({info:vm.companyName})">View Company Glassdoor</button>
-        <br><br><button  class="btn btn-defualt" ui-sref="CreatePost({info:[vm.companyName, vm.companyDomain]})">Create Review</button>
+        <br><br><button ng-show="vm.companyData" class="btn btn-defualt" ui-sref="CreatePost({info:[vm.companyName, vm.companyDomain]})">Create Review</button>
+      <p ng-show="vm.companyData">  <br>Click here for <a ui-sref="Feed({info:[vm.companyName, vm.companyDomain]})">Enterview Reviews about {{vm.employer.name}}</a></p>
 
       </div>
   </div>

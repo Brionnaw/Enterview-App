@@ -28,7 +28,7 @@
     console.log(postData)
       let post = {
         name:postData.name,
-        domain:postData.doman,
+        domain:postData.domain,
         id: postData.id,
         author:postData.username,
         interviewType:postData.interviewType,
@@ -37,8 +37,9 @@
       }
       return this.FeedResource.save(postData).$promise
     }
-    public getAllPosts(){
-      return this.FeedResource.query();
+    public getAllPosts(companyName){
+      console.log(companyName)
+      return this.FeedResource.query({companyName:name});
     }
     public deletePost(id) {
       return this.FeedResource.remove({id: id}).$promise

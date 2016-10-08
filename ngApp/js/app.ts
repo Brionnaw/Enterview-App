@@ -29,7 +29,7 @@ namespace app {
       controller: app.Controllers.LandingPageController,
       controllerAs: 'vm'
     }).state('Feed', {
-      url: '/feed',
+      url: '/feed/:info',
       templateUrl: '/templates/feed.html',
       controller: app.Controllers.FeedController,
       controllerAs: 'vm'

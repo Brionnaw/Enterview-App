@@ -124,6 +124,8 @@
   //SHOW POSTS IN FEED.HTML
   export class FeedController{
     public posts;
+    public companyName;
+    public companyDomain;
     public remove(postId:string, index:number) {
       let answer = confirm('Are you sure you want to delete?')
       if(answer === true) {
@@ -133,12 +135,30 @@
       } else {
         console.log('not deleted')
       }
+      let token = window.localStorage["token"];
+      let payload = JSON.parse(window.atob(token.split('.')[1]));
+      let info = {
+        name: this.companyName,
+        domain: this.companyDomain
+      }
     }
+
     constructor(
       private feedService: app.Services.FeedService,
+      public $stateParams: ng.ui.IStateParamsService,
       public $state: ng.ui.IStateService
     ){
-      this.posts = this.feedService.getAllPosts();
+      if($stateParams){
+        let seperate = $stateParams["info"].split(",");
+        this.companyName = seperate[0]
+        this.companyDomain = seperate[1]
+        let company = {
+          company:this.companyName,
+          domain:this.companyDomain
+        }
+        console.log(company)
+      }
+      this.posts = this.feedService.getAllPosts({name});
     }
   }
   //CREATE POSTS IN CREATEPOST.HTML
@@ -445,3 +465,4 @@
   angular.module('app').controller('CompanyGlassdoorController', CompanyGlassdoorController);
 }
 // split the url - using split dot notation.- controllers;
+// create if/else message for with array for "length>0" to show no company was found
