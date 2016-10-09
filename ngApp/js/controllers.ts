@@ -153,12 +153,12 @@
         this.companyName = seperate[0]
         this.companyDomain = seperate[1]
         let company = {
-          company:this.companyName,
-          domain:this.companyDomain
+          name: this.companyName,
+          domain: this.companyDomain
         }
         console.log(company)
       }
-      this.posts = this.feedService.getAllPosts({name});
+      this.posts = this.feedService.getAllPosts(name);
     }
   }
   //CREATE POSTS IN CREATEPOST.HTML

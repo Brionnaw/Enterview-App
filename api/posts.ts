@@ -59,7 +59,8 @@ router.post('/posts/feed', function(req, res) {
 })
 //GET ALL POSTS
 router.get('/posts/feed', function(req , res) {
-  Post.find({dateDeleted:null}).then(function(allPosts) {
+  Post.find({}).then(function(allPosts) {
+    console.log(allPosts)
     res.json(allPosts)
   });
 });
