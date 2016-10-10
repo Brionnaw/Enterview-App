@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-sm-12">
+  <h3><b>Review</b></h3>
+    <hr>
     <div class="col-sm-6">
-      <h5><u>Review:</u></h5>
-      <div>
         <!-- company ratings review-->
-        <br><img ng-src="{{vm.employer.squareLogo}}" width-"100" height="100" alt="{{vm.employer.name}}">
+        <img ng-src="{{vm.employer.squareLogo}}" width-"100" height="100" alt="{{vm.employer.name}}">
         <br><b>Name:</b> {{vm.employer.name}}
         <br><b>Website url:</b> {{vm.employer.website}}
         <br><b>Industry:</b> {{vm.employer.industry}}
@@ -17,8 +17,6 @@
         <br><b>Recommend To FriendRating:</b> {{vm.employer.recommendToFriendRating}}
         <br><b>Sector Name:</b> {{vm.employer.sectorName}}
         <br><b>Industry Name:</b> {{vm.employer.industryName}}
-      </div>
-
     </div>
     <div class="col-sm-6">
       <!--ceo rating-->
@@ -32,13 +30,18 @@
   </div>
   <!-- featured reviews-->
   <div class="col-sm-12">
-    <h5><u>Featured Review:</u></h5>
-    <br><b>Job Title:</b> {{vm.employer.featuredReview.jobTitle}}
+    <div class="col-sm-10">
+    <h3><b>Featured Review</b></h3>
+    <hr>
+    <b>Job Title:</b> {{vm.employer.featuredReview.jobTitle}}
     <br><b>Location:</b> {{vm.employer.featuredReview.location}}
     <br><b>Headline:</b> {{vm.employer.featuredReview.headline}}
     <br><b>Pros:</b> {{vm.employer.featuredReview.pros}}
     <br><b>Cons:</b> {{vm.employer.featuredReview.cons}}
     <br><b>Overall:</b> {{vm.employer.featuredReview.overall}}
     <br><b>Featured Review url </b>  <a href="{{vm.employer.featuredReview.attributionURL}}">{{vm.employer.featuredReview.attributionURL}}</a>
+  </div>
+  </div>
+  <div class="col-sm-2">
   </div>
 </div>

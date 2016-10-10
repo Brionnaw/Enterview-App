@@ -454,6 +454,28 @@
       }
     }
   }
+  export class FullContactController {
+      public fullContactData;
+      public companyDomain;
+      public employer;
+    constructor(
+      private companyService: app.Services.CompanyService,
+      public $stateParams: ng.ui.IStateParamsService
+    ){
+      if($stateParams){
+        this.companyDomain = $stateParams['info']
+        let company = {
+          company:this.companyDomain
+        }
+        this.companyService.glassdoor(company).then((res) => {
+          // this.fullContactData = (JSON.parse(res.body))
+          // this.employer = this.fullContactData.response.employers[0]
+          console.log(this.employer)
+          // this.reviews = this.employer.featured
+        })
+      }
+    }
+  }
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
   angular.module('app').controller('RegisterController', RegisterController);
@@ -463,6 +485,8 @@
   angular.module('app').controller('ProfileController', ProfileController);
   angular.module('app').controller('SearchCompanyController', SearchCompanyController);
   angular.module('app').controller('CompanyGlassdoorController', CompanyGlassdoorController);
+  angular.module('app').controller('FullContactController', FullContactController);
+
 }
 // split the url - using split dot notation.- controllers;
 // create if/else message for with array for "length>0" to show no company was found

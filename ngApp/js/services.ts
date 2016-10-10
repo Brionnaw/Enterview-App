@@ -37,13 +37,13 @@
       }
       return this.FeedResource.save(postData).$promise
     }
-    public getAllPosts(company){
+    public getAllPosts(domain){
       // let posts = {
       //   name:company.name,
       //   domain:company.domain
       // }
-      console.log(company)
-      return this.FeedResource.query({data:company});
+      console.log(domain)
+      return this.FeedResource.query({domain});
     }
     public deletePost(id) {
       return this.FeedResource.remove({id: id}).$promise

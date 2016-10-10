@@ -59,10 +59,12 @@ router.post('/posts/feed', function(req, res) {
 })
 //GET ALL POSTS
 router.get('/posts/feed', function(req , res) {
-  Post.find({}).then(function(allPosts) {
-    console.log(allPosts)
-    res.json(allPosts)
-  });
+   console.log(req.body)
+   res.send('hit')
+  // Post.find({}).then(function(allPosts) {
+  //   console.log(allPosts)
+  //   res.json(allPosts)
+  // });
 });
 router.delete('/posts/feed/:id', function (req, res) {
     console.log('hit')

@@ -63,6 +63,11 @@ namespace app {
       templateUrl: '/templates/companyGlassdoor.html',
       controller: app.Controllers.CompanyGlassdoorController,
       controllerAs: 'vm'
+    }).state('FullContact', {
+      url: '/fullContact/:info',
+      templateUrl: '/templates/fullContact.html',
+      controller: app.Controllers.FullContactController,
+      controllerAs: 'vm'
     });
 
     $urlRouterProvider.otherwise('/');
