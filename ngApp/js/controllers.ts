@@ -389,14 +389,19 @@
           company: this.companyName,
           domain: this.companyDomain
         }
-        console.log(info)
         this.companyService.researchCompany(info).then((res) => {
-          this.companyData = (JSON.parse(res.body))
-          console.log(JSON.parse(res.body)) // turn into json into actual object.
+          console.log(res)
+          // if(res.body.error.type === 'queued'){
+          //   alert('company not found')
+          // }else {
+          //   this.companyData = (JSON.parse(res.body))
+          //   console.log(JSON.parse(res.body)) // turn into json into actual object.
+          // }
         })
       } else {
         alert("invalid url");
       }
+      
     }
     //webpage click //change to external href
     public goToWebsite(domain) {
@@ -474,5 +479,3 @@
   angular.module('app').controller('CompanyGlassdoorController', CompanyGlassdoorController);
 
 }
-// split the url - using split dot notation.- controllers;
-// create if/else message for with array for "length>0" to show no company was found
