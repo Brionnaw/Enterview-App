@@ -380,15 +380,23 @@
     public companyData;
     public addReview;
     public research(){
-      let info ={
-        company: this.companyName,
-        domain: this.companyDomain
+      //form validation
+      let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+      let regex = new RegExp(expression);
+      let url = this.companyDomain;
+      if (url.match(regex)) {
+        let info ={
+          company: this.companyName,
+          domain: this.companyDomain
+        }
+        console.log(info)
+        this.companyService.researchCompany(info).then((res) => {
+          this.companyData = (JSON.parse(res.body))
+          console.log(JSON.parse(res.body)) // turn into json into actual object.
+        })
+      } else {
+        alert("invalid url");
       }
-      console.log(info)
-      this.companyService.researchCompany(info).then((res) => {
-        this.companyData = (JSON.parse(res.body))
-        console.log(JSON.parse(res.body)) // turn into json into actual object.
-      })
     }
     //webpage click //change to external href
     public goToWebsite(domain) {
@@ -449,33 +457,12 @@
           this.glassdoorData = (JSON.parse(res.body))
           this.employer = this.glassdoorData.response.employers[0]
           console.log(this.employer)
-          // this.reviews = this.employer.featured
+          this.reviews = this.employer.featured
         })
       }
     }
   }
-  export class FullContactController {
-      public fullContactData;
-      public companyDomain;
-      public employer;
-    constructor(
-      private companyService: app.Services.CompanyService,
-      public $stateParams: ng.ui.IStateParamsService
-    ){
-      if($stateParams){
-        this.companyDomain = $stateParams['info']
-        let company = {
-          company:this.companyDomain
-        }
-        this.companyService.glassdoor(company).then((res) => {
-          // this.fullContactData = (JSON.parse(res.body))
-          // this.employer = this.fullContactData.response.employers[0]
-          console.log(this.employer)
-          // this.reviews = this.employer.featured
-        })
-      }
-    }
-  }
+
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
   angular.module('app').controller('RegisterController', RegisterController);
@@ -485,7 +472,6 @@
   angular.module('app').controller('ProfileController', ProfileController);
   angular.module('app').controller('SearchCompanyController', SearchCompanyController);
   angular.module('app').controller('CompanyGlassdoorController', CompanyGlassdoorController);
-  angular.module('app').controller('FullContactController', FullContactController);
 
 }
 // split the url - using split dot notation.- controllers;

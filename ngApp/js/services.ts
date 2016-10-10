@@ -78,7 +78,7 @@
     constructor(
       private $resource: ng.resource.IResourceService
     ){
-      this.CompanyResource = $resource('api/company/');
+      this.CompanyResource = $resource('api/company');
       this.GlassdoorResource = $resource('api/company/glassdoor');
     }
   }

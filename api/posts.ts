@@ -61,10 +61,10 @@ router.post('/posts/feed', function(req, res) {
 router.get('/posts/feed', function(req , res) {
    console.log(req.body)
    res.send('hit')
-  // Post.find({}).then(function(allPosts) {
-  //   console.log(allPosts)
-  //   res.json(allPosts)
-  // });
+  Post.find({}).then(function(allPosts) {
+    console.log(allPosts)
+    res.json(allPosts)
+  });
 });
 router.delete('/posts/feed/:id', function (req, res) {
     console.log('hit')
