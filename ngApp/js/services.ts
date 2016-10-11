@@ -38,12 +38,8 @@
       return this.FeedResource.save(postData).$promise
     }
     public getAllPosts(domain){
-      // let posts = {
-      //   name:company.name,
-      //   domain:company.domain
-      // }
       console.log(domain)
-      return this.FeedResource.query({domain});
+      return this.FeedResource.query({company:domain});
     }
     public deletePost(id) {
       return this.FeedResource.remove({id: id}).$promise
@@ -54,7 +50,7 @@
     constructor(
       private $resource: ng.resource.IResourceService
     ){
-      this.FeedResource = $resource('api/posts/feed/:id');
+      this.FeedResource = $resource('api/posts/feed/:company');
     }
   }
   //Company.html

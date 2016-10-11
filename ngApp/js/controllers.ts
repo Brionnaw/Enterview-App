@@ -401,7 +401,7 @@
       } else {
         alert("invalid url");
       }
-      
+
     }
     //webpage click //change to external href
     public goToWebsite(domain) {

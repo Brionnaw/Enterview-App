@@ -58,10 +58,8 @@ router.post('/posts/feed', function(req, res) {
     }
 })
 //GET ALL POSTS
-router.get('/posts/feed', function(req , res) {
-   console.log(req.body)
-   res.send('hit')
-  Post.find({}).then(function(allPosts) {
+router.get('/posts/feed/:company', function(req , res) {
+  Post.find({domain:req.params["company"]}).then(function(allPosts) {
     console.log(allPosts)
     res.json(allPosts)
   });
