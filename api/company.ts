@@ -8,21 +8,20 @@
   let request = require('request');
   let ipAddress = require('node-local-ip-address')();
   console.log(ipAddress);
-  //Model
-  let Company = mongoose.model('Company', {
-    companyName:String,
-    domain:String,
-  })
+
   //API CLEARBIT
 router.post('/company', function(req, res) {
+  // console.log(req.body)
   request('https://sk_792329b163b90c6db62cfb69425122dc@company.clearbit.com/v2/companies/find?domain='+req.body.domain,
   function (error, response, body) {
     let data = JSON.parse(body)
-    if (data.url !== req.body.domain) {
-      res.send({message:'company not found'})
+    console.log(data.name);
+    console.log(req.body.company)
+    if (data.name === req.body.company) {
+        res.send(data);
     } else {
-      console.log(data)
-      res.send(data)
+      console.log(error)
+      res.send({message:'company not found'})
     }
   })
 })

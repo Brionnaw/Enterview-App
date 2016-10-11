@@ -5,6 +5,7 @@ let mongoose = require('mongoose');
 let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of model , object w| properties, values types}
     companyName: String,
     companyDomain: String,
+    tag:String,
       question:{
         type: Object,
         default: null
@@ -19,29 +20,30 @@ let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of
         default: null
   }
 })
+//Model
+let Company = mongoose.model('Company', {
+  companyName:String,
+  domain:String,
+})
 // POST TO UPDATE OR CREATE POSTS
 router.post('/posts/feed', function(req, res) {
-  if(req.body.id === undefined){
-    let newPost = new Post ({
-      companyName: req.body.name,
-      companyDomain: req.body.domain,
-      interviewType: req.body.interviewType,
-      authorPhoto: req.body.authorPhoto,
-      positionTitle:req.body.positionTitle,
-      question: req.body.question,
-      author:req.body.username,
-      dateCreated:new Date()
-  })
-      newPost.save((err, post) => {
-        if(err){
-          console.log(err)
-          res.end()
-      } else {
-          res.send(post);
-       }
-    })
-  } else {
-      Post.findByIdAndUpdate(req.body.id,
+  if (req.body.id === undefined){
+    Company.find({companyName:req.body.companyName}).then(function(response) {
+        if(response.length === 0){
+          let newCompany = new Company ({
+            companyName: req.body.companyName,
+            domain:req.body.companyDomain
+          })
+          newCompany.save((err, company) => {
+            if(err) {
+              console.log(err)
+              res.end()
+            } else {
+              res.send(company);
+            }// conditionals to create a new company 
+          })
+        } else {
+        Post.findByIdAndUpdate(req.body.id,
         {$set:{
           question: req.body.question,
           interviewType:req.body.interviewType,
@@ -55,8 +57,11 @@ router.post('/posts/feed', function(req, res) {
            }
          });
          res.send('200')
-    }
-})
+       }
+     })
+   }
+});
+
 //GET ALL POSTS
 router.get('/posts/feed/:company', function(req , res) {
   Post.find({domain:req.params["company"]}).then(function(allPosts) {

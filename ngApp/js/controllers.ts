@@ -5,6 +5,7 @@
     public id;
     public photoUrl;
     public username;
+    public interviewVideo;
     // logout in home.html
     public logout(){
       window.localStorage.removeItem('token');
@@ -385,23 +386,21 @@
       let regex = new RegExp(expression);
       let url = this.companyDomain;
       if (url.match(regex)) {
+        let name = this.companyName;
+        let seperated = name.split('');
+        let result = seperated[0].toUpperCase();
+        seperated.splice(0, 1);
+        seperated.unshift(result);
+        let uppercaseCompany = seperated.join('')
+        console.log(uppercaseCompany)
         let info ={
-          company: this.companyName,
+          company: uppercaseCompany,
           domain: this.companyDomain
         }
         this.companyService.researchCompany(info).then((res) => {
-          console.log(res)
-          // if(res.body.error.type === 'queued'){
-          //   alert('company not found')
-          // }else {
-          //   this.companyData = (JSON.parse(res.body))
-          //   console.log(JSON.parse(res.body)) // turn into json into actual object.
-          // }
+            this.companyData = res;
         })
-      } else {
-        alert("invalid url");
       }
-
     }
     //webpage click //change to external href
     public goToWebsite(domain) {
