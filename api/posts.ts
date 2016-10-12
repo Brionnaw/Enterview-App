@@ -27,21 +27,40 @@ let Company = mongoose.model('Company', {
 })
 // POST TO UPDATE OR CREATE POSTS
 router.post('/posts/feed', function(req, res) {
+  console.log(req.body)
   if (req.body.id === undefined){
     Company.find({companyName:req.body.companyName}).then(function(response) {
         if(response.length === 0){
           let newCompany = new Company ({
-            companyName: req.body.companyName,
-            domain:req.body.companyDomain
+            companyName: req.body.name,
+            domain:req.body.domain
           })
-          newCompany.save((err, company) => {
+          newCompany.save((err, company) => { // conditionals to create a new company
             if(err) {
               console.log(err)
               res.end()
             } else {
-              res.send(company);
-            }// conditionals to create a new company 
+              let newPost = new Post ({
+                companyName: req.body.name,
+                companyDomain: req.body.domain,
+                tag:company._id,
+                interviewType: req.body.interviewType,
+                authorPhoto: req.body.authorPhoto,
+                positionTitle:req.body.positionTitle,
+                question: req.body.question,
+                author:req.body.username,
+                dateCreated:new Date()
+              })
+              newPost.save((err, post) => {
+                if(err){
+                  console.log(err)
+                  res.end()
+                } else {
+              res.send(post);
+            }
           })
+         }
+      })
         } else {
         Post.findByIdAndUpdate(req.body.id,
         {$set:{
@@ -62,13 +81,13 @@ router.post('/posts/feed', function(req, res) {
    }
 });
 
-//GET ALL POSTS
-router.get('/posts/feed/:company', function(req , res) {
-  Post.find({domain:req.params["company"]}).then(function(allPosts) {
-    console.log(allPosts)
-    res.json(allPosts)
-  });
-});
+// //GET ALL POSTS
+// router.get('/posts/feed/:company', function(req , res) {
+//   Post.find({domain:req.params["company"]}).then(function(allPosts) {
+//     console.log(allPosts)
+//     res.json(allPosts)
+//   });
+// });
 router.delete('/posts/feed/:id', function (req, res) {
     console.log('hit')
   Post.findByIdAndUpdate(req.params["id"], {$set:{dateDeleted:new Date()}}, (err, res) => {
@@ -88,3 +107,11 @@ router.delete('/posts/feed/:id', function (req, res) {
    })
 
 export = router;
+
+// pass name of company to back end point($stateParams)
+// look up company by its name in data. (company.find)
+// run 2 query by using post.find (using the tag)
+// pass to front end and display it
+
+
+// study the angular error make a document

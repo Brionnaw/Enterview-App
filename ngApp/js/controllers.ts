@@ -127,6 +127,7 @@
     public posts;
     public companyName;
     public companyDomain;
+    public id;
     public remove(postId:string, index:number) {
       let answer = confirm('Are you sure you want to delete?')
       if(answer === true) {
@@ -155,11 +156,11 @@
         this.companyDomain = seperate[1]
         let company = {
           name: this.companyName,
-          domain: this.companyDomain
+          domain: this.companyDomain,
         }
-        console.log(company)
+        console.log(this.companyName)
       }
-      this.posts = this.feedService.getAllPosts(name);
+      this.posts = this.feedService.getAllPosts(this.companyName);
     }
   }
   //CREATE POSTS IN CREATEPOST.HTML
@@ -248,7 +249,7 @@
           company:this.companyName,
           domain:this.companyDomain
         }
-        console.log(company)
+        console.log(this.companyName)
       }
       // set values to false
       this.optionOne = false;
