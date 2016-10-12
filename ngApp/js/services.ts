@@ -24,6 +24,7 @@
   // Feed service for post.ts
   export class FeedService {
     public FeedResource;
+    public PostResource;
     public createPost(postData) {
     console.log(postData)
       let post = {
@@ -36,10 +37,11 @@
         text: postData.text
       }
       return this.FeedResource.save(postData).$promise
+
     }
     public getAllPosts(name){
       console.log(name)
-      return this.FeedResource.query({name:name});
+      return this.PostResource.query({companyName:name});
     }
     public deletePost(id) {
       return this.FeedResource.remove({id: id}).$promise
@@ -50,7 +52,9 @@
     constructor(
       private $resource: ng.resource.IResourceService
     ){
-      this.FeedResource = $resource('api/posts/feed/:info');
+      this.FeedResource = $resource('api/posts/feed/:id');
+      this.PostResource = $resource('api/posts/company/:name');
+
     }
   }
   //Company.html

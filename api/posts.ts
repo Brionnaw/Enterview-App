@@ -81,13 +81,23 @@ router.post('/posts/feed', function(req, res) {
    }
 });
 
-// //GET ALL POSTS
-// router.get('/posts/feed/:company', function(req , res) {
-//   Post.find({domain:req.params["company"]}).then(function(allPosts) {
-//     console.log(allPosts)
-//     res.json(allPosts)
-//   });
-// });
+//GET ALL POSTS
+router.get('/posts/company/:name', function(req , res) {
+  Company.find({companyName:req.params["name"]}).then(function(company) {
+    if (company) {
+      console.log(company)
+      Post.find({tag:company[0]._id}).then(function(companyPosts) {
+        console.log(companyPosts)
+        res.json(companyPosts)
+       });
+    } else {
+      res.send(company)
+    }
+  })
+});
+
+
+
 router.delete('/posts/feed/:id', function (req, res) {
     console.log('hit')
   Post.findByIdAndUpdate(req.params["id"], {$set:{dateDeleted:new Date()}}, (err, res) => {
