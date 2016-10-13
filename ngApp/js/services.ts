@@ -39,9 +39,9 @@
       return this.FeedResource.save(postData).$promise
 
     }
-    public getAllPosts(name){
-      console.log(name)
-      return this.PostResource.query({companyName:name});
+    public getAllPosts(companyName){
+      console.log(companyName)
+      return this.PostResource.query({name:companyName});
     }
     public deletePost(id) {
       return this.FeedResource.remove({id: id}).$promise

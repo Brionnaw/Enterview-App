@@ -84,15 +84,11 @@ router.post('/posts/feed', function(req, res) {
 //GET ALL POSTS
 router.get('/posts/company/:name', function(req , res) {
   Company.find({companyName:req.params["name"]}).then(function(company) {
-    if (company) {
       console.log(company)
       Post.find({tag:company[0]._id}).then(function(companyPosts) {
         console.log(companyPosts)
-        res.json(companyPosts)
+        res.send(['companyPosts'])
        });
-    } else {
-      res.send(company)
-    }
   })
 });
 
