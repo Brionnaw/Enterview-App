@@ -17,7 +17,7 @@
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            ng-click="vm.check('one')">
+            ng-model="vm.optionOne">
               Phone Screen
         </label>
       <br>
@@ -26,7 +26,7 @@
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio2"
-            ng-click="vm.check('two')">
+            ng-model="vm.optionTwo">
               In-Person 1:1
         </label>
       <br>
@@ -35,7 +35,7 @@
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio3"
-            ng-click="vm.check('three')">
+            ng-model="vm.optionThree">
               Group/Panel
         </label>
 
@@ -49,12 +49,12 @@
               type="text"
               name=""
               id="email"
-              ng-model="vm.position"/>
-          <br><br>  Interview Question #1:  <input type="text" name="post" id="post" ng-model="vm.post.one" />
-          <br><br>  Interview Question #2   <input type="text" name="post" id="post" ng-model="vm.post.two" />
-          <br><br>  Interview Question #3   <input type="text" name="post" id="post" ng-model="vm.post.three" />
-          <br><br>  Interview Question #4   <input type="text" name="post" id="post" ng-model="vm.post.four" />
-          <br><br>  Interview Question #5   <input type="text" name="post" id="post" ng-model="vm.post.five" />
+              ng-model="vm.position">
+          <br><br>  Interview Question #1:  <input type="text" name="post" id="post" ng-model="vm.postOne" >
+          <br><br>  Interview Question #2   <input type="text" name="post" id="post" ng-model="vm.postTwo" >
+          <br><br>  Interview Question #3   <input type="text" name="post" id="post" ng-model="vm.postThree" >
+          <br><br>  Interview Question #4   <input type="text" name="post" id="post" ng-model="vm.postFour" >
+          <br><br>  Interview Question #5   <input type="text" name="post" id="post" ng-model="vm.postFive" >
           <br>
           <br>
             Additional Comments:
@@ -63,7 +63,7 @@
               id="comments"
               cols="25"
               rows="3"
-              ng-model="vm.post.six">
+              ng-model="vm.postSix" >
             </textarea>
       </form>
       <!-- EDIT BUTTON-->

@@ -87,7 +87,7 @@ router.get('/posts/company/:name', function(req , res) {
       console.log(company)
       Post.find({tag:company[0]._id}).then(function(companyPosts) {
         console.log(companyPosts)
-        res.send(['companyPosts'])
+        res.send(companyPosts)
        });
   })
 });

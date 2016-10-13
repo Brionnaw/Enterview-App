@@ -158,9 +158,10 @@
           name: this.companyName,
           domain: this.companyDomain,
         }
-        console.log(this.companyName)
       }
       this.posts = this.feedService.getAllPosts(this.companyName);
+      console.log(this.posts)
+
     }
   }
   //CREATE POSTS IN CREATEPOST.HTML
@@ -261,6 +262,12 @@
   export class EditController {
     public position;
     public post;
+    public postOne;
+    public postTwo;
+    public postThree;
+    public postFour;
+    public postFive;
+    public postSix;
     public optionOne;
     public optionTwo;
     public optionThree;
@@ -334,13 +341,23 @@
           let seperate = $stateParams["info"].split(",");
           this.id = seperate[0]
           this.interviewType = seperate[1]
-        // set values to false
-        this.optionOne = false;
-        this.optionTwo = false;
-        this.optionThree = false;
-      }
-      else {
+          this.position = seperate[2]
+          this.postOne = seperate[3]
+          this.postTwo = seperate[4]
+          this.postThree = seperate[5]
+          this.postFour = seperate[6]
+          this.postFive = seperate[7]
+          this.postSix = seperate[8]
+          // set values to false
+          if(this.interviewType === 'Phone Screen'){
+            this.optionOne = true;
+          } else if (this.interviewType === 'In-Person 1:1') {
+            this.optionTwo = true;
+        } else if  (this.interviewType === 'Group Panel') {
+          this.optionThree = true;
+      } else {
         console.log('Do not exist!')
+      }
       }
     }
   }
