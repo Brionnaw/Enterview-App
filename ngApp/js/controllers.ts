@@ -271,9 +271,13 @@
     public optionOne;
     public optionTwo;
     public optionThree;
+    public inputOne;
+    public inputTwo;
+    public inputThree;
     public id;
     public interviewType;
     public update(){
+      console.log(this.optionThree)
       //UPDATE INTERVIEW TYPE
       if(this.optionOne === 'checked') {
         let token = window.localStorage["token"];
@@ -323,12 +327,24 @@
       console.log(num)
       if(num === 'one'){
         this.optionOne = 'checked';
+        this.inputOne = true;
+
         console.log(this.optionOne)
+        console.log(this.inputOne)
+
       } else if(num === 'two') {
         this.optionTwo = 'checked';
+        this.inputTwo= true;
+
         console.log(this.optionTwo)
+        console.log(this.inputTwo)
+
       } else if (num === 'three') {
         this.optionThree = 'checked';
+        this.inputThree = true;
+
+        console.log(this.optionThree)
+        console.log(this.inputThree)
       }
     }
     //QUESTION UPDATE
@@ -350,17 +366,20 @@
           this.postSix = seperate[8]
           // set values to false
           if(this.interviewType === 'Phone Screen'){
-            this.optionOne = true;
+            this.optionOne = 'checked';
+            this.inputOne = true;
           } else if (this.interviewType === 'In-Person 1:1') {
-            this.optionTwo = true;
-        } else if  (this.interviewType === 'Group Panel') {
-          this.optionThree = true;
+            this.optionTwo = 'checked';
+            this.inputTwo= true;
+        } else if  (this.interviewType === 'Group/Panel') {
+            this.optionThree = 'checked';
+            this.inputThree = true;
       } else {
         console.log('Do not exist!')
       }
-      }
     }
   }
+}
   export class ProfileController{
       public posts;
       // Delete Comment

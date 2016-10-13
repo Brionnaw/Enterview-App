@@ -17,7 +17,8 @@
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio1"
-            ng-model="vm.optionOne">
+            ng-model="inputOne"
+            ng-click="vm.check('one')">
               Phone Screen
         </label>
       <br>
@@ -26,7 +27,8 @@
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio2"
-            ng-model="vm.optionTwo">
+            ng-model="inputTwo"
+            ng-click="vm.check('two')">
               In-Person 1:1
         </label>
       <br>
@@ -35,7 +37,8 @@
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio3"
-            ng-model="vm.optionThree">
+            ng-model="inputTwo"
+            ng-click="vm.check('three')">
               Group/Panel
         </label>
 

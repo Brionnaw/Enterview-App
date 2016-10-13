@@ -27,7 +27,6 @@
     public PostResource;
     public createPost(postData) {
     console.log(postData)
-
       let post = {
         name:postData.name,
         domain:postData.domain,
@@ -43,21 +42,19 @@
     public getAllPosts(companyName){
       console.log(companyName)
       return this.PostResource.query({name:companyName});
-
     }
     public deletePost(id) {
       return this.FeedResource.remove({id: id}).$promise
-
     }
     public getAllProfilePosts(username){
       return this.FeedResource.query({id:username});
-
     }
     constructor(
       private $resource: ng.resource.IResourceService
     ){
       this.FeedResource = $resource('api/posts/feed/:id');
       this.PostResource = $resource('api/posts/company/:name');
+
     }
   }
   //Company.html
