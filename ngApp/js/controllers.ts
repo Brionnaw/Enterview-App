@@ -276,18 +276,30 @@
     public inputThree;
     public id;
     public interviewType;
+    public tag;
+    public companyDomain;
+    public authorPhoto;
     public update(){
-      console.log(this.optionThree)
       //UPDATE INTERVIEW TYPE
       if(this.optionOne === 'checked') {
         let token = window.localStorage["token"];
         let payload = JSON.parse(window.atob(token.split('.')[1]));
         let info = {
+          authorPhoto:this.authorPhoto,
+          domain:this.companyDomain,
           id: this.id,
           username:payload.username,
           interviewType:'Phone Screen',
           positionTitle:this.position,
-          question: this.post
+          question: {
+            one:this.postOne,
+            two:this.postTwo,
+            three:this.postThree,
+            four:this.postFour,
+            five:this.postFive,
+            six: this.postSix
+          },
+          tag: this.tag,
         }
         this.feedService.createPost(info).then((res) => {
           this.$state.go('Feed')
@@ -297,11 +309,21 @@
         let token = window.localStorage["token"];
         let payload = JSON.parse(window.atob(token.split('.')[1]));
         let info = {
+          authorPhoto:this.authorPhoto,
+          domain:this.companyDomain,
           id: this.id,
           username:payload.username,
           interviewType:'In-Person 1:1',
           positionTitle:this.position,
-          question: this.post,
+          question: {
+            one:this.postOne,
+            two:this.postTwo,
+            three:this.postThree,
+            four:this.postFour,
+            five:this.postFive,
+            six: this.postSix
+          },
+          tag: this.tag
         }
         this.feedService.createPost(info).then((res) => {
           this.$state.go('Feed')
@@ -311,11 +333,21 @@
         let token = window.localStorage["token"];
         let payload = JSON.parse(window.atob(token.split('.')[1]));
         let info = {
+          authorPhoto:this.authorPhoto,
+          domain:this.companyDomain,
           id: this.id,
           username:payload.username,
           interviewType:'Group/Panel',
           positionTitle:this.position,
-          question: this.post,
+          question: {
+            one:this.postOne,
+            two:this.postTwo,
+            three:this.postThree,
+            four:this.postFour,
+            five:this.postFive,
+            six: this.postSix
+          },
+          tag: this.tag
         }
         this.feedService.createPost(info).then((res) => {
           this.$state.go('Feed')
@@ -357,13 +389,18 @@
           let seperate = $stateParams["info"].split(",");
           this.id = seperate[0]
           this.interviewType = seperate[1]
-          this.position = seperate[2]
-          this.postOne = seperate[3]
-          this.postTwo = seperate[4]
-          this.postThree = seperate[5]
-          this.postFour = seperate[6]
-          this.postFive = seperate[7]
-          this.postSix = seperate[8]
+          this.companyDomain = seperate[2]
+          this.position = seperate[3]
+          this.postOne = seperate[4]
+          this.postTwo = seperate[5]
+          this.postThree = seperate[6]
+          this.postFour = seperate[7]
+          this.postFive = seperate[8]
+          this.postSix = seperate[9]
+          this.tag = seperate[10]
+          this.authorPhoto = seperate[11]
+          console.log(this.companyDomain)
+
           // set values to false
           if(this.interviewType === 'Phone Screen'){
             this.optionOne = 'checked';

@@ -26,8 +26,8 @@
     public FeedResource;
     public PostResource;
     public createPost(postData) {
-    console.log(postData)
-      let post = {
+      console.log(postData)
+        let post = {
         name:postData.name,
         domain:postData.domain,
         id: postData.id,

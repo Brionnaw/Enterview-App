@@ -13,6 +13,9 @@
     Type of interview: {{p.interviewType}}
   </div>
   <div>
+    Website url: {{p.companyDomain}}
+  </div>
+  <div>
     Position Title: {{p.positionTitle}}
   </div>
   <div>
@@ -41,11 +44,14 @@
     ui-sref="EditPost
     ({info: [p. _id,
       p.interviewType,
+      p.companyDomain,
       p.positionTitle,
       p.question.one,
       p.question.two,
       p.question.three,
       p.question.four,
       p.question.five,
-      p.question.six]})">Edit</button>
+      p.question.six,
+      p.tag,
+      p.authorPhoto]})">Edit</button>
 </div>

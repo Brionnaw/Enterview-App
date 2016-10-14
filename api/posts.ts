@@ -27,7 +27,6 @@ let Company = mongoose.model('Company', {
 })
 // POST TO UPDATE OR CREATE POSTS
 router.post('/posts/feed', function(req, res) {
-  console.log(req.body)
   if (req.body.id === undefined){
     Company.find({companyName:req.body.companyName}).then(function(response) {
         if(response.length === 0){
@@ -60,33 +59,47 @@ router.post('/posts/feed', function(req, res) {
             }
           })
          }
-      })
-        } else {
+       })
+      }
+    })
+  } else {
+      console.log(req.body.tag);
+      Company.findOne({_id : req.body.tag}).then(function(company){
+        console.log(company);
+
         Post.findByIdAndUpdate(req.body.id,
         {$set:{
+          companyName: company.companyName,
+          companyDomain: req.body.domain,
+          tag:req.body.tag,
           question: req.body.question,
-          interviewType:req.body.interviewType,
-          positionTitle:req.body.positionTitle}
+          interviewType: req.body.interviewType,
+          positionTitle: req.body.positionTitle,
+          authorPhoto:req.body.authorPhoto,
+          author: req.body.username,
+          dateCreated: new Date()
+         }
         },
-          (err, res) => {
+          (err, post) => {
           if (err) {
              console.log(err);
+             res.end()
+
            } else {
-             console.log(res);
+             console.log(post);
+             res.send('success')
+
            }
          });
-         res.send('200')
-       }
-     })
-   }
-});
+      })
+    }
+  });
+
 
 //GET ALL POSTS
 router.get('/posts/company/:name', function(req , res) {
-  Company.find({companyName:req.params["name"]}).then(function(company) {
-      console.log(company)
-      Post.find({tag:company[0]._id}).then(function(companyPosts) {
-        console.log(companyPosts)
+  Company.find({companyName:req.params["name"]}).then(function(companyName) {
+      Post.find({tag:companyName[0]._id}).then(function(companyPosts) {
         res.send(companyPosts)
        });
   })
@@ -95,16 +108,15 @@ router.get('/posts/company/:name', function(req , res) {
 
 
 router.delete('/posts/feed/:id', function (req, res) {
-    console.log('hit')
   Post.findByIdAndUpdate(req.params["id"], {$set:{dateDeleted:new Date()}}, (err, res) => {
     if (err) {
          console.log(err);
        } else {
-         console.log(res);
+         res.send('success!')
        }
      });
-     res.send('success!')
   });
+
   // get all profile prost that arent deleted //
    router.get('/posts/feed/:id', function (req, res){
      Post.find({author:req.params["id"], dateDeleted:null}).then(function(allProfilePosts){
