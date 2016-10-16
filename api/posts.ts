@@ -22,8 +22,12 @@ let Post = mongoose.model('Post', { // "," seperate parameters, {pass in name of
 })
 //Model
 let Company = mongoose.model('Company', {
-  companyName:String,
+  companyName:{
+    type:String,
+    unique:true
+  },
   domain:String,
+
 })
 // POST TO UPDATE OR CREATE POSTS
 router.post('/posts/feed', function(req, res) {
@@ -97,14 +101,19 @@ router.post('/posts/feed', function(req, res) {
 
 
 //GET ALL POSTS
-router.get('/posts/company/:name', function(req , res) {
-  Company.find({companyName:req.params["name"]}).then(function(companyName) {
-      Post.find({tag:companyName[0]._id}).then(function(companyPosts) {
-        res.send(companyPosts)
-       });
+router.get('/posts/company/:name', function(req , res, next) {
+  Company.find({companyName:req.params["name"]}).then(function(company) {
+    console.log(company)
+    req.body.companyInfo = company;
+    next('route') //middleware
   })
 });
 
+router.get('/posts/company/:name', function(req , res, next) {
+    Post.find({tag: req.body.companyInfo[0]._id}).then(function(companyPosts) {
+      res.send(companyPosts);
+    });
+});
 
 
 router.delete('/posts/feed/:id', function (req, res) {

@@ -116,7 +116,7 @@
     constructor(){
       let token = window.localStorage["token"];
       if(token){ // does this variable 'token' exist? "truthy statement"
-      this.loggedIn = true
+      this .loggedIn = true
     } else {
       this.loggedIn = false;
     }
@@ -540,7 +540,6 @@
       }
     }
   }
-
   angular.module('app').controller('HomeController', HomeController);
   angular.module('app').controller('LoginController', LoginController);
   angular.module('app').controller('RegisterController', RegisterController);
@@ -550,5 +549,4 @@
   angular.module('app').controller('ProfileController', ProfileController);
   angular.module('app').controller('SearchCompanyController', SearchCompanyController);
   angular.module('app').controller('CompanyGlassdoorController', CompanyGlassdoorController);
-
 }

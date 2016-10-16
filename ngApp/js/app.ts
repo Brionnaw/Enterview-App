@@ -14,7 +14,7 @@ namespace app {
       controller: app.Controllers.HomeController,
       controllerAs: 'vm'
     }).state('Login', {
-      url: '/',
+      url: '/login',
       templateUrl: '/templates/login.html',
       controller: app.Controllers.LoginController,
       controllerAs: 'vm'
@@ -24,7 +24,7 @@ namespace app {
       controller: app.Controllers.RegisterController,
       controllerAs: 'vm'
     }).state('LandingPage', {
-      url: '/landingPage',
+      url: '/',
       templateUrl: '/templates/landingPage.html',
       controller: app.Controllers.LandingPageController,
       controllerAs: 'vm'
