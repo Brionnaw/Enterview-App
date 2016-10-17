@@ -8,10 +8,30 @@
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #fffo;
+  border-top: 1px solid #fff;
 }
 
 i:hover{
   color:blue;
   cursor:pointer;
+}
+
+.background {
+  background-image: url('http://i.huffpost.com/gen/1152564/images/o-JOB-INTERVIEW-facebook.jpg');
+  max-width: 105%;
+  height: 125vh;
+  width: 120vw;
+  opacity: 0.4;
+  margin-top:-16.5%;
+  background-repeat: no-repeat, repeat;
+
+}
+
+.about{
+  background: #4e5d6c;
+  font-family: #ffffff;
+}
+.navbar {
+  background: black;
+ opacity: 0.5;
 }

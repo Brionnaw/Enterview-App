@@ -31,7 +31,7 @@
   </div>
   <!-- PHOTO UPLOAD-->
   <label>  Upload profile photo:</label>
-  <button class="btn btn-default" ng-click="vm.pickFile()">Upload</button>
+  <button class="btn btn-default" value="Input" ng-click="vm.pickFile()">Upload</button>
   <h2>{{vm.file.filename}}</h2>
   <img ng-src="{{vm.file.url | fpConvert:{w: 400} }}"/>
 
