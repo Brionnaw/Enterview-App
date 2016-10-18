@@ -1,8 +1,27 @@
-<div class="row panel panel-default">
-  <div class="col-sm-12 panel-body">
-  <br>
-   <h4>
-     <p>
+<!-- NAV SECTION -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div>
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">Home</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
+        <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="interViewTipsBackground">
+  <div class="row panel panel-default">
+    <div class="col-sm-12 panel-body">
+      <br>
+      <h4>
+        <p>
        51 INTERVIEW QUESTIONS TO ASK DURING AN INTERVIEW
      </p>
    </h4>
@@ -30,17 +49,16 @@
   </p>
   </div>
   <div class="col-sm-12">
-    <br>
-    <b>
+    <strong>
       <h3>
         The Job
       </h3>
-    </b>
+    </strong>
     <hr>
         <p>
-          <i>
+          <em>
             First, make sure you have a handle on exactly what the day-to-day responsibilities of the job will be—both now and in the future.
-          </i>
+          </em>
         </p>
     1. What does a typical day look like?
     <br>
@@ -64,16 +82,16 @@
   </div>
   <div class="col-sm-12">
     <br>
-    <b>
+    <strong>
       <h3>
         Training and Professional Development
       </h3>
-    </b>
+    </strong>
     <hr>
     <p>
-      <i>
+      <em>
         Think of each new job not just as a job, but as the next step on your path to career success. Will this position help you get there?
-      </i>
+      </em>
     </p>
 
       <br>
@@ -96,17 +114,17 @@
     </div>
     <div class="col-sm-12">
       <br>
-      <b>
+      <strong>
         <h3>
           Your Performance
         </h3>
-      </b>
+      </strong>
       <hr>
 
     <p>
-      <i>
+      <em>
         Make sure you're setting yourself up for success by learning up front the goals of the position and how your work will be evaluated.
-      </i>
+      </em>
     </p>
 
       <br>
@@ -123,17 +141,17 @@
   </div>
   <div class="col-sm-12">
       <br>
-      <b>
+      <strong>
         <h3>
           Interviewer
         </h3>
-        </b>
+      </strong>
       <hr>
 
     <p>
-      <i>
+      <em>
       Asking questions of the interviewer shows that you're interested in him or her as a person—and that's a great way to build rapport.
-      </i>
+    </em>
     </p>
 
       <br>
@@ -153,17 +171,17 @@
     </div>
     <div class="col-sm-12">
       <br>
-      <b>
+      <strong>
         <h3>
           The Company
         </h3>
-      </b>
+      </strong>
       <hr>
 
       <p>
-        <i>
+        <em>
         Because you're not just working for one boss or one department, you're working for the company as a whole.
-        </i>
+      </em>
       </p>
 
       <br>
@@ -183,16 +201,16 @@
      </div>
       <div class="col-sm-12">
        <br>
-       <b>
+       <strong>
          <h3>
            The Team
          </h3>
-       </b>
+       </strong>
        <hr>
        <p>
-         <i>
+         <em>
          The people you work with day in and day out can really make or break your work life. Ask some questions to uncover whether it's the right team for you.
-        </i>
+       </em>
        </p>
 
       <br>31. Can you tell me about the team I’ll be working with?
@@ -211,20 +229,19 @@
     </div>
     <div class="col-sm-12">
       <br>
-      <b>
+      <strong>
         <h3>
           The Culture
         </h3>
-      </b>
+      </strong>
       <hr>
     <p>
-      <i>
+      <em>
         Is the office buttoned-up conservative or a fly-by-the-seat-of-your-pants kind of place? Learn the subtle, but oh-so-important, aspects of company culture.
-      </i>
+      </em>
     </p>
       <br>
       38. What is the company and team culture like?
-
       <br>
       39. How would you describe the work environment here—is the work typically collaborative or more independent?
       <br>
@@ -246,16 +263,16 @@
     </div>
     <div class="col-sm-12">
       <br>
-      <b>
+      <strong>
         <h3>
           Next Steps
         </h3>
-      </b>
+      </strong>
       <hr>
     <p>
-      <i>
+      <em>
       Before you leave, make sure the interviewer has all of the information he or she needs and that you're clear on the next steps by asking these questions.
-      </i>
+    </em>
     </p>
       <br>
       48. Is there anything that concerns you about my background being a fit for this role?
@@ -266,7 +283,19 @@
 
       <br>51. Can I answer any final questions for you?
       <br>
-      <a ui-sref="Home"> < Go back </a>
     </div>
+    <a class="label label-default" ui-sref="Home"> < Go home </a>
 </div>
 </div>
+</div>
+
+<!-- FOOTER-->
+  <footer>
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="text-center footer">
+        <br> © 2016 Brionna White
+        </p>
+      </div>
+    </div>
+  </footer>

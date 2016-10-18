@@ -1,34 +1,66 @@
-<center> <h3>Welcome back,  {{vm.username}}!</h3></center>
+<!-- NAVIGATION BAR -->
+<!-- NAV SECTION -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div>
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">Home</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
+        <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<!-- SECTION-->
+<div class="homeBackground"
+  <center>
+    <h2>
+      Hello,  {{vm.username}} !
+    </h2>
+    </center>
 
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-12 homePhoto">
     <div class="col-sm-3 panel panel-default">
       <span
       ui-sref="Profile"
-      class="profilePic">
+      class="profilePhoto">
       <img ng-src="{{vm.photoUrl}}"
       width="175"
        height="175"
       alt="portfolio-photo"/>
     </span>
     <div>
-    @{{vm.username}}
+  <center> <h5> @{{vm.username}}</h5></center>
   </div>
      <table class="table">
        <tr>
          <td>
            <p>
        </p>
-           <p>
-             <button class="btn btn-default btn-sm" ui-sref="EditProfile">Edit Photo</button>
-             <button class ="btn btn-default btn-sm" ng-click="vm.logout()">Logout</button>
+           <p class="text-center">
+             <button class="btn btn-default btn-sm"  ui-sref="EditProfile">Edit Photo</button>
            </p>
          </td>
        </tr>
      </table>
     </div>
     <div class="col-sm-3">
-      <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <p><h4>THANK YOU FOR CHOOSING ENTERVIEW</h4>
+      Welcome {{vm.username}} Our system is designed to make you more than prepared for your big day. Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
+      To get started:
+      Click "Research Company" and fill in Company Name and Comany Website. Our system will give you real
+      Click "View Interview Tips" and you will find expert advice and a list of 51 questions you should be asking during your interview.
+      Want to know
+      Don't have a resume? No problem, we have got you covered. Click on "Generate and View My Resume" tab above. You will find a very simple form, and once complete you can download your resume for free!
+      Before your interview take a look at our "Polish up for your interview" tab and find a list of 51 questions you should be asking during your interview.
+    </p>
       <a class="label label-default" ui-sref="InterviewTips">View interview tips</a>
     </div>
     <div class="col-sm-3">
@@ -41,8 +73,17 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 <a class="label label-default" ui-sref="Profile">View Profile</a>
 
     </div>
-
-
-
   </div>
 </div>
+</div>
+
+<!-- FOOTER-->
+  <footer>
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="text-center footer">
+        <br> © 2016 Brionna White
+        </p>
+      </div>
+    </div>
+  </footer>

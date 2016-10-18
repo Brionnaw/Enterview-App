@@ -4,12 +4,12 @@
 .table>tfoot>tr>th,
 .table>thead>tr>td,
 .table>thead>tr>th
-{
-  padding: 8px;
-  line-height: 1.42857143;
-  vertical-align: top;
-  border-top: 1px solid #fff;
-}
+  {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #fff;
+  }
 
 i:hover{
   color:blue;
@@ -28,7 +28,7 @@ i:hover{
   font-size: 50px;
 }
 
-.about{
+.about {
   background: #4e5d6c;
   font-family: #ffffff;
 }
@@ -41,11 +41,18 @@ i:hover{
   margin: 5px;
   font-size: 15px;
 }
-.panel-default {
-margin: 40px 50px 60px 50px;
-font-family: sans-serif;
+
+.interViewTipsBackground {
+  padding:130px 70px 80px 80px;
+  background: #d5d5d5;
 }
 
-.uploadPhoto {
-
+.homeBackground {
+  padding:60px 70px 80px 80px;
+}
+.homePhoto {
+  padding: 50px 0px 0px 0px;
+}
+.profilePhoto {
+  padding: 30px;
 }
