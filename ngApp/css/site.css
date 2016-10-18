@@ -41,3 +41,12 @@ i:hover{
   margin: 5px;
   font-size: 15px;
 }
+.panel-default {
+margin: 40px 50px 60px 50px;
+font-family: sans-serif;
+}
+
+.uploadPhoto {
+  margin: 40px 50px 60px 50px;
+
+}
