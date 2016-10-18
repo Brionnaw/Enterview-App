@@ -38,8 +38,8 @@ i:hover{
 }
 
 .footer {
-  margin: 5px;
   font-size: 15px;
+  background: #d5d5d5;
 }
 
 .interViewTipsBackground {
@@ -65,4 +65,14 @@ i:hover{
 .glassdoorPage {
   padding:130px 90px 80px 80px;
   background: #d5d5d5;
+}
+.profileBackground {
+  padding:130px 70px 80px 80px;
+  background: #d5d5d5;
+}
+
+.profileComments {
+ margin:;
+ padding: 20px;
+ background-color: #white;
 }

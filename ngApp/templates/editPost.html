@@ -1,5 +1,6 @@
 <!-- NAVIGATION BAR -->
 
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div>
     <div class="container-fluid">
@@ -15,7 +16,6 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
 
 
 
@@ -100,9 +100,10 @@
               rows="3"
               ng-model="vm.postSix" >
             </textarea>
+            <!-- EDIT BUTTON-->
+            <button class="btn btn-primary btn-sm" ng-click="vm.update()">Edit post</button>
       </form>
-      <!-- EDIT BUTTON-->
-      <button class="btn btn-primary btn-sm" ng-click="vm.update()">Edit post</button>
+
       </div>
       <div class="col-xs-3">
       </div>
@@ -114,3 +115,6 @@
 
      </div>
    </form>
+
+
+ </div>

@@ -17,35 +17,59 @@
 
 
 <!-- SECTION-->
-<div class="interViewTipsBackground">
-  <div class="row panel panel-default">
-    <div class="col-sm-6 panel-body">
+<div class="profileBackground">
+  <div class="row panel panel-default profileComments">
+    <div class="col-sm-7 panel-body ">
         <table class="table">
-          <h3>Profile:</h3>
+          <h4>My profile:</h4>
           <div ng-repeat="p in vm.posts track by $index ">
             <div class="row panel panel-default">
               <div class="col-sm-6 panel-body">
                 <div>
-                  <img ng-src="{{p.authorPhoto}}" width="100" height="100"/>
+                  <img ng-src="{{p.authorPhoto}}" width="80" height="80"/>
                 </div>
                 <div>
                   <p>
-                    @{{p.author}}
+                  <em>  @{{p.author}}</em>
                   </p>
                 </div>
+                <div>
+              <strong>    {{p.dateCreated  | date: 'short'}} </strong>
+              <!-- this filter shortens time format -->
+            </div>
+                <p class="label label-primary" ng-click="vm.remove(p._id, $index) ">Delete</p>
+                <p class="label label-primary"
+                ui-sref="EditPost
+                ({info: [p. _id,
+                  p.interviewType,
+                  p.companyDomain,
+                  p.positionTitle,
+                  p.question.one,
+                  p.question.two,
+                  p.question.three,
+                  p.question.four,
+                  p.question.five,
+                  p.question.six,
+                  p.tag,
+                  p.authorPhoto]})">Edit</p>
+              </div>
+              <div class="col-sm-6">
                 <div>
                   Type of interview: {{p.interviewType}}
 
                 </div>
+
                 <div>
                   Website url: {{p.companyDomain}}
-                </div>
+
                 <div>
                   Position Title: {{p.positionTitle}}
                 </div>
+
                 <div>
                   Interview Question #1:   {{p.question.one}}
                 </div>
+
                 <div>
                   Interview Question #2: {{p.question.two}}
                 </div>
@@ -60,27 +84,7 @@
                 </div>
                 <div>
                   Additional Comments: {{p.question.six}}
-                </div>
-                <div>
-                  {{p.dateCreated  | date: 'short'}} <!-- this filter shortens time format -->
-                </div>
-                <button class="btn btn-default btn-sm" ng-click="vm.remove(p._id, $index) ">Delete</button>
-                <button class="btn btn-default btn-sm"
-                ui-sref="EditPost
-                ({info: [p. _id,
-                  p.interviewType,
-                  p.companyDomain,
-                  p.positionTitle,
-                  p.question.one,
-                  p.question.two,
-                  p.question.three,
-                  p.question.four,
-                  p.question.five,
-                  p.question.six,
-                  p.tag,
-                  p.authorPhoto]})">Edit</button>
-                </div>
-              </div>
+                </div>              </div>
             </div>
           </div>
         </div>
