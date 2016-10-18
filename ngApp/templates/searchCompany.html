@@ -1,4 +1,21 @@
-<div>
+<!-- NAV SECTION -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div>
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">Home</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
+        <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!-- SECTION -->
+<div class="researchCompany ">
   <div>
     <form class="col-sm-6 col-sm-offset-3">
       <h3 class="page-header text-center">
@@ -32,7 +49,7 @@
     <div class="col-sm-12">
 
       <!-- ABOUT SECTION -->
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <span ng-show="vm.companyData">
            <h5>
              <u>
@@ -54,7 +71,7 @@
 
 
        <!-- SOCIAL PROFILES SECTION -->
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <span ng-show="vm.companyData">
           <h5>
             <u>
@@ -92,14 +109,16 @@
       </h5>
     </span>
       <span ng-show="vm.companyData"> <p><b> Headquarter address:</b> <br>{{vm.companyData.location}} </p></span>
+            <div class="col-sm-3">
+              <br> <p ng-show="vm.companyData" class="label label-default" ui-sref="CompanyGlassdoor({info:vm.companyName})">View Company Glassdoor > </p>
+            <br>  <p ng-show="vm.companyData" class="label label-default" ui-sref="Feed({info:vm.companyName})">Reviews about {{vm.companyData.name}} ></p>
+            </div>
+            <div class="col-3">
+
+            </div>
     </div>
-
-      <div class="col-sm-4">
-        <br> <button ng-show="vm.companyData" class="btn btn-default" ui-sref="CompanyGlassdoor({info:vm.companyName})">View Company Glassdoor</button>
-      <p ng-show="vm.companyData">  <br>Click here for <a ui-sref="Feed({info:vm.companyName})">Enterview Reviews about {{vm.companyData.name}}</a></p>
-
-      </div>
   </div>
+</div>
 </div>
 <!--footer-->
 <hr>

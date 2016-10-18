@@ -56,3 +56,11 @@ i:hover{
 .profilePhoto {
   padding: 30px;
 }
+.researchCompany {
+  padding:130px 70px 80px 80px;
+  background: #d5d5d5;
+}
+.glassdoorPage {
+  padding:130px 90px 80px 80px;
+  background: #d5d5d5;
+}
