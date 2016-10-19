@@ -53,11 +53,14 @@ i:hover{
 .homePhoto {
   padding: 10px 0px 0px 0px;
   margin: 10px;
+  
 }
 .profilePhoto {
   padding: 15px 5px 5px 5px;
   margin:10px;
+
 }
+
 .researchCompany {
   padding:130px 70px 80px 80px;
   background: #d5d5d5;

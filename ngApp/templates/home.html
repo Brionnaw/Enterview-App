@@ -17,14 +17,16 @@
 
 
 <!-- SECTION-->
-<div class="homeBackground"
+<div class="homeBackground">
   <center>
     <h2>
-      Hello,  {{vm.username}} !
+      <!-- Hello,  {{vm.username}} ! -->
     </h2>
     </center>
-
-<div class="row">
+<div class="col-sm-12">
+  <center>  <p><h4>THANK YOU FOR CHOOSING ENTERVIEW</h4></p></center>
+</div>
+<div class="row interViewTipsBackground">
   <div class="col-sm-12 homePhoto">
     <div class="col-sm-3 panel panel-default">
       <span
@@ -52,25 +54,21 @@
      </table>
     </div>
     <div class="col-sm-3">
-      <p><h4>THANK YOU FOR CHOOSING ENTERVIEW</h4>
-      Welcome {{vm.username}} Our system is designed to make you more than prepared for your big day. Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
+      <strong>Welcome {{vm.username}},</strong>
+      <p> Our system is designed to make you more than prepared for your big day. Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
       To get started:
-      Click "Research Company" and fill in Company Name and Comany Website. Our system will give you real
-      Click "View Interview Tips" and you will find expert advice and a list of 51 questions you should be asking during your interview.
-      Want to know
-      Don't have a resume? No problem, we have got you covered. Click on "Generate and View My Resume" tab above. You will find a very simple form, and once complete you can download your resume for free!
       Before your interview take a look at our "Polish up for your interview" tab and find a list of 51 questions you should be asking during your interview.
-    </p>
-      <a class="label label-default" ui-sref="InterviewTips">View interview tips</a>
-    </div>
-    <div class="col-sm-3">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      <a class="label label-default" ui-sref="SearchCompany">Research Company</a>
 
+    </p>
     </div>
     <div class="col-sm-3">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-<a class="label label-default" ui-sref="Profile">View Profile</a>
+      <p>Click "Research Company" and fill in Company Name and Comany Website. Our system will give you real company data information.
+      <a class="label label-default" ui-sref="SearchCompany">Research Company</a></p>
+    </div>
+    <div class="col-sm-3">
+    <p>  Click "View Interview Tips" and you will find expert advice and a list of 51 questions you should be asking during your interview.
+      <a class="label label-default" ui-sref="InterviewTips">View interview tips</a>
+    </p>
 
     </div>
   </div>
@@ -81,7 +79,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
   <footer>
     <div class="row">
       <div class="col-sm-12">
-        <p class="text-center footer">
+        <p class="text-center">
         <br> © 2016 Brionna White
         </p>
       </div>
