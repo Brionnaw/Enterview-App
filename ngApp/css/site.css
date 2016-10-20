@@ -78,13 +78,16 @@ i:hover{
   background: #d5d5d5;
 }
 
+
 .profileComments {
  margin:;
  padding: 20px;
  background-color: #white;
 }
 .feedBackground {
-  padding:130px 70px 80px 80px;
+  padding:120px 70px 80px 80px;
+  background: #d5d5d5;
+
 }
 .loginPage {
   margin:150px 300px 300px 280px;

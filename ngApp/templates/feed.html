@@ -22,67 +22,72 @@
 
 <!-- SECTION-->
 <div class="feedBackground">
-<h4>Feed</h4>
-<div ng-repeat="p in vm.posts">
+  <div class="row panel panel-default profileComments">
+    <div class="col-sm-12 panel-body ">
+<p><h2>{{vm.companyName}}'s reviews</h2></p>
+<hr>
+<div ng-repeat="p in vm.posts ">
   <div>
     <img ng-src="{{p.authorPhoto}}" width="75" heigh="75"/>
   </div>
   <div>
     <p>
-      @{{p.author}}
+  <strong>    @{{p.author}}</strong>
     </p>
   </div>
   <div>
-    Type of interview: {{p.interviewType}}
+  <strong>  {{p.dateCreated  | date: 'short'}} <!-- this filter shortens time format --></strong>
+  </div>
+  <br>
+
+<!-- add a colum here-->
+  <div>
+    <strong>Type of interview:</strong>
+    <br>{{p.interviewType}}
+
+  </div>
+
+  <div>
+  <strong> Website url:</strong>
+  <br>{{p.companyDomain}}
+</div>
+  <div>
+  <strong>  Position Title: </strong>
+  <br>{{p.positionTitle}}
+  </div>
+
+  <div>
+    <strong>Interview Question #1: </strong>
+    <br>{{p.question.one}}
+  </div>
+
+  <div>
+  <strong>  Interview Question #2: </strong>
+  <br>{{p.question.two}}
   </div>
   <div>
-    Position Title: {{p.positionTitle}}
+  <strong>  Interview Question #3:</strong>
+  <br> {{p.question.three}}
   </div>
   <div>
-    Interview Question #1:   {{p.question.one}}
+  <strong>  Interview Question #4: </strong>
+  <br>{{p.question.four}}
   </div>
   <div>
-    Interview Question #2: {{p.question.two}}
+  <strong>  Interview Question #5:</strong>
+  <br> {{p.question.five}}
   </div>
   <div>
-    Interview Question #3: {{p.question.three}}
+  <strong>  Additional Comments: </strong>
+  <br>{{p.question.six}}
   </div>
-  <div>
-    Interview Question #4: {{p.question.four}}
   </div>
-  <div>
-    Interview Question #5: {{p.question.five}}
-  </div>
-  <div>
-    Additional Comments: {{p.question.six}}
-  </div>
-  <div>
-    {{p.dateCreated  | date: 'short'}} <!-- this filter shortens time format -->
-  </div>
-    <button
-      class="btn btn-default btn-sm"
-      ng-click="vm.remove(p._id, $index) ">
-      Delete
-    </button>
-    <button
-      class="btn btn-default btn-sm"
-      ui-sref="EditPost
-      ({info: [p. _id,
-      p.interviewType,
-      p.positionTitle,
-      p.question.one,
-      p.question.two,
-      p.question.three,
-      p.question.four,
-      p.question.five,
-      p.question.six]})">
-        Edit
-    </button>
+</div>
 </div>
 
 <!-- CREATE POST BUTTON -->
-    <br><br><button  class="btn btn-info" ui-sref="CreatePost({info:vm.companyName})">Create Review</button>
-  </div>
+<button  class="btn btn-primary" ui-sref="CreatePost({info:vm.companyName})">Create Review</button>
+</div>
 
 
 
