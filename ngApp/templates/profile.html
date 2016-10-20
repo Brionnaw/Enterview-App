@@ -37,8 +37,8 @@
               <strong>    {{p.dateCreated  | date: 'short'}} </strong>
               <!-- this filter shortens time format -->
             </div>
-                <p class="label label-primary" ng-click="vm.remove(p._id, $index) ">Delete</p>
-                <p class="label label-primary"
+                <p class="btn btn-link" ng-click="vm.remove(p._id, $index) ">Delete</p>
+                <p class="btn btn-link "
                 ui-sref="EditPost
                 ({info: [p. _id,
                   p.interviewType,

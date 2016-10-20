@@ -25,7 +25,7 @@
       <!-- Hello,  {{vm.username}} ! -->
     </h2>
     </center>
-<div class="col-sm-12">
+<div class="col-sm-12 panel panel-default ">
   <center>  <p><h4>THANK YOU FOR CHOOSING ENTERVIEW!</h4></p></center>
 </div>
 <div class="col-sm-12">
@@ -37,38 +37,35 @@
   </div>
 <div class="row homeBackground">
   <div class="col-sm-12 homePhoto">
-    <div class="col-sm-3 panel panel-default">
-      <span
+    <div class="col-sm-3">
+      <i> <span
       ui-sref="Profile"
       class="profilePhoto">
       <img ng-src="{{vm.photoUrl}}"
       class="profilePhoto"
-      width="200"
+      width="170"
        height="200"
       alt="portfolio-photo"/>
-    </span>
+    </span> </i>
     <div>
   <center> <h5> @{{vm.username}}</h5></center>
   </div>
-     <table class="table">
        <tr>
          <td>
            <p>
        </p>
            <p class="text-center">
-             <button class="btn btn-default btn-sm"  ui-sref="EditProfile">Edit Photo</button>
+             <button class="btn btn-link btn-sm"  ui-sref="EditProfile">Edit Photo</button>
            </p>
          </td>
        </tr>
-     </table>
     </div>
 
     <div class="col-sm-3">
-      <h5>Welcome <strong>{{vm.username}}</strong>!</h5>
-    <h5>  To get started:</h5>
+    <h4>  To get started:</h4>
     </p>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3 ">
       <p>Click "Research Company" and fill in Company Name and Comapny Website. Our system will give you real company data information.
       <a class="label label-default" ui-sref="SearchCompany">Research Company</a></p>
     </div>

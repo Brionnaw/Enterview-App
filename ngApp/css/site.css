@@ -55,6 +55,7 @@ i:hover{
 .homePhoto {
   padding: 10px 10px 0px 0px;
   margin: 10px;
+  background: lightgray;
 
 }
 .profilePhoto {
