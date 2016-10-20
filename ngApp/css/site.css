@@ -32,6 +32,7 @@ i:hover{
   background: #4e5d6c;
   font-family: #ffffff;
 }
+
 .navbar {
   background: black;
  opacity: 0.7;
@@ -50,10 +51,11 @@ i:hover{
 .homeBackground {
   padding:60px 70px 80px 80px;
 }
+
 .homePhoto {
   padding: 10px 0px 0px 0px;
   margin: 10px;
-  
+
 }
 .profilePhoto {
   padding: 15px 5px 5px 5px;
@@ -65,10 +67,12 @@ i:hover{
   padding:130px 70px 80px 80px;
   background: #d5d5d5;
 }
+
 .glassdoorPage {
   padding:130px 90px 80px 80px;
   background: #d5d5d5;
 }
+
 .profileBackground {
   padding:130px 70px 80px 80px;
   background: #d5d5d5;
@@ -78,4 +82,18 @@ i:hover{
  margin:;
  padding: 20px;
  background-color: #white;
+}
+.feedBackground {
+  padding:130px 70px 80px 80px;
+  background: #d5d5d5;
+}
+.loginPage {
+  margin:150px 300px 300px 280px;
+  padding:50px 70px 80px 80px;
+  background: #d5d5d5;
+}
+.registerPage  {
+  margin:150px 300px 300px 280px;
+  padding:50px 70px 80px 80px;
+  background: #d5d5d5;
 }
