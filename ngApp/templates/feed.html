@@ -21,6 +21,7 @@
 
 
 <!-- SECTION-->
+<div class="feedBackground">
 <h4>Feed</h4>
 <div ng-repeat="p in vm.posts">
   <div>
@@ -78,5 +79,21 @@
         Edit
     </button>
 </div>
+
 <!-- CREATE POST BUTTON -->
     <br><br><button  class="btn btn-info" ui-sref="CreatePost({info:vm.companyName})">Create Review</button>
+  </div>
+
+
+
+    <!-- FOOTER-->
+
+    <footer>
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="text-center">
+          <br> © Copyright 2016 Enterview. Website Created by Brionna White.
+          </p>
+        </div>
+      </div>
+    </footer>

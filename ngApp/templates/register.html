@@ -17,20 +17,20 @@
 <!--section-->
 
 <form class="col-sm-6 col-sm-offset-3 registerPage">
-  <h3 class="page-header text-center">Register</h3>
-  <div class="form-group">
-    <label>Email</label>
-    <input type="text"
-    class="form-control"
-    placeholder="Email"
-    ng-model="vm.user.email">
-  </div>
+  <h3 class="page-header text-center">Sign Up</h3>
   <div class="form-group">
     <label>Username</label>
     <input type="text"
     class="form-control"
     placeholder="Username"
     ng-model="vm.user.username">
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text"
+    class="form-control"
+    placeholder="example@email.com"
+    ng-model="vm.user.email">
   </div>
   </p>
   <div class="form-group">
@@ -48,7 +48,7 @@
     ng-model="vm.user.confirmpassword">
   </div>
   <!-- PHOTO UPLOAD-->
-  <label>  Upload profile photo:</label>
+  <label>  Upload profile photo</label>
   <button class="btn btn-default" value="Input" ng-click="vm.pickFile()">Upload</button>
   <h2>{{vm.file.filename}}</h2>
   <img ng-src="{{vm.file.url | fpConvert:{w: 400} }}"/>
@@ -56,8 +56,21 @@
     <!-- LOGIN BUTTON-->
   <input type="submit"
   class="btn btn-primary btn-block"
-  value="Register" ng-click="vm.register()">
+  value="Sign Up" ng-click="vm.register()">
   <div class="form-group">
     Already have an account? <a ui-sref="Login" style="float:;">Log In!</a>
   </div>
 </form>
+
+
+<!-- FOOTER-->
+
+<footer>
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="text-center">
+      <br> © Copyright 2016 Enterview. Website Created by Brionna White.
+      </p>
+    </div>
+  </div>
+</footer>

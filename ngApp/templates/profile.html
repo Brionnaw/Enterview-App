@@ -21,7 +21,7 @@
   <div class="row panel panel-default profileComments">
     <div class="col-sm-7 panel-body ">
         <table class="table">
-          <h4>My profile:</h4>
+          <h4>My profile</h4>
           <div ng-repeat="p in vm.posts track by $index ">
             <div class="row panel panel-default">
               <div class="col-sm-6 panel-body">
@@ -55,37 +55,57 @@
               </div>
               <div class="col-sm-6 profileComments">
                 <div>
-                  Type of interview: {{p.interviewType}}
+                  <strong>Type of interview:</strong>
+                  <br>{{p.interviewType}}
 
                 </div>
 
                 <div>
-                  Website url: {{p.companyDomain}}
+                <strong> Website url:</strong>
+                <br>{{p.companyDomain}}
 
                 <div>
-                  Position Title: {{p.positionTitle}}
+                <strong>  Position Title: </strong>
+                <br>{{p.positionTitle}}
                 </div>
 
                 <div>
-                  Interview Question #1:   {{p.question.one}}
+                  <strong>Interview Question #1: </strong>
+                  <br>{{p.question.one}}
                 </div>
 
                 <div>
-                  Interview Question #2: {{p.question.two}}
+                <strong>  Interview Question #2: </strong>
+                <br>{{p.question.two}}
                 </div>
                 <div>
-                  Interview Question #3: {{p.question.three}}
+                <strong>  Interview Question #3:</strong>
+                <br> {{p.question.three}}
                 </div>
                 <div>
-                  Interview Question #4: {{p.question.four}}
+                <strong>  Interview Question #4: </strong>
+                <br>{{p.question.four}}
                 </div>
                 <div>
-                  Interview Question #5: {{p.question.five}}
+                <strong>  Interview Question #5:</strong>
+                <br> {{p.question.five}}
                 </div>
                 <div>
-                  Additional Comments: {{p.question.six}}
+                <strong>  Additional Comments: </strong>
+                <br>{{p.question.six}}
                 </div>              </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- FOOTER-->
+
+      <footer>
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="text-center">
+            <br> © Copyright 2016 Enterview. Website Created by Brionna White.
+            </p>
+          </div>
+        </div>
+      </footer>

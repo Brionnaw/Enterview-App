@@ -49,11 +49,11 @@ i:hover{
 }
 
 .homeBackground {
-  padding:60px 70px 80px 80px;
+  padding:50px 70px 80px 80px;
 }
 
 .homePhoto {
-  padding: 10px 0px 0px 0px;
+  padding: 10px 10px 0px 0px;
   margin: 10px;
 
 }
@@ -74,7 +74,7 @@ i:hover{
 }
 
 .profileBackground {
-  padding:130px 70px 80px 80px;
+  padding:120px 70px 80px 80px;
   background: #d5d5d5;
 }
 
@@ -85,7 +85,6 @@ i:hover{
 }
 .feedBackground {
   padding:130px 70px 80px 80px;
-  background: #d5d5d5;
 }
 .loginPage {
   margin:150px 300px 300px 280px;
@@ -96,4 +95,11 @@ i:hover{
   margin:150px 300px 300px 280px;
   padding:50px 70px 80px 80px;
   background: #d5d5d5;
+}
+.createPostPage {
+  padding:70px 70px 80px 80px;
+}
+.editPhoto {
+  padding:70px 70px 80px 80px;
+
 }

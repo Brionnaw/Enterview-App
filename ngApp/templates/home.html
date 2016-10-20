@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">Home</a>
+        <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">{{vm.username}}</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
@@ -18,14 +18,19 @@
 
 <!-- SECTION-->
 <div class="homeBackground">
+  <div class="row">
+
   <center>
     <h2>
       <!-- Hello,  {{vm.username}} ! -->
     </h2>
     </center>
 <div class="col-sm-12">
-  <center>  <p><h4>THANK YOU FOR CHOOSING ENTERVIEW</h4></p></center>
+  <center>  <p><h4>THANK YOU FOR CHOOSING ENTERVIEW!</h4></p></center>
 </div>
+<div class="col-sm-12">
+  <center><p> Our system is designed to make you more than prepared for your big day. Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
+  </center></div>
 <div class="row homeBackground">
   <div class="col-sm-12 homePhoto">
     <div class="col-sm-3 panel panel-default">
@@ -53,35 +58,35 @@
        </tr>
      </table>
     </div>
-    <div class="col-sm-3">
-      <strong>Welcome {{vm.username}},</strong>
-      <p> Our system is designed to make you more than prepared for your big day. Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
-      To get started:
-      Before your interview take a look at our "Polish up for your interview" tab and find a list of 51 questions you should be asking during your interview.
 
+    <div class="col-sm-3">
+      Welcome <strong>{{vm.username}}</strong>!
+    <br><h4>  To get started:</h4>
     </p>
     </div>
     <div class="col-sm-3">
-      <p>Click "Research Company" and fill in Company Name and Comany Website. Our system will give you real company data information.
+      <p>Click "Research Company" and fill in Company Name and Comapny Website. Our system will give you real company data information.
       <a class="label label-default" ui-sref="SearchCompany">Research Company</a></p>
     </div>
     <div class="col-sm-3">
-    <p>  Click "View Interview Tips" and you will find expert advice and a list of 51 questions you should be asking during your interview.
-      <a class="label label-default" ui-sref="InterviewTips">View interview tips</a>
+    <p>  Click "Interview Tips" and you will find expert advice and a list of 51 questions you should be asking during your interview.
+      <br><a class="label label-default" ui-sref="InterviewTips">Interview tips</a>
     </p>
 
     </div>
   </div>
 </div>
 </div>
+</div>
 
 <!-- FOOTER-->
-  <footer>
-    <div class="row">
-      <div class="col-sm-12">
-        <p class="text-center">
-        <br> © 2016 Brionna White
-        </p>
-      </div>
+
+<footer>
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="text-center">
+      <br> © Copyright 2016 Enterview. Website Created by Brionna White.
+      </p>
     </div>
-  </footer>
+  </div>
+</footer>
