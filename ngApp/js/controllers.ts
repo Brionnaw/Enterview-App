@@ -6,6 +6,8 @@
     public photoUrl;
     public username;
     public interviewVideo;
+    public payload;
+    public user;
     // logout in home.html
     public logout(){
       window.localStorage.removeItem('token');
@@ -17,14 +19,16 @@
         this.fileUploaded.bind(this)
       );
     }
+
     public fileUploaded(file) {
-      console.log(file)
       let fileInfo = {
         url:file.url,
         id:this.id
       }
-      console.log(fileInfo)
       this.userService.updateUserImage(fileInfo).then((res) => {
+        this.$state.go('Home').then (() => {
+          location.reload();
+        })
       })
     }
     constructor(
@@ -32,18 +36,13 @@
       private userService: app.Services.UserService,
       public $stateParams: ng.ui.IStateParamsService,
       private filepickerService,
-      private $scope: ng.IScope
+      public $scope: ng.IScope,
     ) {
       let token = window.localStorage["token"];
       let payload = JSON.parse(window.atob(token.split('.')[1]));
-      if(token) {
-        this.username = payload.username
-        this.id = payload.id,
-        this.photoUrl = payload.photoUrl
-        console.log('logged in')
-      } else {
-        this.$state.go('Login')
-      }
+        this.id = payload.id;
+        this.user = this.userService.getUser();
+
     }
   }
   //LOGIN USER IN LOGIN.HTML
@@ -89,6 +88,7 @@
       });
     }
     public pickFile() {
+
       this.filepickerService.pick(
         { mimetype: 'image/*' },
         this.fileUploaded.bind(this)
@@ -113,7 +113,11 @@
   }
   export class LandingPageController {
     public loggedIn;
-    constructor(){
+    constructor(
+      private userService: app.Services.UserService,
+
+    ){
+
       let token = window.localStorage["token"];
       if(token){ // does this variable 'token' exist? "truthy statement"
       this .loggedIn = true

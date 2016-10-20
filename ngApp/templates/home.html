@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">{{vm.username}}</a>
+        <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">{{vm.user[0].username}}</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
@@ -41,14 +41,14 @@
       <i> <span
       ui-sref="Profile"
       class="profilePhoto">
-      <img ng-src="{{vm.photoUrl}}"
-      class="profilePhoto"
-      width="170"
-       height="200"
-      alt="portfolio-photo"/>
+      <img ng-src="{{vm.user[0].photoUrl}}"
+        class="profilePhoto"
+        width="170"
+        height="200"
+        alt="portfolio-photo"/>
     </span> </i>
     <div>
-  <center> <h5> @{{vm.username}}</h5></center>
+  <center> <h5> @{{vm.user[0].username}}</h5></center>
   </div>
        <tr>
          <td>

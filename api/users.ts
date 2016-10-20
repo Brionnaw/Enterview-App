@@ -89,6 +89,7 @@ router.post('/users/register', function(req, res) {
 
   //UPDATE photo
 router.post('/users/photo', function(req, res) {
+  console.log(req.body)
   User.findByIdAndUpdate(req.body.id, {$set:{photoUrl: req.body.url}}, (err, user) => {
       if (err) {
          console.log(err);
@@ -100,6 +101,18 @@ router.post('/users/photo', function(req, res) {
      });
 
 })
+
+//Current User
+router.get('/users/currentUser/:id', function(req, res) {
+    User.findOne({_id:req.params["id"]}).then(function (user) {
+      console.log(user)
+      res.send([user])
+    })
+
+})
+
+
+
 
     // export router
     export = router;

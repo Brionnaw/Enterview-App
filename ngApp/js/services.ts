@@ -4,6 +4,8 @@
     public RegisterResource;
     public LoginResource;
     public PhotoResource;
+    public CurrentUserResource;
+    public currentUser;
       public login(user){
         return this.LoginResource.save(user).$promise;
       }
@@ -13,12 +15,23 @@
       public updateUserImage(url){
         return this.PhotoResource.save(url).$promise
       }
-      constructor(
+      public getCurrentUser(id){
+        return this.CurrentUserResource.query({id:id})
+      }
+      public getUser(){
+        return this.currentUser
+      }
+      public constructor(
         $resource:ng.resource.IResourceService
       ){
         this.RegisterResource = $resource('api/users/register');
         this.LoginResource = $resource('api/users/login');
         this.PhotoResource = $resource('api/users/photo');
+        this.CurrentUserResource = $resource('api/users/currentUser/:id');
+        let token = window.localStorage["token"];
+        let payload = JSON.parse(window.atob(token.split('.')[1]));
+        this.currentUser = this.getCurrentUser(payload.id);
+        console.log(this.currentUser)
       }
   }
   // Feed service for post.ts
@@ -52,6 +65,7 @@
     constructor(
       private $resource: ng.resource.IResourceService
     ){
+
       this.FeedResource = $resource('api/posts/feed/:id');
       this.PostResource = $resource('api/posts/company/:name');
 
