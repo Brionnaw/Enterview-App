@@ -45,17 +45,19 @@ i:hover{
 
 .interViewTipsBackground {
   padding:130px 70px 80px 80px;
-  background: #d5d5d5;
+  background: #f7f7fa;
 }
 
 .homeBackground {
   padding:50px 70px 80px 80px;
+  background: #f7f7fa;
+
 }
 
 .homePhoto {
   padding: 10px 10px 0px 0px;
   margin: 10px;
-  background: lightgray;
+  background: f7f7fa;
 
 }
 .profilePhoto {
@@ -66,7 +68,7 @@ i:hover{
 
 .researchCompany {
   padding:130px 70px 80px 80px;
-  background: #d5d5d5;
+  background: #f7f7fa;
 }
 
 .glassdoorPage {
@@ -76,15 +78,16 @@ i:hover{
 
 .profileBackground {
   padding:120px 70px 80px 80px;
-  background: #d5d5d5;
+  background: #f7f7fa;
 }
 
 
 .profileComments {
- margin:;
- padding: 20px;
- background-color: #white;
-}
+margin-top: 0px;
+ padding: 0px;
+ background-color: f7f7fa;
+ }
+
 .feedBackground {
   padding:120px 70px 80px 80px;
   background: #d5d5d5;
@@ -104,9 +107,25 @@ i:hover{
   padding:70px 70px 80px 80px;
 }
 .editPhoto {
-  padding:70px 70px 80px 80px;
+  padding:150px 200px 200px 200px;
+  background-color: #f7f7fa;
 
 }
 .editPost{
   padding:30px 50px 50px 50px;
+}
+.card {
+  background-color: #ffffff;
+    box-shadow: 4px 4px 2px #C5C5C5;
+    margin: 0 20px 20px 20px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+
+.top-spacer{
+  margin: 20px;
+}
+.homeBio{
+  margin:15%;
+
 }

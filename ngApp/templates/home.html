@@ -18,7 +18,7 @@
 
 <!-- SECTION-->
 <div class="homeBackground">
-  <div class="row">
+  <div class="row homeBio">
 
   <center>
     <h2>
@@ -34,8 +34,35 @@
       <p> Our system is designed to make you more than prepared for your big day. Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
     </p>  </center>
   </div>
-  </div>
-<div class="row homeBackground">
+
+<div class="col-sm-5 ">
+<div class="row card">
+<div class="col-xs-10 col-xs-offset-1 ">
+  <span
+  ui-sref="Profile"
+  class="profilePhoto">
+  <img ng-src="{{vm.user[0].photoUrl}}"
+    class="profilePhoto"
+    width="170"
+    height="200"
+    alt="portfolio-photo"/>
+</div>
+<div class="col-xs-8 col-xs-offset-2">
+<div class="row top-spacer">
+
+
+<div>
+<center> <h5> @{{vm.user[0].username}}</h5></center>
+</div>
+     <p>
+   </p>
+       <p class="text-center">
+         <button class="btn btn-info"  ui-sref="EditProfile">Edit Photo</button>
+       </p>
+</div>
+</div>
+</div>
+<!-- <div class="row homeBackground">
   <div class="col-sm-12 homePhoto">
     <div class="col-sm-3">
       <i> <span
@@ -46,40 +73,27 @@
         width="170"
         height="200"
         alt="portfolio-photo"/>
-    </span> </i>
-    <div>
-  <center> <h5> @{{vm.user[0].username}}</h5></center>
-  </div>
-       <tr>
-         <td>
-           <p>
-       </p>
-           <p class="text-center">
-             <button class="btn btn-link btn-sm"  ui-sref="EditProfile">Edit Photo</button>
-           </p>
-         </td>
-       </tr>
-    </div>
+    </span> </i> -->
 
-    <div class="col-sm-3">
+
+    </div>
+    <div class="col-sm-12">
     <h4>  To get started:</h4>
     </p>
-    </div>
-    <div class="col-sm-3 ">
+
+    <div class="col-sm-6 ">
       <p>Click "Research Company" and fill in Company Name and Comapny Website. Our system will give you real company data information.
       <a class="label label-default" ui-sref="SearchCompany">Research Company</a></p>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-6">
     <p>  Click "Interview Tips" and you will find expert advice and a list of 51 questions you should be asking during your interview.
-      <br><a class="label label-default" ui-sref="InterviewTips">Interview Tips</a>
+      <a class="label label-default" ui-sref="InterviewTips">Interview Tips</a>
     </p>
 
     </div>
   </div>
 </div>
-</div>
-</div>
-
+  </div>
 <!-- FOOTER-->
 
 <footer>
