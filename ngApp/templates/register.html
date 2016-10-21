@@ -8,7 +8,7 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="Login">Login</a></li>
+        <li><a ui-sref="Login">Log in</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -17,7 +17,7 @@
 <!--section-->
 
 <form class="col-sm-6 col-sm-offset-3 registerPage">
-  <h3 class="page-header text-center">Sign Up</h3>
+  <h3 class="page-header text-center">Sign up</h3>
   <div class="form-group">
     <label>Username</label>
     <input type="text"
@@ -49,28 +49,15 @@
   </div>
   <!-- PHOTO UPLOAD-->
   <label>  Upload profile photo</label>
-  <button class="btn btn-default" value="Input" ng-click="vm.pickFile()">Upload</button>
+  <button class="btn btn-default fa fa-upload" value="Input" ng-click="vm.pickFile()"></button>
   <h2>{{vm.file.filename}}</h2>
   <img ng-src="{{vm.file.url | fpConvert:{w: 400} }}"/>
 
     <!-- LOGIN BUTTON-->
   <input type="submit"
   class="btn btn-success btn-block"
-  value="Sign Up" ng-click="vm.register()">
+  value="Sign up" ng-click="vm.register()">
   <div class="form-group">
-    Already have an account? <a ui-sref="Login" style="float:;">Log In!</a>
+    Already have an account? <a ui-sref="Login" style="float:;">Log in</a>
   </div>
 </form>
-
-
-<!-- FOOTER-->
-
-<footer>
-  <div class="row">
-    <div class="col-sm-12">
-      <p class="text-center">
-      <br> © Copyright 2016 Enterview. Website Created by Brionna White.
-      </p>
-    </div>
-  </div>
-</footer>
