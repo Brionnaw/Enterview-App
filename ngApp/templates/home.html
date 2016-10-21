@@ -11,8 +11,8 @@
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 
@@ -48,13 +48,14 @@
           width="250"
           height="250"
           alt="portfolio-photo"/>
+        </span>
           <center>
             <h5>
               @{{vm.user[0].username}}
             </h5>
           </center>
             <p class="text-center">
-              <button class="btn btn-info homeIcon"  ui-sref="EditProfile"> Edit Photo</button>
+              <a class="btn btn-info homeIcon" ui-sref="EditProfile"> Edit Photo </a>
             </p>
           </div>
         <div class="col-sm-4 ">

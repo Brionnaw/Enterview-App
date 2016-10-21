@@ -1,6 +1,4 @@
 <!-- NAVIGATION BAR -->
-
-
 <nav class="navbar navbar-default navbar-fixed-top">
   <div>
     <div class="container-fluid">
@@ -13,17 +11,13 @@
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
-
-
-
 
 <!-- PAGE FOR EDITCONTROLLER: UPDATE()-->
 <form>
   <div class="editPost">
-
   </div>
   <div class="rows">
     <div class="col-xs-12">
@@ -32,10 +26,10 @@
       </div>
       <!-- TYPE OF QUESTION EDIT INPUT FIELD-->
       <div class="col-xs-3">
-        <br>
-        <br>
+        <br/>
+        <br/>
           Type of interview:
-      <br>
+        <br/>
         <label class="radio-inline">
           <input
             type="radio"
@@ -43,9 +37,9 @@
             id="inlineRadio1"
             ng-model="inputOne"
             ng-click="vm.check('one')">
-              Phone Screen
+            Phone Screen
         </label>
-      <br>
+        <br/>
         <label class="radio-inline">
           <input
             type="radio"
@@ -53,73 +47,97 @@
             id="inlineRadio2"
             ng-model="inputTwo"
             ng-click="vm.check('two')">
-              In-Person 1:1
+            In-Person 1:1
         </label>
-      <br>
+        <br/>
         <label class="radio-inline">
           <input
             type="radio"
             name="inlineRadioOptions"
             id="inlineRadio3"
             ng-model="inputTwo"
-            ng-click="vm.check('three')">
-              Group/Panel
+            ng-click="vm.check('three')"/>
+            Group/Panel
         </label>
-
         <!-- INTEVIEW QUESTIONS EDIT INPUT -->
         <form>
+          <br/>
+          <br/>
+          Website url:
+          <br/>
+          <input
+            type="text"
+            name="companyDomaindomain"
+            id="companyDomain"
+            ng-model="vm.companyDomain"/>
+          <br/>
+          <br/>
+          Position  title:
+          <br/>
+          <input
+            type="text"
+            name=""
+            id="email"
+            ng-model="vm.position"/>
+          <br/>
+          <br/>
+          Interview question #1:
+          <input type="text"
+            name="post"
+            id="post"
+            ng-model="vm.postOne" >
+          <br/>
+          <br/>
+          Interview question #2
+          <input
+            type="text"
+            name="post"
+            id="post"
+            ng-model="vm.postTwo" >
+          <br/>
+          <br/>
+          Interview question #3
+          <input
+            type="text"
+            name="post"
+            id="post"
+            ng-model="vm.postThree" >
+          <br/>
+          <br/>
+          Interview question #4
+          <input
+            type="text"
+            name="post"
+            id="post"
+            ng-model="vm.postFour" >
+          <br/>
+          <br/>
+           Interview question #5
+           <input
+            type="text"
+            name="post"
+            id="post"
+            ng-model="vm.postFive" >
+          <br/>
+          <br/>
+          Additional Comments:
+          <textarea
+            name="comments"
+            id="comments"
+            cols="25"
+            rows="3"
+            ng-model="vm.postSix" >
+          </textarea>
+          <!-- EDIT BUTTON-->
           <br>
           <br>
-            Website url:
-          <br>
-            <input
-              type="text"
-              name="companyDomaindomain"
-              id="companyDomain"
-              ng-model="vm.companyDomain"/>
-          <br>
-          <br>
-            Position  title:
-          <br>
-            <input
-              type="text"
-              name=""
-              id="email"
-              ng-model="vm.position">
-
-
-          <br><br>  Interview question #1:  <input type="text" name="post" id="post" ng-model="vm.postOne" >
-          <br><br>  Interview question #2   <input type="text" name="post" id="post" ng-model="vm.postTwo" >
-          <br><br>  Interview question #3   <input type="text" name="post" id="post" ng-model="vm.postThree" >
-          <br><br>  Interview question #4   <input type="text" name="post" id="post" ng-model="vm.postFour" >
-          <br><br>  Interview question #5   <input type="text" name="post" id="post" ng-model="vm.postFive" >
-          <br>
-          <br>
-            Additional Comments:
-            <textarea
-              name="comments"
-              id="comments"
-              cols="25"
-              rows="3"
-              ng-model="vm.postSix" >
-            </textarea>
-            <!-- EDIT BUTTON-->
-            <br><br><button class="btn btn-primary btn-sm" ng-click="vm.update()">Edit post</button>
-      </form>
-
-      </div>
-      <div class="col-xs-3">
-      </div>
-      <div class="col-xs-3">
+          <button class="btn btn-primary btn-sm" ng-click="vm.update()"> Edit post </button>
+        </form>
+        </div>
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-3">
+        </div>
       </div>
     </div>
-  </div>
-
-
-     </div>
-   </form>
-
-
- </div>
-
- 
+</form>

@@ -11,59 +11,113 @@
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </div>
+    </div>
 </nav>
 
 <!-- SECTION-->
 <div class="interViewTipsBackground">
-<div class="row">
-  <div class="col-sm-12">
-  <h3><b>Review</b></h3>
-    <hr>
-    <div class="col-sm-6">
-        <!-- company ratings review-->
-        <img ng-src="{{vm.employer.squareLogo}}" width-"100" height="100" alt="{{vm.employer.name}}">
-        <br><b>Name:</b> {{vm.employer.name}}
-        <br><b>Website url:</b> {{vm.employer.website}}
-        <br><b>Industry:</b> {{vm.employer.industry}}
-        <br><b>Overall Ratings:</b> {{vm.employer.overallRating}}
-        <br><b>Rating Description:</b> {{vm.employer.ratingDescription}}
-        <br><b>Culture And Values Rating:</b> {{vm.employer.cultureAndValuesRating}}
-        <br><b>Senior Leadership Rating:</b> {{vm.employer.seniorLeadershipRating}}
-        <br><b>Compensation And Benefits Rating:</b> {{vm.employer.compensationAndBenefitsRating}}
-        <br><b>Work Life Balance Rating:</b> {{vm.employer.workLifeBalanceRating}}
-        <br><b>Recommend To FriendRating:</b> {{vm.employer.recommendToFriendRating}}
-        <br><b>Sector Name:</b> {{vm.employer.sectorName}}
-        <br><b>Industry Name:</b> {{vm.employer.industryName}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>
+        <strong>Review</strong>
+      </h3>
+      <hr>
+        <!-- COMPANY REVIEW -->
+      <div class="col-sm-6">
+        <img ng-src="{{vm.employer.squareLogo}}" width-"100" height="100" alt="{{vm.employer.name}}"/>
+          <br/>
+          <strong>Name:</strong>
+          {{vm.employer.name}}
+          <br/>
+          <strong>Website url:</strong>
+          {{vm.employer.website}}
+          <br/>
+          <strong>Industry:</strong>
+          {{vm.employer.industry}}
+          <br/>
+          <strong>Overall Ratings:</strong>
+          {{vm.employer.overallRating}}
+          <br/>
+          <strong>Rating Description:</strong>
+          {{vm.employer.ratingDescription}}
+          <br/>
+          <strong>Culture And Values Rating:</strong>
+          {{vm.employer.cultureAndValuesRating}}
+          <br/>
+          <strong>Senior Leadership Rating:</strong>
+          {{vm.employer.seniorLeadershipRating}}
+          <br/>
+          <strong>Compensation And Benefits Rating:</strong>
+          {{vm.employer.compensationAndBenefitsRating}}
+          <br/>
+          <strong>Work Life Balance Rating:</strong>
+          {{vm.employer.workLifeBalanceRating}}
+          <br/>
+          <strong>Recommend To FriendRating:</strong>
+          {{vm.employer.recommendToFriendRating}}
+          <br/>
+          <strong>Sector Name:</strong>
+          {{vm.employer.sectorName}}
+          <br/>
+          <strong>Industry Name:</strong>
+          {{vm.employer.industryName}}
+        </div>
+        <!--ceo rating-->
+        <div class="col-sm-6">
+          <br/>
+          <img ng-src="{{vm.employer.ceo.image.src}}" width="100" height="100" alt="{{vm.employer.ceo.name}}"/>
+          <br/>
+          <strong>Name:</strong>
+          {{vm.employer.ceo.name}}
+          <br/>
+          <strong>Title:</strong>
+          {{vm.employer.ceo.title}}
+          <br/>
+          <strong>Number Of Ratings:</strong>
+          {{vm.employer.ceo.numberOfRatings}}
+          <br/>
+          <strong>Percentage Approve:</strong>
+          {{vm.employer.ceo.pctApprove}}%
+          <br/>
+          <strong>Percentage Disapprove:</strong>
+          {{vm.employer.ceo.pctDisapprove}}%
+        </div>
     </div>
-    <div class="col-sm-6">
-      <!--ceo rating-->
-       <br><img ng-src="{{vm.employer.ceo.image.src}}" width="100" height="100" alt="{{vm.employer.ceo.name}}">
-      <br><b>Name:</b> {{vm.employer.ceo.name}}
-      <br><b>Title:</b> {{vm.employer.ceo.title}}
-      <br><b>Number Of Ratings:</b> {{vm.employer.ceo.numberOfRatings}}
-      <br><b>Percentage Approve:</b> {{vm.employer.ceo.pctApprove}}%
-      <br><b>Percentage Disapprove:</b> {{vm.employer.ceo.pctDisapprove}}%
-    </div>
-  </div>
   <!-- featured reviews-->
   <div class="col-sm-12">
     <div class="col-sm-10">
-    <h3><b>Featured Review</b></h3>
-    <hr>
-    <b>Job Title:</b> {{vm.employer.featuredReview.jobTitle}}
-    <br><b>Location:</b> {{vm.employer.featuredReview.location}}
-    <br><b>Headline:</b> {{vm.employer.featuredReview.headline}}
-    <br><b>Pros:</b> {{vm.employer.featuredReview.pros}}
-    <br><b>Cons:</b> {{vm.employer.featuredReview.cons}}
-    <br><b>Overall:</b> {{vm.employer.featuredReview.overall}}
-    <br><b>Featured Review url </b>  <a href="{{vm.employer.featuredReview.attributionURL}}">{{vm.employer.featuredReview.attributionURL}}</a>
-    <a ng-show="companyData" ui-sref="Search Company"> < Company results </a>
-
+      <h3>
+        <strong>Featured Review</strong>
+      </h3>
+      <hr>
+      <strong>Job Title:</strong>
+      {{vm.employer.featuredReview.jobTitle}}
+      <br/>
+      <strong>Location:</strong>
+      {{vm.employer.featuredReview.location}}
+      <br/>
+      <strong>Headline:</strong>
+      {{vm.employer.featuredReview.headline}}
+      <br/>
+      <strong>Pros:</strong>
+      {{vm.employer.featuredReview.pros}}
+      <br/>
+      <strong>Cons:</strong>
+      {{vm.employer.featuredReview.cons}}
+      <br/>
+      <strong>Overall:</strong>
+      {{vm.employer.featuredReview.overall}}
+      <br/>
+      <strong>Featured Review url </strong>
+      <a href="{{vm.employer.featuredReview.attributionURL}}">
+        {{vm.employer.featuredReview.attributionURL}}
+      </a>
+      <!-- COMPANY RESULT LINK-->
+      <a ng-show="companyData" ui-sref="Search Company"> < Company results </a>
+    </div>
+    </div>
+    <div class="col-sm-2">
+    </div>
   </div>
-  </div>
-  <div class="col-sm-2">
-  </div>
-</div>
 </div>

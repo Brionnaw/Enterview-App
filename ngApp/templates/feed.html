@@ -11,84 +11,74 @@
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
-
-
-
-
-
 
 <!-- SECTION-->
 <div class="feedBackground">
-<h2 class="text-center">{{vm.companyName}}'s reviews</h2>
-<hr>
+  <h2 class="text-center">{{vm.companyName}}'s reviews</h2>
+  <hr>
   <div ng-repeat="p in vm.posts track by $index">
-  <div class="row profileComments">
-    <div class="col-sm-10 col-sm-offset-1 panel-body ">
-
-            <div class="row panel panel-defaultt">
-              <div class="col-sm-3 panel-body">
-                <div>
-                  <img ng-src="{{p.authorPhoto}}" width="100" height="100"/>
-                </div>
-                <div>
-                  <p>
+    <div class="row profileComments">
+      <div class="col-sm-10 col-sm-offset-1 panel-body ">
+        <div class="row panel panel-defaultt">
+          <div class="col-sm-3 panel-body">
+            <div>
+              <img ng-src="{{p.authorPhoto}}" width="100" height="100"/>
+            </div>
+            <div>
+              <p>
                 <em>  @{{p.author}}</em>
-                  </p>
-                </div>
-                <div>
-              <strong>    {{p.dateCreated  | date: 'short'}} </strong>
-              <!-- this filter shortens time format -->
+              </p>
             </div>
-
-              </div>
-              <!--Posts -->
-              <div class="col-sm-9 profileComments">
-                <div>
-                  <strong>Type of interview:</strong>
-                  {{p.interviewType}}
-                </div>
-                <div>
-                <strong> Website url:</strong>
-                {{p.companyDomain}}
-              </div>
-                <div>
-                <strong>  Position Title: </strong>
-                {{p.positionTitle}}
-                </div>
-                <div>
-                  <strong>Interview Question #1: </strong>
-                {{p.question.one}}
-                </div>
-                <div>
-                <strong>  Interview Question #2: </strong>
-                {{p.question.two}}
-                </div>
-                <div>
-                <strong>  Interview Question #3:</strong>
-                 {{p.question.three}}
-                </div>
-                <div>
-                <strong>  Interview Question #4: </strong>
-                {{p.question.four}}
-                </div>
-                <div>
-                <strong>  Interview Question #5:</strong>
-                {{p.question.five}}
-                </div>
-                <div>
-                <strong>  Additional Comments: </strong>
-                {{p.question.six}}
-                </div>
-              </div>
+            <div>
+              <strong>    {{p.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
             </div>
-            <button  class="btn btn-primary" ui-sref="CreatePost({info:vm.companyName})">Create Review</button>
           </div>
+          <!--Posts -->
+          <div class="col-sm-9 profileComments">
+            <div>
+              <strong>Type of interview:</strong>
+              {{p.interviewType}}
+            </div>
+            <div>
+              <strong> Website url:</strong>
+              {{p.companyDomain}}
+            </div>
+            <div>
+              <strong>  Position Title: </strong>
+              {{p.positionTitle}}
+            </div>
+            <div>
+              <strong>Interview Question #1: </strong>
+              {{p.question.one}}
+            </div>
+            <div>
+              <strong>  Interview Question #2: </strong>
+              {{p.question.two}}
+            </div>
+            <div>
+              <strong>  Interview Question #3:</strong>
+              {{p.question.three}}
+            </div>
+            <div>
+              <strong>  Interview Question #4: </strong>
+              {{p.question.four}}
+            </div>
+            <div>
+              <strong>  Interview Question #5:</strong>
+              {{p.question.five}}
+            </div>
+            <div>
+              <strong>  Additional Comments: </strong>
+              {{p.question.six}}
+            </div>
           </div>
         </div>
+        <!-- CREATE REVIEW BUTTON -->
+        <button  class="btn btn-primary" ui-sref="CreatePost({info:vm.companyName})">Create Review</button>
       </div>
     </div>
-
-<!-- CREATE POST BUTTON -->
+  </div>
+</div>

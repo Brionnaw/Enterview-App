@@ -11,104 +11,130 @@
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 
 <!--SECTION-->
-
-<!--this page return a $state back to feed.html-->
 <div class="createPostPage">
   <title>Interview Questions</title>
-<div class="rows">
-  <div class="col-xs-12">
-    <div class="col-xs-3">
-      Answer the following questions:
-    </div>
-    <!-- TYPE OF QUESTION INPUT FIELD-->
-    <div class="col-xs-3">
-      <br>
-      <br>
-        Type of interview:
-    <br>
+  <div class="rows">
+    <div class="col-xs-12">
+      <div class="col-xs-3">
+        Answer the following questions:
+      </div>
+      <!-- TYPE OF QUESTION INPUT FIELD-->
+      <div class="col-xs-3">
+      <br/>
+      <br/>
+      Type of interview:
+      <br/>
       <label class="radio-inline">
         <input
           type="radio"
           name="inlineRadioOptions"
           id="inlineRadio1"
-          ng-click="vm.check('one')">
-            Phone Screen
+          ng-click="vm.check('one')"/>
+      Phone Screen
       </label>
-    <br>
+      <br/>
       <label class="radio-inline">
-        <input
-          type="radio"
+        <input type="radio"
           name="inlineRadioOptions"
           id="inlineRadio2"
-          ng-click="vm.check('two')">
-            In-Person 1:1
+          ng-click="vm.check('two')"/>
+        In-Person 1:1
       </label>
-    <br>
+      <br/>
       <label class="radio-inline">
         <input
           type="radio"
           name="inlineRadioOptions"
           id="inlineRadio3"
           ng-click="vm.check('three')">
-            Group/Panel
+        Group/Panel
       </label>
-      <!-- INTEVIEW QUESTIONS INPUT -->
-
+<!-- INTEVIEW QUESTIONS INPUT -->
       <form>
-        <br>
-        <br>
-          Website url:
-        <br>
-          <input
-            type="text"
-            name="companyDomaindomain"
-            id="companyDomain"
-            ng-model="vm.companyDomain"/>
-        <br>
-        <br>
-          Position  title:
-        <br>
-          <input
-            type="text"
-            name=""
-            id="email"
-            ng-model="vm.position"/>
-        <br><br>  Interview question #1:  <input type="text" name="post" id="post" ng-model="vm.post.one" />
-        <br><br>  Interview question #2   <input type="text" name="post" id="post" ng-model="vm.post.two" />
-        <br><br>  Interview question #3   <input type="text" name="post" id="post" ng-model="vm.post.three" />
-        <br><br>  Interview question #4   <input type="text" name="post" id="post" ng-model="vm.post.four" />
-        <br><br>  Interview question #5   <input type="text" name="post" id="post" ng-model="vm.post.five" />
-      <!-- <br><br>  Interview Question #6   <input type="text" name="email" id="email" ng-model="vm.post.six" />
-      <br><br>  Interview Question #7   <input type="text" name="email" id="email" ng-model="vm.post.seven" />
-      <br><br>  Interview Question #8   <input type="text" name="email" id="email" ng-model="vm.post.eight" />
-      <br><br>  Interview Question #9   <input type="text" name="email" id="email" ng-model="vm.post.nine" />
-      <br><br>  Interview Question #10  <input type="text" name="email" id="email" ng-model="vm.post.ten" /> -->
-        <br>
-        <br>
-          Additional Comments
-          <textarea
-            name="comments"
-            id="comments"
-            cols="25"
-            rows="3"
-            ng-model="vm.post.six">
-          </textarea>
-    </form>
-    <!-- SUBMIT BUTTON-->
-    <button class="btn btn-success .active" ng-click="vm.addPost()">Submit</button>
-    </div>
-    <div class="col-xs-3">
-    </div>
-    <div class="col-xs-3">
+        <br/>
+        <br/>
+        Website url:
+        <br/>
+        <input
+          type="text"
+          name="company Domain"
+          id="companyDomain"
+          ng-model="vm.companyDomain"/>
+        <br/>
+        <br/>
+        Position  title:
+        <br/>
+        <input
+          type="text"
+          name="Position titile"
+          id="email"
+          ng-model="vm.position"/>
+        <br/>
+        <br/>
+        Interview question #1:
+        <input
+          type="text"
+          name="post"
+          id="post"
+          ng-model="vm.post.one" />
+        <br/>
+        <br/>
+        Interview question #2
+        <input
+          type="text"
+          name="post"
+          id="post"
+          ng-model="vm.post.two" />
+        <br/>
+        <br/>
+        Interview question #3
+        <input
+          type="text"
+          name="post"
+          id="post"
+          ng-model="vm.post.three" />
+        <br/>
+        <br/>
+        Interview question #4
+        <input
+          type="text"
+         name="post"
+         id="post"
+         ng-model="vm.post.four" />
+        <br/>
+        <br/>
+        Interview question #5
+        <input
+          type="text"
+          name="post"
+          id="post"
+          ng-model="vm.post.five" />
+        <br/>
+        <br/>
+        Additional Comments
+        <textarea
+          name="comments"
+          id="comments"
+          cols="25"
+          rows="3"
+          ng-model="vm.post.six">
+        </textarea>
+      </form>
+      <!-- SUBMIT BUTTON-->
+      <button class="btn btn-success .active" ng-click="vm.addPost()">
+        Submit
+      </button>
+      </div>
+      <div class="col-xs-3">
+      </div>
+      <div class="col-xs-3">
+      </div>
     </div>
   </div>
-</div>
-
-
 </div>
