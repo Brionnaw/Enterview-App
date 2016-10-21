@@ -22,16 +22,23 @@
         return this.currentUser
       }
       public constructor(
-        $resource:ng.resource.IResourceService
+        $resource:ng.resource.IResourceService,
+        public $state:ng.ui.IStateService
+
       ){
         this.RegisterResource = $resource('api/users/register');
         this.LoginResource = $resource('api/users/login');
         this.PhotoResource = $resource('api/users/photo');
         this.CurrentUserResource = $resource('api/users/currentUser/:id');
         let token = window.localStorage["token"];
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        this.currentUser = this.getCurrentUser(payload.id);
-        console.log(this.currentUser)
+        if(token) {
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          this.currentUser = this.getCurrentUser(payload.id);
+          console.log(this.currentUser)
+          console.log('logged in') // redirect user to login if token is expired.
+        } else {
+          this.$state.go('Login')
+        }
       }
   }
   // Feed service for post.ts
