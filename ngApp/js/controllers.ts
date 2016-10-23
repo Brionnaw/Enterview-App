@@ -148,7 +148,6 @@
         domain: this.companyDomain
       }
     }
-
     constructor(
       private feedService: app.Services.FeedService,
       public $stateParams: ng.ui.IStateParamsService,
@@ -165,7 +164,6 @@
       }
       this.posts = this.feedService.getAllPosts(this.companyName);
       console.log(this.posts)
-
     }
   }
   //CREATE POSTS IN CREATEPOST.HTML
@@ -306,7 +304,7 @@
           tag: this.tag,
         }
         this.feedService.createPost(info).then((res) => {
-          this.$state.go('Feed')
+          this.$state.go('Profile')
         })
       } else if (this.optionTwo === 'checked'){
         console.log(this.optionTwo)
@@ -330,7 +328,7 @@
           tag: this.tag
         }
         this.feedService.createPost(info).then((res) => {
-          this.$state.go('Feed')
+          this.$state.go('Profile')
         })
       } else if(this.optionThree ==='checked'){
         console.log(this.optionThree)
@@ -354,7 +352,7 @@
           tag: this.tag
         }
         this.feedService.createPost(info).then((res) => {
-          this.$state.go('Feed')
+          this.$state.go('Profile')
         })
       }
     }

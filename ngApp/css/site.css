@@ -35,7 +35,7 @@ i:hover{
 
 .navbar {
   background: black;
- opacity: 0.7;
+  opacity: 0.7;
 }
 
 .footer {
@@ -49,9 +49,18 @@ i:hover{
 }
 
 .homeBackground {
-  padding:60px 50px 50px 50px;
+  margin:140px 50px 50px 50px;
   background: #e9ebee;
 
+}
+
+.home-bio {
+  box-shadow: 4px 4px 2px #C5C5C5;
+  margin: 40px;
+  background-color: white;
+}
+.homeIcon {
+  box-shadow: 4px 4px 2px #C5C5C5;
 }
 
 .profilePhoto {
@@ -60,21 +69,10 @@ i:hover{
 
 }
 
-.researchCompany {
+.companyBackground {
   padding:130px 70px 80px 80px;
   background: #e9ebee;
 }
-
-.glassdoorPage {
-  padding:130px 90px 80px 80px;
-  background: #e9ebee;
-}
-
-.profileBackground {
-  padding:120px 70px 80px 80px;
-  background: #e9ebee;
-}
-
 
 .profileComments {
   margin-top: 0px;
@@ -82,7 +80,7 @@ i:hover{
  background-color: #white;
  }
 
-.feedBackground {
+.pageBackground {
   padding:120px 70px 80px 80px;
   background: #e9ebee;
 
@@ -109,7 +107,7 @@ i:hover{
   padding:30px 50px 50px 50px;
 }
 .card {
-  background-color: #ffffff;
+    background-color: #ffffff;
     box-shadow: 4px 4px 2px #C5C5C5;
     margin: 0 20px 20px 20px;
     padding-bottom: 20px;
@@ -119,11 +117,18 @@ i:hover{
 .top-spacer{
   margin: 20px;
 }
-.home-bio {
-  box-shadow: 4px 4px 2px #C5C5C5;
-  margin: 0px;
-  background-color: white;
+
+
+
+/*.footer (max-width: 767px) {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 60px;
+    background-color: #e9ebee;
 }
-.homeIcon {
-  box-shadow: 4px 4px 2px #C5C5C5;
-}
+.container {
+    width: auto;
+    max-width: 680px;
+}*/
