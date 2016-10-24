@@ -1,6 +1,5 @@
 <!-- NAV SECTION -->
-<nav class="navbar navbar-default navbar-fixed-top ">
-  <div>
+<nav class="navbar navbar-default navbar-fixed-top hidden-xs">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -11,12 +10,24 @@
         <li><a ui-sref="Register">Sign up</a></li>
       </ul>
     </div>
-  </div>
 </nav>
 
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="LandingPage">ENTERVIEW </a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="Register">Sign up</a></li>
+      </ul>
+    </div>
+</nav>
 
+<div class="row">
+  <form class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 userPage">
 
-<form class="col-sm-6 col-sm-offset-3 loginPage">
   <h3 class="page-header text-center">Log in</h3>
   <div class="form-group">
     <label>Username</label>
@@ -38,4 +49,5 @@
     ng-click="vm.login()">
   Don't have an account?
   <a ui-sref="Register" style="float:;">Sign up!</a>
-</form>
+  </form>
+</div>

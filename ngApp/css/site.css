@@ -15,7 +15,10 @@ i:hover{
   color:blue;
   cursor:pointer;
 }
-
+.navbar{
+  padding-right: 25px;
+  padding-left: 25px;
+}
 .background {
   background-image: url('http://i.huffpost.com/gen/1152564/images/o-JOB-INTERVIEW-facebook.jpg');
   max-width: 100%;
@@ -85,16 +88,12 @@ i:hover{
   background: #e9ebee;
 
 }
-.loginPage {
-  margin:150px 200px 180px 280px;
+.userPage {
+  margin-top: 180px;
   padding:50px 50px 50px 50px;
   background: #e9ebee;
 }
-.registerPage  {
-  margin:150px 300px 300px 280px;
-  padding:50px 70px 80px 80px;
-  background: #e9ebee;
-}
+
 .createPostPage {
   padding:70px 70px 80px 80px;
 }
