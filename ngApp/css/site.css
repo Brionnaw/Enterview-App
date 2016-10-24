@@ -27,7 +27,6 @@ i:hover{
   opacity: 0.6;
   background-repeat: no-repeat, repeat;
   color:#000000;
-  padding: 70px 60px 70px 80px;
   font-size: 50px;
 }
 
@@ -52,7 +51,7 @@ i:hover{
 }
 
 .homeBackground {
-  margin:140px 50px 50px 50px;
+  margin:140px;
   background: #e9ebee;
 
 }

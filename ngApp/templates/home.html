@@ -1,5 +1,21 @@
-<!-- NAVIGATION BAR -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<!-- NAVIGATION BAR (desktop)-->
+<nav class="navbar navbar-default navbar-fixed-top hidden-xs">
+  <div>
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">{{vm.user[0].username}}</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
+        <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- NAVIGATION BAR (mobile)-->
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
   <div>
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,7 +35,7 @@
 <!-- SECTION-->
 <div class="homeBackground">
   <div class="row">
-    <div class="col-sm-12 ">
+    <div class="col-sm-12 col-md-12 col-xs-12 ">
         <br>
         <center>
           <p>
@@ -29,8 +45,8 @@
           </p>
         </center>
       </div>
-      <div class="col-sm-12">
-        <div class="col-sm-12 text-left">
+      <div class="col-sm-12 col-md-12 col-xs-12">
+        <div class="col-sm-12 col-md-12 col-xs-12 text-left">
           <center>
             <p> Our system is designed to make you more than prepared for your big day.
               <br>Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
@@ -39,7 +55,7 @@
         </div>
         <!-- profile photo-->
         <div class="row">
-          <div class="col-sm-4 home-bio panel panel-default">
+          <div class="col-sm-6 col-md-6 col-xs-6 home-bio panel panel-default">
             <span
             ui-sref="Profile"
             class="profilePhoto">
@@ -58,14 +74,14 @@
               <a class="btn btn-info homeIcon" ui-sref="EditProfile"> Edit Photo </a>
             </p>
           </div>
-        <div class="col-sm-4 ">
+        <div class="col-sm-3 col-md-4 col-xs-4 ">
             <h4> To get started:</h4>
             <p>
               Click <em>"Research Company"</em> and fill in Company Name and Comapny Website.
               Our system will give you real company data information.
           <h3>  <a class="label label-default fa fa-search homeIcon" ui-sref="SearchCompany"> Research Company </a><h3>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3 col-md-4 col-xs-4">
           <br><br><p>  Click <em>"Interview Tips"</em> and you will find expert advice and a list of 51 questions you should be asking during your interview.
           <h3>  <a class="fa fa-info-circle label label-default homeIcon " ui-sref="InterviewTips"> Interview Tips </a></h3>
           </p>
