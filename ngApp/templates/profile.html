@@ -37,9 +37,9 @@
   <h4 class="text-center">My Profile</h4>
   <div ng-repeat="p in vm.posts track by $index">
     <div class="row profileComments">
-      <div class="col-sm-12 col-md-12 panel-body ">
+      <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
           <div class="row panel panel-default">
-            <div class="col-sm-3 col-md-3 panel-body">
+            <div class="col-xs-12 col-sm-3 col-md-3 panel-body">
               <div>
                 <img ng-src="{{p.authorPhoto}}" width="75" height="75"/>
               </div>
@@ -76,7 +76,8 @@
                 </p>
               </div>
               <!-- PROFILE COMMENTS -->
-              <div class="col-sm-9 col-md-9 profileComments">
+              <div class="col-xs-1"></div>
+              <div class="col-xs-10 col-sm-9 col-md-9 profileComments">
                 <div>
                   <strong> Type of interview: </strong>
                   {{p.interviewType}}
@@ -114,6 +115,7 @@
                 {{p.question.six}}
               </div>
             </div>
+              <div class="col-xs-1"></div>
           </div>
         </div>
       </div>
