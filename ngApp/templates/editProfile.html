@@ -35,19 +35,19 @@
 <!--Section -->
 <div class="editPhoto">
   <div class="row panel panel-default">
-    <div class="col-sm-12 col-md-12 panel-body">
+    <div class="col-xs-12 col-sm-12 col-md-12 panel-body">
       <h2 class="text-center">Update Profile Picture</h2>
     </div>
-    <div class="col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-12">
       <!-- UPLOAD NEW PHOTO -->
-      <div class="col-sm-4 col-md-4">
+      <div class="col-xs-12 col-sm-4 col-md-4">
         <button class="btn btn-success fa fa-upload" ng-click="vm.pickFile()">Upload</button>
         <h2>{{vm.file.filename}}</h2>
         <img ng-src="{{vm.file.url | fpConvert:{w: 400} }}"/>
       </div>
-      <div class="col-sm-4 col-md-4">
+      <div class="col-xs-12 col-sm-4 col-md-4">
       </div>
-      <div class="col-sm-4 col-md-4">
+      <div class="col-xs-12 col-sm-4 col-md-4">
       </div>
     </div>
   </div>

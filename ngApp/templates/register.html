@@ -1,12 +1,10 @@
-<!-- NAV SECTION -->
+<!-- NAV SECTION (desktop)-->
 <nav class="navbar navbar-default navbar-fixed-top hidden-xs">
   <div>
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand" ui-sref="LandingPage">ENTERVIEW </a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
         <li><a ui-sref="Login">Log in</a></li>
       </ul>
@@ -14,15 +12,13 @@
   </div>
 </nav>
 
-<!-- NAV SECTION -->
+<!-- NAV SECTION (mobile) -->
 <nav class="navbar navbar-default navbar-fixed-top visible-xs">
   <div>
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand" ui-sref="LandingPage">ENTERVIEW </a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
         <li><a ui-sref="Login">Log in</a></li>
       </ul>
@@ -31,8 +27,9 @@
 </nav>
 
 <!--section-->
-
-<form class="col-sm-6 col-sm-offset-3 userPage">
+<div class="row">
+  <div class="col-xs-1 col-sm-1 col-md-3"></div>
+  <form class="col-xs-10 col-sm-10 col-md-6 userPage">
   <h3 class="page-header text-center">Sign up</h3>
   <div class="form-group">
     <label>Username</label>
@@ -78,4 +75,5 @@
   <div class="form-group">
     Already have an account? <a ui-sref="Login" style="float:;">Log in</a>
   </div>
+  <div class="col-xs-1 col-sm-1 col-md-3"></div>
 </form>
