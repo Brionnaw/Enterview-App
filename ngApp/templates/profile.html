@@ -37,30 +37,29 @@
   <h4 class="text-center">My Profile</h4>
   <div ng-repeat="p in vm.posts track by $index">
     <div class="row profileComments">
-      <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
+      <div class="col-xs-12 col-sm-12 col-md-12 panel-body">
           <div class="row panel panel-default">
             <div class="col-xs-12 col-sm-3 col-md-3 panel-body">
-              <div>
+              <div class="text-center">
                 <img ng-src="{{p.authorPhoto}}" width="75" height="75"/>
-              </div>
-              <div>
-                <p>
-                  <em> @{{p.author}}</em>
-                </p>
-              </div>
-              <div>
-                <strong>  {{p.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
-            </div>
-            <!-- DELETE BUTTON-->
-            <p
-              class="btn btn-link"
-              ng-click="vm.remove(p._id, $index) ">
-              Delete
-            </p>
-            <!-- EDIT BUTTON-->
-            <p class="btn btn-link "
-                ui-sref="EditPost
-                ({info: [p. _id,
+                <div>
+                  <p>
+                    <em> @{{p.author}}</em>
+                  </p>
+                </div>
+                <div>
+                  <strong>  {{p.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
+                </div>
+                <!-- DELETE BUTTON-->
+                <p
+                class="btn btn-link"
+                ng-click="vm.remove(p._id, $index) ">
+                Delete
+              </p>
+              <!-- EDIT BUTTON-->
+              <p
+                class="btn btn-link "
+                ui-sref="EditPost({info: [p. _id,
                   p.interviewType,
                   p.companyDomain,
                   p.positionTitle,
@@ -75,10 +74,11 @@
                   Edit
                 </p>
               </div>
-              <!-- PROFILE COMMENTS -->
-              <div class="col-xs-1"></div>
-              <div class="col-xs-10 col-sm-9 col-md-9 profileComments">
-                <div>
+            </div>
+            <!-- PROFILE COMMENTS -->
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 col-sm-9 col-md-9 profileComments">
+              <div>
                   <strong> Type of interview: </strong>
                   {{p.interviewType}}
                 </div>
