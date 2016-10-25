@@ -55,38 +55,45 @@
         </div>
         <!-- profile photo-->
         <div class="row">
-          <div class="col-sm-6 col-md-6 col-xs-6 home-bio panel panel-default">
+          <div class="col-sm-12 col-md-4 home-bio panel panel-default text-center">
             <span
             ui-sref="Profile"
             class="profilePhoto">
-          <img ng-src="{{vm.user[0].photoUrl}}"
-          class="profilePhoto"
-          width="250"
-          height="250"
-          alt="portfolio-photo"/>
-        </span>
-          <center>
+            <img
+              ng-src="{{vm.user[0].photoUrl}}"
+              class="profilePhoto"
+              width="250"
+              height="250"
+              alt="portfolio-photo"/>
+            </span>
             <h5>
               @{{vm.user[0].username}}
             </h5>
-          </center>
             <p class="text-center">
               <a class="btn btn-info homeIcon" ui-sref="EditProfile"> Edit Photo </a>
             </p>
           </div>
-        <div class="col-sm-3 col-md-4 col-xs-4 ">
-            <h4> To get started:</h4>
-            <p>
-              Click <em>"Research Company"</em> and fill in Company Name and Comapny Website.
-              Our system will give you real company data information.
-          <h3>  <a class="label label-default fa fa-search homeIcon" ui-sref="SearchCompany"> Research Company </a><h3>
-        </div>
-        <div class="col-sm-3 col-md-4 col-xs-4">
-          <br><br><p>  Click <em>"Interview Tips"</em> and you will find expert advice and a list of 51 questions you should be asking during your interview.
-          <h3>  <a class="fa fa-info-circle label label-default homeIcon " ui-sref="InterviewTips"> Interview Tips </a></h3>
-          </p>
-        </div>
+          <div class="col-sm-12 col-md-4">
+              <h4> To get started:</h4>
+              <p>
+                Click <em>"Research Company"</em> and fill in Company Name and Comapny Website.
+                Our system will give you real company data information.
+              </p>
+              <h3>
+                <a class="label label-default fa fa-search homeIcon" ui-sref="SearchCompany"> Research Company </a>
+              </h3>
           </div>
+          <div class="col-sm-12 col-md-4">
+          <br/>
+          <br/>
+          <p>
+            Click <em>"Interview Tips"</em> and you will find expert advice and a list of 51 questions you should be asking during your interview.
+            <h3>
+              <a class="fa fa-info-circle label label-default homeIcon " ui-sref="InterviewTips"> Interview Tips </a>
+            </h3>
+          </p>
+          </div>
+        </div>
       </div>
     </div>
 </div>
