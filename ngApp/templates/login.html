@@ -5,28 +5,29 @@
         <a class="navbar-brand" ui-sref="LandingPage">ENTERVIEW </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="Register">Sign up</a></li>
+        <li><a ui-sref="Register">Signup</a></li>
       </ul>
     </div>
 </nav>
 
 <!-- NAV SECTION (mobile)-->
 <nav class="navbar navbar-default navbar-fixed-top visible-xs">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="LandingPage">ENTERVIEW </a>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="Register">Sign up</a></li>
-      </ul>
+    <div class="container">
+      <div class="dropdown">
+    <span><h1> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
+    <div class="dropdown-content">
+      <p ui-sref="Register">Signup</p>
     </div>
+  </div>
+  </div>
+  </div>
 </nav>
 
 <!-- LOG IN FORM -->
 <div class="row">
   <div class="col-xs-1 col-sm-1 col-md-3"></div>
   <form class="col-xs-10 col-sm-10 col-md-6 userPage">
-    <h3 class="page-header text-center">Log in</h3>
+    <h3 class="page-header text-center">Login</h3>
     <div class="form-group">
       <label>Username</label>
       <input
@@ -47,11 +48,11 @@
   <input
     type="submit"
     class="btn btn-success btn-block"
-    value="Log in"
+    value="Login"
     ng-click="vm.login()">
     Don't have an account?
   </div>
-  <a ui-sref="Register" style="float:;">Sign up!</a>
+  <a ui-sref="Register" style="float:;">Signup!</a>
   </form>
   <div class="col-xs-1 col-sm-1 col-md-3"></div>
 </div>
