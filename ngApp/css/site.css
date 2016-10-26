@@ -140,11 +140,11 @@ i:hover{
   padding-left: 80px;
 }
 
-.editBackground{
+.editBackground {
   background-color: #e9ebee;
 
 }
-.editPost{
+.editPost {
 margin-top: 100px;
 }
 @media only screen and (max-width: 768px) {
@@ -158,11 +158,4 @@ margin-top: 100px;
     margin: 0 20px 20px 20px;
     padding-bottom: 20px;
     padding-top: 15px;
-}
-
-
-@media only screen and (max-width: 768px) {
-    .className {
-      selector: value;
-    }
 }
