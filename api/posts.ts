@@ -103,9 +103,12 @@ router.post('/posts/feed', function(req, res) {
 //GET ALL POSTS
 router.get('/posts/company/:name', function(req , res, next) {
   Company.find({companyName:req.params["name"]}).then(function(company) {
-    console.log(company)
-    req.body.companyInfo = company;
-    next('route') //middleware
+    if(company.length < 1) {
+      res.send(company);
+    } else {
+      req.body.companyInfo = company;
+      next('route') //middleware
+    }
   })
 });
 

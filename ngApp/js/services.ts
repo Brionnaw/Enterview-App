@@ -34,7 +34,6 @@
         if(token) {
           let payload = JSON.parse(window.atob(token.split('.')[1]));
           this.currentUser = this.getCurrentUser(payload.id);
-          console.log(this.currentUser)
           console.log('logged in') // redirect user to login if token is expired.
         } else {
           this.$state.go('Login')
@@ -60,7 +59,6 @@
 
     }
     public getAllPosts(companyName){
-      console.log(companyName)
       return this.PostResource.query({name:companyName});
     }
     public deletePost(id) {
@@ -72,10 +70,8 @@
     constructor(
       private $resource: ng.resource.IResourceService
     ){
-
       this.FeedResource = $resource('api/posts/feed/:id');
       this.PostResource = $resource('api/posts/company/:name');
-
     }
   }
   //Company.html
@@ -87,12 +83,10 @@
         company: companyInfo.company,
         domain: companyInfo.domain
       }
-      console.log(company)
       return this.CompanyResource.save(companyInfo).$promise
     }
 
     public glassdoor(glassdoorInfo){
-      console.log(glassdoorInfo)
       return this.GlassdoorResource.save(glassdoorInfo).$promise
     }
 

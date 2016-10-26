@@ -132,6 +132,7 @@
     public companyName;
     public companyDomain;
     public id;
+
     public remove(postId:string, index:number) {
       let answer = confirm('Are you sure you want to delete?')
       if(answer === true) {
@@ -151,19 +152,32 @@
     constructor(
       private feedService: app.Services.FeedService,
       public $stateParams: ng.ui.IStateParamsService,
-      public $state: ng.ui.IStateService
+      public $state: ng.ui.IStateService,
+      public $scope,
     ){
       if($stateParams){
         let seperate = $stateParams["info"].split(",");
         this.companyName = seperate[0]
+        console.log(this.companyName)
         this.companyDomain = seperate[1]
         let company = {
           name: this.companyName,
           domain: this.companyDomain,
         }
+        this.posts = this.feedService.getAllPosts(this.companyName);
+        console.log(this.posts.length);
+        if(this.posts.length < 1) {
+          console.log('not found');
+          this.$scope.notFound === true;
+          this.$scope.found === false;
+          this.$scope.$apply();
+        } else {
+          this.$scope.found === true;
+          this.$scope.found === false;
+          this.$scope.$apply();
+          console.log('found');
+        }
       }
-      this.posts = this.feedService.getAllPosts(this.companyName);
-      console.log(this.posts)
     }
   }
   //CREATE POSTS IN CREATEPOST.HTML
@@ -241,8 +255,7 @@
     constructor(
       private feedService: app.Services.FeedService,
       public $stateParams: ng.ui.IStateParamsService,
-      public $state: ng.ui.IStateService
-
+      public $state: ng.ui.IStateService,
     ){
       if($stateParams){
         let seperate = $stateParams["info"].split(",");
@@ -468,13 +481,16 @@
         seperated.splice(0, 1);
         seperated.unshift(result);
         let uppercaseCompany = seperated.join('')
-        console.log(uppercaseCompany)
         let info ={
           company: uppercaseCompany,
           domain: this.companyDomain
         }
         this.companyService.researchCompany(info).then((res) => {
+          if (res.message === 'company not found') {
+            alert(res.message)
+          } else {
             this.companyData = res;
+          }
         })
       }
     }
