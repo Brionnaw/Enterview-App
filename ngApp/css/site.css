@@ -97,9 +97,6 @@ i:hover{
   box-shadow: 4px 4px 2px #C5C5C5;
 }
 
-.companyBackground {
-  margin-top:130px;
-}
 
 
 .pageBackground {
@@ -151,6 +148,10 @@ margin-top: 100px;
     .editPost {
       margin-top:150px;
     }
+}
+
+.companyBackground{
+  margin:50px;
 }
 .card {
     background-color: #ffffff;

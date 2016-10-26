@@ -28,7 +28,7 @@
 </nav>
 
 <!-- SECTION -->
-<div class="companyBackground">
+<div class="createPostPage">
   <div class="row">
     <div class="col-xs-1 col-sm-1 col-md-3"></div>
     <form class="col-xs-10 col-sm-10 col-md-6">
@@ -73,61 +73,76 @@
            <hr>
          </span>
          <p>
-           <img ng-src="{{vm.companyData.logo}}"
-           ng-click="vm.goToWebsite(vm.companyData.domain)"
-           width="100"
-           length="100"
-           alt="{{vm.companyData.name}}"/>
-         </p>
-         <p>
-           <span ng-show="vm.companyData">
-             <strong>Company:</strong>
-             {{vm.companyData.name}}
-           </p>
+           <img
+            ng-src="{{vm.companyData.logo}}"
+            ng-click="vm.goToWebsite(vm.companyData.domain)"
+            width="100"
+            length="100"
+            alt="{{vm.companyData.name}}"/>
+          </p>
+          <p>
+            <span ng-show="vm.companyData">
+              <strong>Company:</strong>
+              {{vm.companyData.name}}
+            </p>
            </span>
-         <p>
-           <span ng-show="vm.companyData">
-             <strong>Approximate employees:</strong> {{vm.companyData.metrics.employees}} </p></span>
-         <p> <span ng-show="vm.companyData"> <strong>Founded Year:</strong> {{vm.companyData.foundedYear}} </p></span>
-         <p> <span ng-show="vm.companyData"> <strong>Sector:</strong> {{vm.companyData.category.sector}} </p></span>
-         <p> <span ng-show="vm.companyData"> <strong>Industry group:</strong> {{vm.companyData.category.industryGroup}} </p></span>
-         <p> <span ng-show="vm.companyData"> <strong>Industry:</strong> {{vm.companyData.category.industry}} </p> </span>
-         <p> <span ng-show="vm.companyData"> <strong>SubIndustry:</strong> {{vm.companyData.category.subIndustry}} </p> </span>
-         <p> <span ng-show="vm.companyData"> <strong>Description:</strong> <br> {{vm.companyData.description}} </p></span>
-       </div>
+           <p>
+             <span ng-show="vm.companyData">
+               <strong>Approximate employees:</strong> {{vm.companyData.metrics.employees}} </p></span>
+               <p> <span ng-show="vm.companyData"> <strong>Founded Year:</strong> {{vm.companyData.foundedYear}} </p></span>
+               <p> <span ng-show="vm.companyData"> <strong>Sector:</strong> {{vm.companyData.category.sector}} </p></span>
+               <p> <span ng-show="vm.companyData"> <strong>Industry group:</strong> {{vm.companyData.category.industryGroup}} </p></span>
+               <p> <span ng-show="vm.companyData"> <strong>Industry:</strong> {{vm.companyData.category.industry}} </p> </span>
+               <p> <span ng-show="vm.companyData"> <strong>SubIndustry:</strong> {{vm.companyData.category.subIndustry}} </p> </span>
+               <p> <span ng-show="vm.companyData"> <strong>Description:</strong> <br> {{vm.companyData.description}} </p></span>
+             </div>
        <!-- SOCIAL PROFILES SECTION -->
         <span ng-show="vm.companyData">
-            <div class="col-xs-12 col-sm-12 col-md-4">
-              <h3>
-                Social Profiles:
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <h3>
+              Social Profiles:
             </h3>
-          <hr>
-      {{vm.companyData.name}}'s  LinkedIn Profile:
-      <i class="fa fa-linkedin fa-lg" aria-hidden="true" ng-show="vm.companyData"
-      ng-click="vm.goToLinkedin(vm.companyData.linkedin.handle)">{{vm.companyData.linkedin.bio}}</i>
-
+            <hr>
+            {{vm.companyData.name}}'s  LinkedIn Profile:
+            <i
+            class="fa fa-linkedin fa-lg"
+        aria-hidden="true"
+        ng-show="vm.companyData"
+        ng-click="vm.goToLinkedin(vm.companyData.linkedin.handle)">
+        {{vm.companyData.linkedin.bio}}
+      </i>
       <br/>
       <br/>
       {{vm.companyData.name}}'s  Facebook Profile:
-      <i class="fa fa-facebook fa-lg" aria-hidden="true" ng-show="vm.companyData"
-      ng-click="vm.goToFacebook
-      (vm.companyData.facebook.handle)"></i>
-
+      <i
+        class="fa fa-facebook fa-lg"
+        aria-hidden="true"
+        ng-show="vm.companyData"
+        ng-click="vm.goToFacebook
+        (vm.companyData.facebook.handle)">
+      </i>
       <br/>
       <br/>
       {{vm.companyData.name}}'s Twitter Profile:
-      <i class="fa fa-twitter fa-lg" aria-hidden="true" ng-show="vm.companyData"
-      ng-click="vm.goToTwitter(vm.companyData.twitter.handle)"></i>
-
-    <br/>
-    <br/>
-    <i ng-show="vm.companyData" ng-click="vm.goToCrunchBase (vm.companyData.crunchbase.handle)">{{vm.companyData.name}}'s Crunchbase Profile</i>
-    <br/>
-  </div>
-</span>
-    <!-- contact section-->
-      <span ng-show="vm.companyData">
-        <div class="col-xs-12 col-sm-12 col-md-4">
+      <i
+        class="fa fa-twitter fa-lg"
+        aria-hidden="true"
+        ng-show="vm.companyData"
+        ng-click="vm.goToTwitter(vm.companyData.twitter.handle)">
+      </i>
+      <br/>
+      <br/>
+      <i
+        ng-show="vm.companyData"
+        ng-click="vm.goToCrunchBase (vm.companyData.crunchbase.handle)">
+        {{vm.companyData.name}}'s Crunchbase Profile
+      </i>
+      <br/>
+    </div>
+  </span>
+  <!-- contact section-->
+  <span ng-show="vm.companyData">
+    <div class="col-xs-12 col-sm-12 col-md-4">
       <h3>
         Contact:
       </h4>
@@ -152,6 +167,6 @@
                 </span>
             </h2>
           </div>
-    </div>
-  </div>
+        </div>
+      </div>
 </div>
