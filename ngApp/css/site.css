@@ -44,11 +44,14 @@ i:hover{
   opacity: 0.6;
   background-repeat: no-repeat, repeat;
   color:#000000;
-  font-size: 50px;
-
+  font-size:40px;
+  margin: 70px 0px 0px 0px;
+  padding: 0px 40px 0px 40px;
 }
 
-
+.profilePhoto {
+  padding: 0px 40px 0px 40px;
+}
 .about {
   background: #4e5d6c;
   font-family: #ffffff;
@@ -64,12 +67,13 @@ i:hover{
   background: #d5d5d5;
 }
 
-
-
 .homeBackground {
-  /*margin:140px;*/
-  background: #e9ebee;
+  margin:100px;
+  background-color: #e9ebee;
+}
 
+.homeBackground-mobile {
+  margin:50px
 }
 
 .home-bio {

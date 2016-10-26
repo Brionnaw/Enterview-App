@@ -1,4 +1,4 @@
-<!-- NAV SECTION -->
+<!-- NAV SECTION (desktop)-->
 <nav class="navbar navbar-default navbar-fixed-top hidden-xs">
   <div>
     <div class="container-fluid">
@@ -13,18 +13,22 @@
   </div>
 </nav>
 
-<!-- NAV SECTION -->
+<!-- NAV SECTION (table)-->
 <nav class="navbar navbar-default navbar-fixed-top visible-xs">
-  <div>
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="#">ENTERVIEW </a>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="Login">Log in</a></li>
-        <li><a ui-sref="Register">Sign Up</a></li>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="#">ENTERVIEW </a>
+    </div>
+    <div class="container">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" ui-sref="Login">Log in</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" ui-sref="Register">Sign Up</a></li>
       </ul>
     </div>
+  </div>
   </div>
 </nav>
 
