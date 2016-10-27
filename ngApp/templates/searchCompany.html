@@ -66,7 +66,6 @@
     <span ng-show="vm.companyData">
     <div class="col-xs-12 col-sm-12 col-md-12 panel">
       <div class="col-xs-12 col-sm-12 col-md-4">
-
            <h3>
              About
            </h3>
@@ -162,7 +161,7 @@
                 <span
                 ng-show="vm.companyData"
                 class="label label-primary"
-                ui-sref="Feed({info:vm.companyName})">
+                ng-click="vm.checkPosts()">
                 {{vm.companyData.name}} Interview Posts >
                 </span>
             </h2>

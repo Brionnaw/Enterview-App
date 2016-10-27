@@ -132,7 +132,7 @@
     public companyName;
     public companyDomain;
     public id;
-
+    public found;
     public remove(postId:string, index:number) {
       let answer = confirm('Are you sure you want to delete?')
       if(answer === true) {
@@ -165,17 +165,13 @@
           domain: this.companyDomain,
         }
         this.posts = this.feedService.getAllPosts(this.companyName);
-        console.log(this.posts.length);
+
+        // console.log(this.posts["0"]);
+
         if(this.posts.length < 1) {
-          console.log('not found');
-          this.$scope.notFound === true;
-          this.$scope.found === false;
-          this.$scope.$apply();
+          $scope.alert = { type: 'warning', msg: 'No posts found!' }
         } else {
-          this.$scope.found === true;
-          this.$scope.found === false;
-          this.$scope.$apply();
-          console.log('found');
+          this.found = true;
         }
       }
     }
@@ -526,8 +522,16 @@
       this.$state.go('CompanyGlassdoor')
     })
   }
+    public checkPosts(){
+      let company = {
+        company:this.companyName
+      }
+    let companyName =  this.feedService.checkCompanyPosts(company)
+      console.log(companyName)
+    }
   constructor(
     private companyService: app.Services.CompanyService,
+    private feedService: app.Services.FeedService,
     public $state:ng.ui.IStateService,
     public $window: ng.IWindowService,
     public $document,

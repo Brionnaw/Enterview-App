@@ -67,11 +67,15 @@
     public getAllProfilePosts(username){
       return this.FeedResource.query({id:username});
     }
+    public checkCompanyPosts(companyName){
+      this.PostResource.save(companyName).$promise
+    }
     constructor(
       private $resource: ng.resource.IResourceService
     ){
       this.FeedResource = $resource('api/posts/feed/:id');
       this.PostResource = $resource('api/posts/company/:name');
+
     }
   }
   //Company.html
@@ -81,7 +85,8 @@
     public researchCompany(companyInfo){
       let company = {
         company: companyInfo.company,
-        domain: companyInfo.domain
+        domain: companyInfo.domain,
+        posts:companyInfo.posts
       }
       return this.CompanyResource.save(companyInfo).$promise
     }

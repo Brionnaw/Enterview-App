@@ -35,11 +35,10 @@
 <div class="pageBackground">
   <h2 class="text-center">Reviews</h2>
   <hr>
-  <div ng-show="notFound" class="alert alert-info" role="alert">Posts Not Found!</div>
-  <div ng-repeat="p in vm.posts track by $index" ng-show="found">
+  <div uib-alert style="background-color:#fa39c3 ;color:white"> {{alert.msg}}</div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
-        <div class="row panel panel-default">
+        <div class="row panel panel-default" ng-show="vm.found">
             <div class="text-center">
           <div class="col-xs-12 col-sm-4 col-md-4 panel-body">
             <div>

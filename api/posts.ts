@@ -102,9 +102,12 @@ router.post('/posts/feed', function(req, res) {
 
 //GET ALL POSTS
 router.get('/posts/company/:name', function(req , res, next) {
+  console.log(req.params["name"])
   Company.find({companyName:req.params["name"]}).then(function(company) {
+    console.log(company)
     if(company.length < 1) {
-      res.send(company);
+      console.log('nothing found')
+      res.send(['not found']);
     } else {
       req.body.companyInfo = company;
       next('route') //middleware
@@ -127,7 +130,7 @@ router.delete('/posts/feed/:id', function (req, res) {
          res.send('success!')
        }
      });
-  });
+});
 
   // get all profile prost that arent deleted //
    router.get('/posts/feed/:id', function (req, res){
@@ -135,6 +138,17 @@ router.delete('/posts/feed/:id', function (req, res) {
        res.send(allProfilePosts);
       })
    })
+
+// check company posts
+router.post('/posts/company', function (req, res){
+  Post.find({companyName:req.body.company}).then (function(foundPosts){
+    console.log(foundPosts)
+    res.send(foundPosts)
+  })
+})
+
+
+
 
 export = router;
 
