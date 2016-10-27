@@ -141,9 +141,13 @@ router.delete('/posts/feed/:id', function (req, res) {
 
 // check company posts
 router.post('/posts/company', function (req, res){
+    console.log(req.body.company)
   Post.find({companyName:req.body.company}).then (function(foundPosts){
-    console.log(foundPosts)
-    res.send(foundPosts)
+    if(foundPosts.length < 1) {
+      res.send({message: 'false'}); // if posts are not found
+    } else {
+      res.send(foundPosts[0]);
+    }
   })
 })
 

@@ -44,6 +44,7 @@
   export class FeedService {
     public FeedResource;
     public PostResource;
+    public myPosts;
     public createPost(postData) {
       console.log(postData)
         let post = {
@@ -68,10 +69,16 @@
       return this.FeedResource.query({id:username});
     }
     public checkCompanyPosts(companyName){
-      this.PostResource.save(companyName).$promise
+
+      return this.PostResource.save(companyName).$promise
+    }
+    public savePosts(posts){
+      this.myPosts = posts;
+      this.$state.go('Feed',{info:'true'})
     }
     constructor(
-      private $resource: ng.resource.IResourceService
+      private $resource: ng.resource.IResourceService,
+      public $state: ng.ui.IStateService,
     ){
       this.FeedResource = $resource('api/posts/feed/:id');
       this.PostResource = $resource('api/posts/company/:name');

@@ -132,7 +132,9 @@
     public companyName;
     public companyDomain;
     public id;
-    public found;
+    public postFound;
+    public showPosts;
+    public notFound;
     public remove(postId:string, index:number) {
       let answer = confirm('Are you sure you want to delete?')
       if(answer === true) {
@@ -156,22 +158,17 @@
       public $scope,
     ){
       if($stateParams){
+        console.log(this.feedService.myPosts)
         let seperate = $stateParams["info"].split(",");
         this.companyName = seperate[0]
-        console.log(this.companyName)
-        this.companyDomain = seperate[1]
-        let company = {
-          name: this.companyName,
-          domain: this.companyDomain,
-        }
-        this.posts = this.feedService.getAllPosts(this.companyName);
-
-        // console.log(this.posts["0"]);
-
-        if(this.posts.length < 1) {
-          $scope.alert = { type: 'warning', msg: 'No posts found!' }
+        this.postFound = seperate[1]
+        if(this.postFound = 'true'){
+          this.posts = this.feedService.myPosts;
+          this.showPosts = true;
+          console.log(this.posts)
         } else {
-          this.found = true;
+          this.notFound = true;
+          $scope.alert = { type: 'warning', msg: 'No posts found!' }
         }
       }
     }
@@ -526,9 +523,11 @@
       let company = {
         company:this.companyName
       }
-    let companyName =  this.feedService.checkCompanyPosts(company)
-      console.log(companyName)
-    }
+      this.feedService.checkCompanyPosts(company).then((res) => {
+        this.feedService.savePosts(res)
+      })
+    };
+
   constructor(
     private companyService: app.Services.CompanyService,
     private feedService: app.Services.FeedService,
