@@ -1,52 +1,45 @@
 <!-- NAVIGATION BAR (desktop)-->
 <nav class="navbar navbar-default navbar-fixed-top hidden-xs">
-  <div>
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">Home</a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
       </ul>
     </div>
-  </div>
 </nav>
 <!-- NAV SECTION (mobile) -->
 <nav class="navbar navbar-default navbar-fixed-top visible-xs">
-    <div class="container" style="padding-left:0px">
-      <div class="dropdown">
-    <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
-    <div class="dropdown-content">
-      <p ui-sref="Home">Home</p>
-      <p ui-sref="Profile">Profile</p>
-      <p ng-click="vm.logout()">Logout</p>
+  <div class="container" style="padding-left:0px">
+    <div class="dropdown">
+      <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
+      <div class="dropdown-content">
+        <p ui-sref="Home">Home</p>
+        <p ui-sref="Profile">Profile</p>
+        <p ng-click="vm.logout()">Logout</p>
+      </div>
     </div>
-  </div>
-  </div>
   </div>
 </nav>
 
 
-<!--Section -->
+<!-- SECTION -->
 <div class="editPhoto">
   <div class="row panel panel-default">
     <div class="col-xs-12 col-sm-12 col-md-12 panel-body">
       <h2 class="text-center">Update Profile Picture</h2>
     </div>
+    <!-- UPLOAD NEW PHOTO -->
     <div class="col-xs-12 col-sm-12 col-md-12">
-      <!-- UPLOAD NEW PHOTO -->
       <div class="col-xs-12 col-sm-4 col-md-4">
         <button class="btn btn-success fa fa-upload" ng-click="vm.pickFile()">Upload</button>
         <h2>{{vm.file.filename}}</h2>
         <img ng-src="{{vm.file.url | fpConvert:{w: 400} }}"/>
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4">
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4">
-      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4"></div>
+      <div class="col-xs-12 col-sm-4 col-md-4"></div>
     </div>
   </div>
 </div>

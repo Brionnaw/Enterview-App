@@ -16,19 +16,19 @@
 </nav>
 <!-- NAV SECTION (mobile) -->
 <nav class="navbar navbar-default navbar-fixed-top visible-xs">
-    <div class="container" style="padding-left:0px">
-      <div class="dropdown">
-    <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
-    <div class="dropdown-content">
-      <p ui-sref="Home">Home</p>
-      <p ui-sref="Profile">Profile</p>
-      <p ng-click="vm.logout()">Logout</p>
+  <div class="container" style="padding-left:0px">
+    <div class="dropdown">
+      <span><h1 style="padding-left:5px">
+        <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
+        <div class="dropdown-content">
+          <p ui-sref="Home">Home</p>
+          <p ui-sref="Profile">Profile</p>
+          <p ng-click="vm.logout()">Logout</p>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
-  </div>
 </nav>
-
 
 <!-- SECTION-->
 <div class="tipsBackground">
@@ -38,7 +38,7 @@
         <strong>Review</strong>
       </h3>
       <hr>
-        <!-- COMPANY REVIEW -->
+      <!-- COMPANY REVIEW -->
       <div class="col-xs-12 col-sm-12 col-md-6">
         <img ng-src="{{vm.employer.squareLogo}}" width-"100" height="100" alt="{{vm.employer.name}}"/>
           <br/>
@@ -98,41 +98,41 @@
           <strong>Percentage Disapprove:</strong>
           {{vm.employer.ceo.pctDisapprove}}%
         </div>
-    </div>
-  <!-- featured reviews-->
-  <div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="col-xs-12 col-sm-12 col-md-10">
-      <h3>
-        <strong>Featured Review</strong>
-      </h3>
-      <hr>
-      <strong>Job Title:</strong>
-      {{vm.employer.featuredReview.jobTitle}}
-      <br/>
-      <strong>Location:</strong>
-      {{vm.employer.featuredReview.location}}
-      <br/>
-      <strong>Headline:</strong>
-      {{vm.employer.featuredReview.headline}}
-      <br/>
-      <strong>Pros:</strong>
-      {{vm.employer.featuredReview.pros}}
-      <br/>
-      <strong>Cons:</strong>
-      {{vm.employer.featuredReview.cons}}
-      <br/>
-      <strong>Overall:</strong>
-      {{vm.employer.featuredReview.overall}}
-      <br/>
-      <strong>Featured Review url </strong>
-      <a href="{{vm.employer.featuredReview.attributionURL}}">
-        {{vm.employer.featuredReview.attributionURL}}
-      </a>
-      <!-- COMPANY RESULT LINK-->
-      <a ng-show="companyData" ui-sref="Search Company"> < Company results </a>
-    </div>
-    </div>
-    <div class="col-md-2">
+      </div>
+      <!-- featured reviews-->
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-10">
+          <h3>
+            <strong>Featured Review</strong>
+          </h3>
+          <hr>
+          <strong>Job Title:</strong>
+          {{vm.employer.featuredReview.jobTitle}}
+          <br/>
+          <strong>Location:</strong>
+          {{vm.employer.featuredReview.location}}
+          <br/>
+          <strong>Headline:</strong>
+          {{vm.employer.featuredReview.headline}}
+          <br/>
+          <strong>Pros:</strong>
+          {{vm.employer.featuredReview.pros}}
+          <br/>
+          <strong>Cons:</strong>
+          {{vm.employer.featuredReview.cons}}
+          <br/>
+          <strong>Overall:</strong>
+          {{vm.employer.featuredReview.overall}}
+          <br/>
+          <strong>Featured Review url </strong>
+          <a href="{{vm.employer.featuredReview.attributionURL}}">
+            {{vm.employer.featuredReview.attributionURL}}
+          </a>
+          <!-- COMPANY RESULT LINK-->
+          <a ng-show="companyData" ui-sref="Search Company"> < Company results </a>
+        </div>
+      </div>
+      <div class="col-md-2">
     </div>
   </div>
 </div>

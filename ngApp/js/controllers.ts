@@ -42,355 +42,341 @@
       let payload = JSON.parse(window.atob(token.split('.')[1]));
         this.id = payload.id;
         this.user = this.userService.getUser();
-
-    }
-  }
-  //LOGIN USER IN LOGIN.HTML
-  export class LoginController {
-    public user;
-    public login(){
-      this.userService.login(this.user).then((res) => {
-        if(res.message === "Correct"){
-          window.localStorage["token" ] =res.jwt;
-          this.$state.go('Home');
-        } else {
-          alert(res.message);
-        }
-      });
-    }
-    constructor(
-      private  userService: app.Services.UserService,
-      public $state: ng.ui.IStateService,
-    ){
-      // TOKEN
-      let token = window.localStorage["token"];
-      if(token) {
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        if(payload.exp > Date.now()/ 1000) {
-          this.$state.go('Home');
-        }
       }
     }
-  }   //REGISTER USER IN REGISTER.HTML
-  export class RegisterController{
-    public id;
-    public user;
-    public photoUrl;
-    public register(){
-      this.user.photoUrl = this.photoUrl,
-      this.userService.register(this.user).then((res) => {
-        if(res.message === "username already exist") {
-          alert(res.message);
-        } else {
-          window.localStorage["token" ] =res.token;
-          this.$state.go("Home");
-        }
-      });
-    }
-    public pickFile() {
-
-      this.filepickerService.pick(
-        { mimetype: 'image/*' },
-        this.fileUploaded.bind(this)
-      );
-    }
-    public fileUploaded(file) {
-      this.photoUrl = file.url
-    }
-    constructor(
-      private userService: app.Services.UserService,
-      public $state: ng.ui.IStateService,
-      private filepickerService,
-      ){
-      let token = window.localStorage["token"];
-      if(token) {
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        if(payload.exp > Date.now()/ 1000) {
-          this.$state.go('Home');
-        }
-      }
-    }
-  }
-  export class LandingPageController {
-    public loggedIn;
-    constructor(
-      private userService: app.Services.UserService,
-
-    ){
-
-      let token = window.localStorage["token"];
-      if(token){ // does this variable 'token' exist? "truthy statement"
-      this .loggedIn = true
-    } else {
-      this.loggedIn = false;
-    }
-  }
-}
-  //SHOW POSTS IN FEED.HTML
-  export class FeedController{
-    public posts;
-    public companyName;
-    public companyDomain;
-    public id;
-    public postFound;
-    public showPosts;
-    public notFound;
-    public remove(postId:string, index:number) {
-      let answer = confirm('Are you sure you want to delete?')
-      if(answer === true) {
-        this.feedService.deletePost(postId).then(() => {
-          this.posts.splice(index, 1);
+    //LOGIN USER IN LOGIN.HTML
+    export class LoginController {
+      public user;
+      public login(){
+        this.userService.login(this.user).then((res) => {
+          if(res.message === "Correct"){
+            window.localStorage["token" ] =res.jwt;
+            this.$state.go('Home');
+          } else {
+            alert(res.message);
+          }
         });
-      } else {
-        console.log('not deleted')
       }
-      let token = window.localStorage["token"];
-      let payload = JSON.parse(window.atob(token.split('.')[1]));
-      let info = {
-        name: this.companyName,
-        domain: this.companyDomain
+      constructor(
+        private  userService: app.Services.UserService,
+        public $state: ng.ui.IStateService,
+      ){
+        // TOKEN
+        let token = window.localStorage["token"];
+        if(token) {
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          if(payload.exp > Date.now()/ 1000) {
+            this.$state.go('Home');
+          }
+        }
       }
     }
-    constructor(
-      private feedService: app.Services.FeedService,
-      public $stateParams: ng.ui.IStateParamsService,
-      public $state: ng.ui.IStateService,
-      public $scope,
-    ){
-      if($stateParams){
-        console.log(this.feedService.myPosts)
-        if($stateParams["info"] === 'true'){
-          console.log('true')
-          this.posts = this.feedService.myPosts;
-          this.showPosts = true;
-          console.log(this.posts)
+    //REGISTER USER IN REGISTER.HTML
+    export class RegisterController{
+      public id;
+      public user;
+      public photoUrl;
+      public register(){
+        this.user.photoUrl = this.photoUrl,
+        this.userService.register(this.user).then((res) => {
+          if(res.message === "username already exist") {
+            alert(res.message);
+          } else {
+            window.localStorage["token" ] =res.token;
+            this.$state.go("Home");
+          }
+        });
+      }
+      public pickFile() {
+        this.filepickerService.pick(
+          { mimetype: 'image/*' },
+          this.fileUploaded.bind(this)
+        );
+      }
+      public fileUploaded(file) {
+        this.photoUrl = file.url
+      }
+      constructor(
+        private userService: app.Services.UserService,
+        public $state: ng.ui.IStateService,
+        private filepickerService,
+        ){
+          let token = window.localStorage["token"];
+          if(token) {
+            let payload = JSON.parse(window.atob(token.split('.')[1]));
+            if(payload.exp > Date.now()/ 1000) {
+              this.$state.go('Home');
+            }
+          }
+        }
+      }
+      export class LandingPageController {
+        public loggedIn;
+        constructor(
+          private userService: app.Services.UserService,
+        ){
+          let token = window.localStorage["token"];
+          if(token){ // does this variable 'token' exist? "truthy statement"
+          this .loggedIn = true
         } else {
-          console.log('false')
-          this.notFound = true;
-          $scope.alert = { type: 'warning', msg: 'No posts found!' }
+          this.loggedIn = false;
         }
       }
     }
-  }
-  //CREATE POSTS IN CREATEPOST.HTML
-  export class CreatePostController {
-    public position;
-    public post;
-    public optionOne;
-    public optionTwo;
-    public optionThree;
-    public companyName;
-    public companyDomain;
-    public addPost(){
-      //TYPE OF INTERVIEW
-      if(this.optionOne === 'checked') {
+    //SHOW POSTS IN FEED.HTML
+    export class FeedController{
+      public posts;
+      public companyName;
+      public companyDomain;
+      public id;
+      public postFound;
+      public showPosts;
+      public notFound;
+      public remove(postId:string, index:number) {
+        let answer = confirm('Are you sure you want to delete?')
+        if(answer === true) {
+          this.feedService.deletePost(postId).then(() => {
+            this.posts.splice(index, 1);
+          });
+        } else {
+          console.log('not deleted')
+        }
         let token = window.localStorage["token"];
         let payload = JSON.parse(window.atob(token.split('.')[1]));
         let info = {
           name: this.companyName,
-          domain: this.companyDomain,
-          authorPhoto: payload.photoUrl,
-          username:payload.username,
-          interviewType:'Phone Screen',
-          positionTitle:this.position,
-          question: this.post
+          domain: this.companyDomain
         }
-        this.feedService.createPost(info).then((res) => {
-          this.$state.go('Feed')
-        })
-      } else if (this.optionTwo === 'checked'){
-        console.log(this.optionTwo)
-        let token = window.localStorage["token"];
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        let info = {
-          name: this.companyName,
-          domain: this.companyDomain,
-          authorPhoto: payload.photoUrl,
-          username:payload.username,
-          interviewType:'In Person 1:1',
-          positionTitle:this.position,
-          question: this.post
+      }
+      constructor(
+        private feedService: app.Services.FeedService,
+        public $stateParams: ng.ui.IStateParamsService,
+        public $state: ng.ui.IStateService,
+        public $scope,
+      ){
+        if($stateParams){
+          console.log(this.feedService.myPosts)
+          if($stateParams["info"] === 'true'){
+            console.log('true')
+            this.posts = this.feedService.myPosts;
+            this.showPosts = true;
+            console.log(this.posts)
+          } else {
+            console.log('false')
+            this.notFound = true;
+            $scope.alert = { type: 'warning', msg: 'No posts found!' }
+          }
         }
-        this.feedService.createPost(info).then((res) => {
-          this.$state.go('Feed')
-        })
-      } else if(this.optionThree ==='checked'){
-        console.log(this.optionThree)
-        let token = window.localStorage["token"];
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        let info = {
-          name: this.companyName,
-          domain: this.companyDomain,
-          authorPhoto: payload.photoUrl,
-          username:payload.username,
-          interviewType:'Group/Panel',
-          positionTitle:this.position,
-          question: this.post
-        }
-        this.feedService.createPost(info).then((res) => {
-          this.$state.go('Feed')
-        })
       }
     }
-    public check(num) {
-      console.log(num)
-      if(num === 'one'){
-        this.optionOne = 'checked';
-        console.log(this.optionOne)
-      } else if(num === 'two') {
-        this.optionTwo = 'checked';
-        console.log(this.optionTwo)
-      } else if (num === 'three') {
-        this.optionThree = 'checked';
+    //CREATE POSTS IN CREATEPOST.HTML
+    export class CreatePostController {
+      public position;
+      public post;
+      public optionOne;
+      public optionTwo;
+      public optionThree;
+      public companyName;
+      public companyDomain;
+      public addPost(){
+        //TYPE OF INTERVIEW
+        if(this.optionOne === 'checked') {
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            name: this.companyName,
+            domain: this.companyDomain,
+            authorPhoto: payload.photoUrl,
+            username:payload.username,
+            interviewType:'Phone Screen',
+            positionTitle:this.position,
+            question: this.post
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Feed')
+          })
+        } else if (this.optionTwo === 'checked'){
+          console.log(this.optionTwo)
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            name: this.companyName,
+            domain: this.companyDomain,
+            authorPhoto: payload.photoUrl,
+            username:payload.username,
+            interviewType:'In Person 1:1',
+            positionTitle:this.position,
+            question: this.post
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Feed')
+          })
+        } else if(this.optionThree ==='checked'){
+          console.log(this.optionThree)
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            name: this.companyName,
+            domain: this.companyDomain,
+            authorPhoto: payload.photoUrl,
+            username:payload.username,
+            interviewType:'Group/Panel',
+            positionTitle:this.position,
+            question: this.post
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Feed')
+          })
+        }
+      }
+      public check(num) {
+        console.log(num)
+        if(num === 'one'){
+          this.optionOne = 'checked';
+          console.log(this.optionOne)
+        } else if(num === 'two') {
+          this.optionTwo = 'checked';
+          console.log(this.optionTwo)
+        } else if (num === 'three') {
+          this.optionThree = 'checked';
+        }
+      }
+      constructor(
+        private feedService: app.Services.FeedService,
+        public $stateParams: ng.ui.IStateParamsService,
+        public $state: ng.ui.IStateService,
+      ){
+        if($stateParams){
+          let seperate = $stateParams["info"].split(",");
+          this.companyName = seperate[0]
+          this.companyDomain = seperate[1]
+          let company = {
+            company:this.companyName,
+            domain:this.companyDomain
+          }
+          console.log(this.companyName)
+        }
+        // set values to false
+        this.optionOne = false;
+        this.optionTwo = false;
+        this.optionThree = false;
       }
     }
-    constructor(
-      private feedService: app.Services.FeedService,
-      public $stateParams: ng.ui.IStateParamsService,
-      public $state: ng.ui.IStateService,
-    ){
-      if($stateParams){
-        let seperate = $stateParams["info"].split(",");
-        this.companyName = seperate[0]
-        this.companyDomain = seperate[1]
-        let company = {
-          company:this.companyName,
-          domain:this.companyDomain
+    //UPDATE POST IN EDITPOST.HTML
+    export class EditController {
+      public position;
+      public post;
+      public postOne;
+      public postTwo;
+      public postThree;
+      public postFour;
+      public postFive;
+      public postSix;
+      public optionOne;
+      public optionTwo;
+      public optionThree;
+      public inputOne;
+      public inputTwo;
+      public inputThree;
+      public id;
+      public interviewType;
+      public tag;
+      public companyDomain;
+      public authorPhoto;
+      public update(){
+        //UPDATE INTERVIEW TYPE
+        if(this.optionOne === 'checked') {
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            authorPhoto:this.authorPhoto,
+            domain:this.companyDomain,
+            id: this.id,
+            username:payload.username,
+            interviewType:'Phone Screen',
+            positionTitle:this.position,
+            question: {
+              one:this.postOne,
+              two:this.postTwo,
+              three:this.postThree,
+              four:this.postFour,
+              five:this.postFive,
+              six: this.postSix
+            },
+            tag: this.tag,
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Profile')
+          })
+        } else if (this.optionTwo === 'checked'){
+          console.log(this.optionTwo)
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            authorPhoto:this.authorPhoto,
+            domain:this.companyDomain,
+            id: this.id,
+            username:payload.username,
+            interviewType:'In-Person 1:1',
+            positionTitle:this.position,
+            question: {
+              one:this.postOne,
+              two:this.postTwo,
+              three:this.postThree,
+              four:this.postFour,
+              five:this.postFive,
+              six: this.postSix
+            },
+            tag: this.tag
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Profile')
+          })
+        } else if(this.optionThree ==='checked'){
+          console.log(this.optionThree)
+          let token = window.localStorage["token"];
+          let payload = JSON.parse(window.atob(token.split('.')[1]));
+          let info = {
+            authorPhoto:this.authorPhoto,
+            domain:this.companyDomain,
+            id: this.id,
+            username:payload.username,
+            interviewType:'Group/Panel',
+            positionTitle:this.position,
+            question: {
+              one:this.postOne,
+              two:this.postTwo,
+              three:this.postThree,
+              four:this.postFour,
+              five:this.postFive,
+              six: this.postSix
+            },
+            tag: this.tag
+          }
+          this.feedService.createPost(info).then((res) => {
+            this.$state.go('Profile')
+          })
         }
-        console.log(this.companyName)
       }
-      // set values to false
-      this.optionOne = false;
-      this.optionTwo = false;
-      this.optionThree = false;
-    }
-  }
-  //UPDATE POST IN EDITPOST.HTML
-  export class EditController {
-    public position;
-    public post;
-    public postOne;
-    public postTwo;
-    public postThree;
-    public postFour;
-    public postFive;
-    public postSix;
-    public optionOne;
-    public optionTwo;
-    public optionThree;
-    public inputOne;
-    public inputTwo;
-    public inputThree;
-    public id;
-    public interviewType;
-    public tag;
-    public companyDomain;
-    public authorPhoto;
-    public update(){
-      //UPDATE INTERVIEW TYPE
-      if(this.optionOne === 'checked') {
-        let token = window.localStorage["token"];
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        let info = {
-          authorPhoto:this.authorPhoto,
-          domain:this.companyDomain,
-          id: this.id,
-          username:payload.username,
-          interviewType:'Phone Screen',
-          positionTitle:this.position,
-          question: {
-            one:this.postOne,
-            two:this.postTwo,
-            three:this.postThree,
-            four:this.postFour,
-            five:this.postFive,
-            six: this.postSix
-          },
-          tag: this.tag,
+      //INTERVIEW TYPE CHECK() METHOD
+      public check(num) {
+        console.log(num)
+        if(num === 'one'){
+          this.optionOne = 'checked';
+          this.inputOne = true;
+        } else if(num === 'two') {
+          this.optionTwo = 'checked';
+          this.inputTwo= true;
+        } else if (num === 'three') {
+          this.optionThree = 'checked';
+          this.inputThree = true;
         }
-        this.feedService.createPost(info).then((res) => {
-          this.$state.go('Profile')
-        })
-      } else if (this.optionTwo === 'checked'){
-        console.log(this.optionTwo)
-        let token = window.localStorage["token"];
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        let info = {
-          authorPhoto:this.authorPhoto,
-          domain:this.companyDomain,
-          id: this.id,
-          username:payload.username,
-          interviewType:'In-Person 1:1',
-          positionTitle:this.position,
-          question: {
-            one:this.postOne,
-            two:this.postTwo,
-            three:this.postThree,
-            four:this.postFour,
-            five:this.postFive,
-            six: this.postSix
-          },
-          tag: this.tag
-        }
-        this.feedService.createPost(info).then((res) => {
-          this.$state.go('Profile')
-        })
-      } else if(this.optionThree ==='checked'){
-        console.log(this.optionThree)
-        let token = window.localStorage["token"];
-        let payload = JSON.parse(window.atob(token.split('.')[1]));
-        let info = {
-          authorPhoto:this.authorPhoto,
-          domain:this.companyDomain,
-          id: this.id,
-          username:payload.username,
-          interviewType:'Group/Panel',
-          positionTitle:this.position,
-          question: {
-            one:this.postOne,
-            two:this.postTwo,
-            three:this.postThree,
-            four:this.postFour,
-            five:this.postFive,
-            six: this.postSix
-          },
-          tag: this.tag
-        }
-        this.feedService.createPost(info).then((res) => {
-          this.$state.go('Profile')
-        })
       }
-    }
-    //INTERVIEW TYPE CHECK() METHOD
-    public check(num) {
-      console.log(num)
-      if(num === 'one'){
-        this.optionOne = 'checked';
-        this.inputOne = true;
-
-        console.log(this.optionOne)
-        console.log(this.inputOne)
-
-      } else if(num === 'two') {
-        this.optionTwo = 'checked';
-        this.inputTwo= true;
-
-        console.log(this.optionTwo)
-        console.log(this.inputTwo)
-
-      } else if (num === 'three') {
-        this.optionThree = 'checked';
-        this.inputThree = true;
-
-        console.log(this.optionThree)
-        console.log(this.inputThree)
-      }
-    }
-    //QUESTION UPDATE
-    constructor(
-      public $stateParams: ng.ui.IStateParamsService,
-      private feedService: app.Services.FeedService,
-      public $state:ng.ui.IStateService
+      //QUESTION UPDATE
+      constructor(
+        public $stateParams: ng.ui.IStateParamsService,
+        private feedService: app.Services.FeedService,
+        public $state:ng.ui.IStateService
       ){
         if($stateParams){
           let seperate = $stateParams["info"].split(",");
@@ -407,7 +393,6 @@
           this.tag = seperate[10]
           this.authorPhoto = seperate[11]
           console.log(this.companyDomain)
-
           // set values to false
           if(this.interviewType === 'Phone Screen'){
             this.optionOne = 'checked';
@@ -415,16 +400,16 @@
           } else if (this.interviewType === 'In-Person 1:1') {
             this.optionTwo = 'checked';
             this.inputTwo= true;
-        } else if  (this.interviewType === 'Group/Panel') {
+          } else if  (this.interviewType === 'Group/Panel') {
             this.optionThree = 'checked';
             this.inputThree = true;
-      } else {
-        console.log('Do not exist!')
+          } else {
+            console.log('Do not exist!')
+          }
+        }
       }
     }
-  }
-}
-  export class ProfileController{
+    export class ProfileController{
       public posts;
       // Delete Comment
       public remove(postId:string, index:number) {

@@ -2,11 +2,9 @@
 <nav class="navbar navbar-default navbar-fixed-top hidden-xs">
   <div>
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">{{vm.user[0].username}}</a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
@@ -16,16 +14,15 @@
 </nav>
 <!-- NAV SECTION (mobile) -->
 <nav class="navbar navbar-default navbar-fixed-top visible-xs">
-    <div class="container" style="padding-left:0px">
-      <div class="dropdown">
-    <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
-    <div class="dropdown-content">
-      <p ui-sref="Home">{{vm.user[0].username}}</p>
-      <p ui-sref="Profile">Profile</p>
-      <p ng-click="vm.logout()">Logout</p>
+  <div class="container" style="padding-left:0px">
+    <div class="dropdown">
+      <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
+      <div class="dropdown-content">
+        <p ui-sref="Home">{{vm.user[0].username}}</p>
+        <p ui-sref="Profile">Profile</p>
+        <p ng-click="vm.logout()">Logout</p>
+      </div>
     </div>
-  </div>
-  </div>
   </div>
 </nav>
 
@@ -35,29 +32,26 @@
     <div class="homeBackground">
       <div class="col-xs-1 col-sm-1 col-md-2"></div>
       <div class="col-xs 12 col-sm-12 col-md-12">
-          <br>
-          <center>
-            <p>
-              <h3>
-                THANK YOU FOR CHOOSING ENTERVIEW!
-              </h3>
-            </p>
-          </center>
+        <br>
+          <p>
+            <h3 class="text-center">
+              THANK YOU FOR CHOOSING ENTERVIEW!
+            </h3>
+          </p>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
           <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-            <center>
-              <p> Our system is designed to make you more than prepared for your big day.
-                <br>Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
+              <p class="text-center">
+                Our system is designed to make you more than prepared for your big day.
+                <br/>
+                Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
               </p>
-            </center>
           </div>
-          <!-- profile photo-->
+          <!-- PROFILE PHOTO -->
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 home-bio panel panel-default text-center">
-              <span
-              ui-sref="Profile">
-              <img
+              <span ui-sref="Profile">
+                <img
                 ng-src="{{vm.user[0].photoUrl}}"
                 width="250"
                 height="250"
@@ -71,61 +65,58 @@
               </p>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4">
-                <h4> To get started:</h4>
-                <p>
-                  Click <em>"Research Company"</em> and fill in Company Name and Comapny Website.
-                  Our system will give you real company data information.
-                </p>
+              <h4> To get started:</h4>
+              <p>
+                Click <em>"Research Company"</em> and fill in Company Name and Comapny Website.
+                Our system will give you real company data information.
+              </p>
                 <h3>
                   <a class="label label-default fa fa-search homeIcon" ui-sref="SearchCompany"> Research Company </a>
                 </h3>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <br/>
+                <br/>
+                <p>
+                  Click <em>"Interview Tips"</em> and you will find expert advice and a list of 51 questions you should be asking during your interview.
+                  <h3>
+                    <a class="fa fa-info-circle label label-default homeIcon " ui-sref="InterviewTips"> Interview Tips </a>
+                  </h3>
+                </p>
+              </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-4">
-            <br/>
-            <br/>
-            <p>
-              Click <em>"Interview Tips"</em> and you will find expert advice and a list of 51 questions you should be asking during your interview.
-              <h3>
-                <a class="fa fa-info-circle label label-default homeIcon " ui-sref="InterviewTips"> Interview Tips </a>
-              </h3>
-            </p>
-            </div>
-         </div>
-       </div>
-     </div>
-   </div>
+          </div>
+      </div>
+    </div>
 </div>
 
 
-<!-- SECTION (tablet)-->
+<!-- SECTION (desktop)-->
 <div class="row">
   <div class="visible-xs">
     <div class="homeBackground-mobile">
       <div class="col-xs-1 col-sm-1 col-md-2"></div>
       <div class="col-xs 12 col-sm-12 col-md-12">
         <br>
-        <center>
           <p>
-            <h3>
+            <h3 class="text-center">
               THANK YOU FOR CHOOSING ENTERVIEW!
             </h3>
           </p>
-        </center>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-          <center>
-            <p> Our system is designed to make you more than prepared for your big day.
-              <br>Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
-            </p>
-          </center>
         </div>
-        <!-- profile photo-->
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-4 home-bio text-center">
-            <span
-              ui-sref="Profile">
-              <img
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+              <p class="text-center">
+                Our system is designed to make you more than prepared for your big day.
+                <br/>
+                Bring your "A" game when going into an interview and impress the hiring manager with your knowledge about the company.
+              </p>
+          </div>
+          <!-- PROFILE PHOTO -->
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 home-bio panel panel-default text-center">
+              <span ui-sref="Profile">
+                <img
                 ng-src="{{vm.user[0].photoUrl}}"
                 width="250"
                 height="250"
@@ -139,27 +130,27 @@
               </p>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4">
-                <h4> To get started:</h4>
-                <p>
-                  Click <em>"Research Company"</em> and fill in Company Name and Comapny Website.
-                  Our system will give you real company data information.
-                </p>
+              <h4> To get started:</h4>
+              <p>
+                Click <em>"Research Company"</em> and fill in Company Name and Comapny Website.
+                Our system will give you real company data information.
+              </p>
                 <h3>
                   <a class="label label-default fa fa-search homeIcon" ui-sref="SearchCompany"> Research Company </a>
                 </h3>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-4">
+                <br/>
+                <br/>
+                <p>
+                  Click <em>"Interview Tips"</em> and you will find expert advice and a list of 51 questions you should be asking during your interview.
+                  <h3>
+                    <a class="fa fa-info-circle label label-default homeIcon " ui-sref="InterviewTips"> Interview Tips </a>
+                  </h3>
+                </p>
+              </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-4">
-            <br/>
-            <br/>
-            <p>
-              Click <em>"Interview Tips"</em> and you will find expert advice and a list of 51 questions you should be asking during your interview.
-              <h3>
-                <a class="fa fa-info-circle label label-default homeIcon " ui-sref="InterviewTips"> Interview Tips </a>
-              </h3>
-            </p>
           </div>
-        </div>
       </div>
     </div>
-  </div>
 </div>

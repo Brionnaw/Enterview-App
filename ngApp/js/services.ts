@@ -6,39 +6,38 @@
     public PhotoResource;
     public CurrentUserResource;
     public currentUser;
-      public login(user){
-        return this.LoginResource.save(user).$promise;
+    public login(user) {
+      return this.LoginResource.save(user).$promise;
+    }
+    public register(user){
+      return this.RegisterResource.save(user).$promise;
+    }
+    public updateUserImage(url){
+      return this.PhotoResource.save(url).$promise
+    }
+    public getCurrentUser(id){
+      return this.CurrentUserResource.query({id:id})
+    }
+    public getUser(){
+      return this.currentUser
+    }
+    public constructor(
+      $resource:ng.resource.IResourceService,
+      public $state:ng.ui.IStateService
+    ){
+      this.RegisterResource = $resource('api/users/register');
+      this.LoginResource = $resource('api/users/login');
+      this.PhotoResource = $resource('api/users/photo');
+      this.CurrentUserResource = $resource('api/users/currentUser/:id');
+      let token = window.localStorage["token"];
+      if(token) {
+        let payload = JSON.parse(window.atob(token.split('.')[1]));
+        this.currentUser = this.getCurrentUser(payload.id);
+        console.log('logged in') // redirect user to login if token is expired.
+      } else {
+        this.$state.go('Login')
       }
-      public register(user){
-        return this.RegisterResource.save(user).$promise;
-      }
-      public updateUserImage(url){
-        return this.PhotoResource.save(url).$promise
-      }
-      public getCurrentUser(id){
-        return this.CurrentUserResource.query({id:id})
-      }
-      public getUser(){
-        return this.currentUser
-      }
-      public constructor(
-        $resource:ng.resource.IResourceService,
-        public $state:ng.ui.IStateService
-
-      ){
-        this.RegisterResource = $resource('api/users/register');
-        this.LoginResource = $resource('api/users/login');
-        this.PhotoResource = $resource('api/users/photo');
-        this.CurrentUserResource = $resource('api/users/currentUser/:id');
-        let token = window.localStorage["token"];
-        if(token) {
-          let payload = JSON.parse(window.atob(token.split('.')[1]));
-          this.currentUser = this.getCurrentUser(payload.id);
-          console.log('logged in') // redirect user to login if token is expired.
-        } else {
-          this.$state.go('Login')
-        }
-      }
+    }
   }
   // Feed service for post.ts
   export class FeedService {
@@ -47,7 +46,7 @@
     public myPosts;
     public createPost(postData) {
       console.log(postData)
-        let post = {
+      let post = {
         name:postData.name,
         domain:postData.domain,
         id: postData.id,
@@ -57,7 +56,6 @@
         text: postData.text
       }
       return this.FeedResource.save(postData).$promise
-
     }
     public getAllPosts(companyName){
       return this.PostResource.query({name:companyName});
@@ -69,7 +67,6 @@
       return this.FeedResource.query({id:username});
     }
     public checkCompanyPosts(companyName){
-
       return this.PostResource.save(companyName).$promise
     }
     public savePosts(posts){
@@ -100,11 +97,9 @@
       }
       return this.CompanyResource.save(companyInfo).$promise
     }
-
     public glassdoor(glassdoorInfo){
       return this.GlassdoorResource.save(glassdoorInfo).$promise
     }
-
     constructor(
       private $resource: ng.resource.IResourceService
     ){
@@ -115,5 +110,4 @@
   angular.module('app').service('userService', UserService);
   angular.module('app').service('feedService', FeedService);
   angular.module('app').service('companyService', CompanyService);
-
 }

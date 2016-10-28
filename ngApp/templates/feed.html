@@ -1,185 +1,150 @@
 <!-- NAVIGATION BAR (desktop)-->
 <nav class="navbar navbar-default navbar-fixed-top hidden-xs">
-  <div>
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">Home</a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
       </ul>
     </div>
-  </div>
-</nav>
-<!-- NAV SECTION (mobile) -->
-<nav class="navbar navbar-default navbar-fixed-top visible-xs">
-    <div class="container" style="padding-left:0px">
-      <div class="dropdown">
-    <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
-    <div class="dropdown-content">
-      <p ui-sref="Home">Home</p>
-      <p ui-sref="Profile">Profile</p>
-      <p ng-click="vm.logout()">Logout</p>
-    </div>
-  </div>
-  </div>
-  </div>
 </nav>
 
+<!-- NAV SECTION (mobile) -->
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+  <div class="container" style="padding-left:0px">
+    <div class="dropdown">
+      <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
+      <div class="dropdown-content">
+        <p ui-sref="Home">Home</p>
+        <p ui-sref="Profile">Profile</p>
+        <p ng-click="vm.logout()">Logout</p>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <!-- SECTION (desktop)-->
 <div class="hidden-xs">
-<div class="pageBackground">
-  <h2 class="text-center">Reviews</h2>
-  <hr>
-  <div ng-show="vm.notFound" uib-alert style="background-color:#fa39c3 ;color:white"> {{alert.msg}}</div>
+  <div class="pageBackground">
+    <h2 class="text-center">Reviews</h2>
+    <hr>
+    <div ng-show="vm.notFound" uib-alert style="background-color:lightblue ;color:white"> {{alert.msg}}</div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
         <div class="row panel panel-default" ng-show="vm.showPosts">
-            <div class="text-center">
-          <div class="col-xs-12 col-sm-4 col-md-4 panel-body">
-            <div>
-              <img ng-src="{{vm.posts.authorPhoto}}" width="100" height="100"/>
-            </div>
-            <div>
-              <p>
-                <em>  @{{vm.posts.author}}</em>
-              </p>
-            </div>
-            <div>
-              <strong>    {{vm.posts.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
-            </div>
-          </div>
-          <!--Posts -->
-          <div class="col-xs-1"></div>
-          <div class="col-xs-10 col-sm-4 col-md-4">
-            <div>
+          <div class="text-center">
+            <div class="col-xs-12 col-sm-4 col-md-4 panel-body">
+              <br/>
+                <img ng-src="{{vm.posts.authorPhoto}}" width="100" height="100"/>
+                <br/>
+                  <p>
+                    <em>  @{{vm.posts.author}}</em>
+                  </p>
+                  <br/>
+                  <strong>{{vm.posts.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
+                </div>
+            <!--POSTS -->
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 col-sm-4 col-md-4">
               <strong>Type of interview:</strong>
               {{vm.posts.interviewType}}
-            </div>
-            <div>
-              <strong> Website url:</strong>
+              <br/>
+              <strong>Website url:</strong>
               {{vm.posts.companyDomain}}
-            </div>
-            <div>
-              <strong>  Position Title: </strong>
+              <br/>
+              <strong>Position Title: </strong>
               {{vm.posts.positionTitle}}
-            </div>
-            <div>
+              <br/>
               <strong>Interview Question #1: </strong>
               {{vm.posts.question.one}}
-            </div>
-            <div>
-              <strong>  Interview Question #2: </strong>
+              <br/>
+              <strong>Interview Question #2: </strong>
               {{vm.posts.question.two}}
-            </div>
-            <div>
-              <strong>  Interview Question #3:</strong>
+              <br/>
+              <strong>Interview Question #3:</strong>
               {{vm.posts.question.three}}
-            </div>
-            <div>
-              <strong>  Interview Question #4: </strong>
+              <br/>
+              <strong>Interview Question #4: </strong>
               {{vm.posts.question.four}}
-            </div>
-            <div>
-              <strong>  Interview Question #5:</strong>
+              <br/>
+              <strong>Interview Question #5:</strong>
               {{vm.posts.question.five}}
-            </div>
-            <div>
-              <strong>  Additional Comments: </strong>
+              <br/>
+              <strong> Additional Comments: </strong>
               {{vm.posts.question.six}}
             </div>
+            <div class="col-xs-1 col-sm-4 col-md-4"></div>
           </div>
-          <div class="col-xs-1 col-sm-4 col-md-4">
-          </div>
+        </div>
+        <!-- ADD REVIEW BUTTON -->
+        <div class="text-right">
+          <button  class="btn btn-primary" ui-sref="CreatePost({info:vm.companyName})">Add Review</button>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="text-center">
-<!-- CREATE REVIEW BUTTON -->
-<button  class="btn btn-primary" ui-sref="CreatePost({info:vm.companyName})">Create Review</button>
-</div>
-</div>
 </div>
 
 <!-- SECTION (mobile)-->
 <div class="visible-xs">
-<div class="pageBackground-mobile">
-  <h2 class="text-center">Reviews</h2>
-  <hr>
-  <div ng-show="vm.notfound" uib-alert style="background-color:#fa39c3 ;color:white"> {{alert.msg}}</div>
+  <div class="pageBackground-mobile">
+    <h2 class="text-center">Reviews</h2>
+    <hr>
+    <div ng-show="vm.notFound" uib-alert style="background-color:lightblue ;color:white"> {{alert.msg}}</div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
         <div class="row panel panel-default" ng-show="vm.showPosts">
-            <div class="text-center">
-          <div class="col-xs-12 col-sm-4 col-md-4 panel-body">
-            <div>
-              <img ng-src="{{vm.posts.authorPhoto}}" width="100" height="100"/>
-            </div>
-            <div>
-              <p>
-                <em>  @{{vm.posts.author}}</em>
-              </p>
-            </div>
-            <div>
-              <strong>    {{vm.posts.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
-            </div>
-          </div>
-          <!--Posts -->
-          <div class="col-xs-1"></div>
-          <div class="col-xs-10 col-sm-4 col-md-4">
-            <div>
+          <div class="text-center">
+            <div class="col-xs-12 col-sm-4 col-md-4 panel-body">
+              <br/>
+                <img ng-src="{{vm.posts.authorPhoto}}" width="100" height="100"/>
+                <br/>
+                  <p>
+                    <em>  @{{vm.posts.author}}</em>
+                  </p>
+                  <br/>
+                  <strong>{{vm.posts.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
+                </div>
+            <!--POSTS -->
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 col-sm-4 col-md-4">
               <strong>Type of interview:</strong>
               {{vm.posts.interviewType}}
-            </div>
-            <div>
-              <strong> Website url:</strong>
+              <br/>
+              <strong>Website url:</strong>
               {{vm.posts.companyDomain}}
-            </div>
-            <div>
-              <strong>  Position Title: </strong>
+              <br/>
+              <strong>Position Title: </strong>
               {{vm.posts.positionTitle}}
-            </div>
-            <div>
+              <br/>
               <strong>Interview Question #1: </strong>
               {{vm.posts.question.one}}
-            </div>
-            <div>
-              <strong>  Interview Question #2: </strong>
+              <br/>
+              <strong>Interview Question #2: </strong>
               {{vm.posts.question.two}}
-            </div>
-            <div>
-              <strong>  Interview Question #3:</strong>
+              <br/>
+              <strong>Interview Question #3:</strong>
               {{vm.posts.question.three}}
-            </div>
-            <div>
-              <strong>  Interview Question #4: </strong>
+              <br/>
+              <strong>Interview Question #4: </strong>
               {{vm.posts.question.four}}
-            </div>
-            <div>
-              <strong>  Interview Question #5:</strong>
+              <br/>
+              <strong>Interview Question #5:</strong>
               {{vm.posts.question.five}}
-            </div>
-            <div>
-              <strong>  Additional Comments: </strong>
+              <br/>
+              <strong> Additional Comments: </strong>
               {{vm.posts.question.six}}
             </div>
+            <div class="col-xs-1 col-sm-4 col-md-4"></div>
           </div>
-          <div class="col-xs-1 col-sm-4 col-md-4">
-          </div>
+        </div>
+        <!-- ADD REVIEW BUTTON -->
+        <div class="text-center">
+          <button  class="btn btn-primary" ui-sref="CreatePost({info:vm.companyName})">Add Review</button>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="text-center">
-<!-- CREATE REVIEW BUTTON -->
-<button  class="btn btn-primary" ui-sref="CreatePost({info:vm.companyName})">Create Review</button>
-</div>
-</div>
 </div>

@@ -2,11 +2,9 @@
 <nav class="navbar navbar-default navbar-fixed-top hidden-xs">
   <div>
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand fa fa-home fa-lg" aria-hidden="true" ui-sref="Home">Home</a>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav navbar-right">
         <li><a class=" fa fa-user fa-lg" ui-sref="Profile">Profile</a></li>
         <li><a ng-click="vm.logout()" class="fa fa-sign-out fa-lg" aria-hidden="true">Log Out</a></li>
@@ -16,23 +14,21 @@
 </nav>
 <!-- NAV SECTION (mobile) -->
 <nav class="navbar navbar-default navbar-fixed-top visible-xs">
-    <div class="container" style="padding-left:0px">
-      <div class="dropdown">
-    <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
-    <div class="dropdown-content">
-      <p ui-sref="Home">Home</p>
-      <p ui-sref="Profile">Profile</p>
-      <p ng-click="vm.logout()">Logout</p>
+  <div class="container" style="padding-left:0px">
+    <div class="dropdown">
+      <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
+      <div class="dropdown-content">
+        <p ui-sref="Home">Home</p>
+        <p ui-sref="Profile">Profile</p>
+        <p ng-click="vm.logout()">Logout</p>
+      </div>
     </div>
-  </div>
-  </div>
   </div>
 </nav>
 
 <!-- PAGE FOR EDITCONTROLLER: UPDATE()-->
 <form>
-  <div class="editPost">
-  </div>
+  <div class="editPost"></div>
   <div class="rows">
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="col-xs-4 col-sm-3 col-md-3">
@@ -42,7 +38,7 @@
       <div class="col-xs-4 col-sm-3 col-md-3">
         <br/>
         <br/>
-          Type of interview:
+        Type of interview:
         <br/>
         <label class="radio-inline">
           <input
@@ -51,7 +47,7 @@
             id="inlineRadio1"
             ng-model="inputOne"
             ng-click="vm.check('one')">
-            Phone Screen
+              Phone Screen
         </label>
         <br/>
         <label class="radio-inline">
@@ -147,11 +143,11 @@
           <br>
           <button class="btn btn-primary btn-sm" ng-click="vm.update()"> Edit post </button>
         </form>
-        </div>
-        <div class="col-sm-3 col-md-3">
-        </div>
-        <div class="col-sm-3 col-md-3">
-        </div>
+      </div>
+      <div class="col-sm-3 col-md-3">
+      </div>
+      <div class="col-sm-3 col-md-3">
       </div>
     </div>
+  </div>
 </form>
