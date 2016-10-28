@@ -159,14 +159,13 @@
     ){
       if($stateParams){
         console.log(this.feedService.myPosts)
-        let seperate = $stateParams["info"].split(",");
-        this.companyName = seperate[0]
-        this.postFound = seperate[1]
-        if(this.postFound = 'true'){
+        if($stateParams["info"] === 'true'){
+          console.log('true')
           this.posts = this.feedService.myPosts;
           this.showPosts = true;
           console.log(this.posts)
         } else {
+          console.log('false')
           this.notFound = true;
           $scope.alert = { type: 'warning', msg: 'No posts found!' }
         }

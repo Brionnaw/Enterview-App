@@ -73,8 +73,12 @@
       return this.PostResource.save(companyName).$promise
     }
     public savePosts(posts){
-      this.myPosts = posts;
-      this.$state.go('Feed',{info:'true'})
+      if(posts.message === 'false'){
+        this.$state.go('Feed',{info:'false'})
+      } else {
+        this.myPosts = posts;
+        this.$state.go('Feed', {info:'true'})
+      }
     }
     constructor(
       private $resource: ng.resource.IResourceService,
@@ -82,7 +86,6 @@
     ){
       this.FeedResource = $resource('api/posts/feed/:id');
       this.PostResource = $resource('api/posts/company/:name');
-
     }
   }
   //Company.html
