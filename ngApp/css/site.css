@@ -48,9 +48,17 @@ i:hover {
   margin: 70px 0px 0px 0px;
   padding: 0px 40px 0px 40px;
 }
-.about-us {
+.services {
   background-color: #e9ebee;
-  padding: 40px 0px 0px 0px;
+  padding: 40px 0px 40px 0px;
+}
+.about-us {
+  background-color: #d5d5d5;
+  padding: 40px 0px 40px 0px;
+}
+.contactForm {
+  background-color: #e9ebee;
+  padding: 40px 0px 40px 0px;
 }
 .profilePhoto {
   padding: 0px 40px 0px 40px;
