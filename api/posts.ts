@@ -117,11 +117,11 @@ router.get('/posts/company/:name', function(req , res, next) {
 
 //DELETE A POST
 router.delete('/posts/feed/:id', function (req, res) {
-  Post.findByIdAndUpdate(req.params["id"], {$set:{dateDeleted:new Date()}}, (err, res) => {
+  Post.findByIdAndUpdate(req.params["id"], {$set:{dateDeleted:new Date()}}, (err, posts) => {
     if (err) {
       console.log(err);
     } else {
-      res.send('success!')
+      res.send(posts)
     }
   });
 });
