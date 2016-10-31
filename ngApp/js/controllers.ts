@@ -155,17 +155,21 @@
         public $scope,
       ){
         if($stateParams){
-          console.log(this.feedService.myPosts)
-          if($stateParams["info"] === 'true'){
-            console.log('true')
+          // console.log(this.feedService.myPosts)
+          let info = $stateParams["info"]
+          let seperate = info.split(",");
+          console.log(seperate[1])
+          if(seperate[0] === 'true'){
+            this.companyName = seperate[1]
             this.posts = this.feedService.myPosts;
             this.showPosts = true;
             console.log(this.posts)
           } else {
-            console.log('false')
+            this.companyName = seperate[1]
             this.notFound = true;
             $scope.alert = { type: 'warning', msg: 'No posts found!' }
           }
+
         }
       }
     }
@@ -194,6 +198,7 @@
           }
           console.log(this.companyName)
           this.feedService.createPost(info).then((res) => {
+            this.feedService.getAllPosts(this.companyName)
             this.$state.go('Feed', {info:'true'})
           })
         } else if (this.optionTwo === 'checked'){
@@ -510,10 +515,11 @@
   }
     public checkPosts(){
       let company = {
-        company:this.companyName
+        name:this.companyName
       }
       this.feedService.checkCompanyPosts(company).then((res) => {
-        this.feedService.savePosts(res)
+        this.feedService.savePosts(res,company)
+
       })
     };
 

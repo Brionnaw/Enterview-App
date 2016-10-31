@@ -69,12 +69,12 @@
     public checkCompanyPosts(companyName){
       return this.PostResource.save(companyName).$promise
     }
-    public savePosts(posts){
+    public savePosts(posts, company){
       if(posts.message === 'false'){
-        this.$state.go('Feed',{info:'false'})
+        this.$state.go('Feed',{info:['false', company.name]})
       } else {
         this.myPosts = posts;
-        this.$state.go('Feed', {info:'true'})
+        this.$state.go('Feed', {info:['true', company.name]})
       }
     }
     constructor(

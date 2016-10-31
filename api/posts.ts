@@ -66,7 +66,7 @@ router.post('/posts/feed', function(req, res) {
          }
        })
      } else {
-       
+
      }
     })
   } else {
@@ -137,8 +137,8 @@ router.get('/posts/feed/:id', function (req, res){
 
 // CHECK IF COMPANY POSTS ARE FOUND ON FEED.HTML
 router.post('/posts/company', function (req, res){
-  console.log(req.body.company)
-  Post.find({companyName:req.body.company}).then (function(foundPosts){
+  console.log(req.body.name)
+  Post.find({companyName:req.body.name}).then (function(foundPosts){
     if(foundPosts.length < 1) {
       res.send({message: 'false'}); // if posts are not found
     } else {
