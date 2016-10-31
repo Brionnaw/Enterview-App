@@ -11,7 +11,7 @@
 
 //API CLEARBIT
 router.post('/company', function(req, res) {
-// console.log(req.body)
+console.log(req.body)
   request('https://sk_792329b163b90c6db62cfb69425122dc@company.clearbit.com/v2/companies/find?domain='+req.body.domain,
   function (error, response, body) {
     let data = JSON.parse(body)

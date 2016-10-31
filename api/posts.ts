@@ -65,7 +65,9 @@ router.post('/posts/feed', function(req, res) {
           })
          }
        })
-      }
+     } else {
+       
+     }
     })
   } else {
     Company.findOne({_id : req.body.tag}).then(function(company){

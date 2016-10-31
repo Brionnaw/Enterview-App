@@ -192,8 +192,9 @@
             positionTitle:this.position,
             question: this.post
           }
+          console.log(this.companyName)
           this.feedService.createPost(info).then((res) => {
-            this.$state.go('Feed')
+            this.$state.go('Feed', {info:'true'})
           })
         } else if (this.optionTwo === 'checked'){
           console.log(this.optionTwo)
@@ -448,20 +449,22 @@
     public addReview;
     public research(){
       //form validation
-      let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+      let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi; // this check real domain
       let regex = new RegExp(expression);
       let url = this.companyDomain;
       if (url.match(regex)) {
-        let name = this.companyName;
+        let name = this.companyName.toLowerCase();
         let seperated = name.split('');
         let result = seperated[0].toUpperCase();
         seperated.splice(0, 1);
         seperated.unshift(result);
         let uppercaseCompany = seperated.join('')
+        console.log(uppercaseCompany)
         let info ={
           company: uppercaseCompany,
           domain: this.companyDomain
         }
+        console.log(info)
         this.companyService.researchCompany(info).then((res) => {
           if (res.message === 'company not found') {
             alert(res.message)
@@ -469,6 +472,8 @@
             this.companyData = res;
           }
         })
+      } else {
+        alert('company domain invalid')
       }
     }
     //webpage click //change to external href

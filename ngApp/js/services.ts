@@ -52,7 +52,7 @@
         id: postData.id,
         author:postData.username,
         interviewType:postData.interviewType,
-        positionTitle:postData.postion,
+        positionTitle:postData.position,
         text: postData.text
       }
       return this.FeedResource.save(postData).$promise
