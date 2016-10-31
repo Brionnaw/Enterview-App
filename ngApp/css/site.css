@@ -34,7 +34,8 @@ i:hover {
   opacity: 0.6;
   background-repeat: no-repeat, repeat;
   color:#000000;
-  font-size: 50px;
+  font-size: 60px;
+  padding: 30px 50px 0px 50px;
 }
 
 .background-mobile {
