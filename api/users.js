@@ -4,7 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var passport = require('passport');
 var crypto = require('crypto');
-var jwt = require('JSonwebtoken');
+var jwt = require('jsonwebtoken');
 var User = mongoose.model('User', {
     email: String,
     username: {

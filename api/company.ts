@@ -4,7 +4,7 @@
   let mongoose = require('mongoose');
   let passport = require('passport');
   let crypto = require('crypto');
-  let jwt= require('JSonwebtoken');
+  let jwt= require('jsonwebtoken');
   let request = require('request');
   let ipAddress = require('node-local-ip-address')();
 
