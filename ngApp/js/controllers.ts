@@ -83,7 +83,7 @@
             alert(res.message);
           } else {
             window.localStorage["token" ] =res.token;
-            this.$window.location.href = 'http://localhost:3000/home' // change after hosting
+            this.$window.location.href = 'https://enterviewapp.herokuapp.com/home' // change after hosting
           }
         });
       }
