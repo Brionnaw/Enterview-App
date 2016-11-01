@@ -21,6 +21,7 @@
     "machinepack-glassdoor": "^1.0.1",
     "mongoose": "^4.6.1",
     "morgan": "^1.7.0",
+    "node-local-ip-address": "0.0.3",
     "passport": "^0.3.2",
     "request": "^2.75.0",
     "serve-favicon": "^2.3.0"
