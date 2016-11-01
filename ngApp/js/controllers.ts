@@ -83,7 +83,7 @@
             alert(res.message);
           } else {
             window.localStorage["token" ] =res.token;
-            this.$state.go("Home");
+            this.$window.location.href = 'http://localhost:3000/home' // change after hosting
           }
         });
       }
@@ -100,6 +100,7 @@
         private userService: app.Services.UserService,
         public $state: ng.ui.IStateService,
         private filepickerService,
+        public $window
         ){
           let token = window.localStorage["token"];
           if(token) {
@@ -161,15 +162,14 @@
           console.log(seperate[1])
           if(seperate[0] === 'true'){
             this.companyName = seperate[1]
-            this.posts = this.feedService.myPosts;
             this.showPosts = true;
+            this.posts = this.feedService.myPosts;
             console.log(this.posts)
           } else {
             this.companyName = seperate[1]
             this.notFound = true;
             $scope.alert = { type: 'warning', msg: 'No posts found!' }
           }
-
         }
       }
     }
@@ -517,10 +517,7 @@
       let company = {
         name:this.companyName
       }
-      this.feedService.checkCompanyPosts(company).then((res) => {
-        this.feedService.savePosts(res,company)
-
-      })
+      this.feedService.checkCompanyPosts(company);
     };
 
   constructor(

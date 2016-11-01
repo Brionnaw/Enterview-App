@@ -43,7 +43,9 @@
   export class FeedService {
     public FeedResource;
     public PostResource;
+    public CompanyResource;
     public myPosts;
+
     public createPost(postData) {
       console.log(postData)
       let post = {
@@ -67,22 +69,25 @@
       return this.FeedResource.query({id:username});
     }
     public checkCompanyPosts(companyName){
-      return this.PostResource.save(companyName).$promise
+      let collection = this.CompanyResource.query({name: companyName.name});
+      this.savePosts(collection, companyName.name)
     }
     public savePosts(posts, company){
+      console.log(company)
       if(posts.message === 'false'){
-        this.$state.go('Feed',{info:['false', company.name]})
+        this.$state.go('Feed',{info:['false', company]})
       } else {
         this.myPosts = posts;
-        this.$state.go('Feed', {info:['true', company.name]})
+        this.$state.go('Feed', {info:['true', company]})
       }
     }
     constructor(
       private $resource: ng.resource.IResourceService,
-      public $state: ng.ui.IStateService,
+      public $state: ng.ui.IStateService
     ){
       this.FeedResource = $resource('api/posts/feed/:id');
       this.PostResource = $resource('api/posts/company/:name');
+      this.CompanyResource = $resource('api/reviews/:name');
     }
   }
   //Company.html

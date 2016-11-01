@@ -33,7 +33,7 @@ let Company = mongoose.model('Company', {
 // POST TO UPDATE OR CREATE POSTS
 router.post('/posts/feed', function(req, res) {
   if (req.body.id === undefined){
-    Company.find({companyName:req.body.companyName}).then(function(response) {
+    Company.find({companyName:req.body.name}).then(function(response) {
         if(response.length === 0){
           let newCompany = new Company ({
             companyName: req.body.name,
@@ -66,9 +66,27 @@ router.post('/posts/feed', function(req, res) {
          }
        })
      } else {
-
-     }
+       let newPost = new Post ({
+         companyName: req.body.name,
+         companyDomain: req.body.domain,
+         tag:response._id,
+         interviewType: req.body.interviewType,
+         authorPhoto: req.body.authorPhoto,
+         positionTitle:req.body.positionTitle,
+         question: req.body.question,
+         author:req.body.username,
+         dateCreated:new Date()
+       })
+       newPost.save((err, post) => {
+         if(err){
+           console.log(err)
+           res.end()
+         } else {
+       res.send(post);
+      }
     })
+  }
+  })
   } else {
     Company.findOne({_id : req.body.tag}).then(function(company){
       Post.findByIdAndUpdate(req.body.id,
@@ -89,7 +107,6 @@ router.post('/posts/feed', function(req, res) {
           console.log(err);
           res.end()
         } else {
-          console.log(post);
           res.send('success')
         }
       });
@@ -100,9 +117,7 @@ router.post('/posts/feed', function(req, res) {
 //GET ALL POSTS
 router.get('/posts/company/:name', function(req , res, next) {
   Company.find({companyName:req.params["name"]}).then(function(company) {
-    console.log(company)
     if(company.length < 1) {
-      console.log('nothing found')
       res.send(['not found']);
     } else {
       req.body.companyInfo = company;
@@ -136,13 +151,14 @@ router.get('/posts/feed/:id', function (req, res){
 });
 
 // CHECK IF COMPANY POSTS ARE FOUND ON FEED.HTML
-router.post('/posts/company', function (req, res){
-  console.log(req.body.name)
-  Post.find({companyName:req.body.name}).then (function(foundPosts){
+router.get('/reviews/:name', function (req, res){
+  console.log(req.params["name"]);
+  Post.find({companyName:req.params["name"]}).then (function(foundPosts){
     if(foundPosts.length < 1) {
       res.send({message: 'false'}); // if posts are not found
     } else {
-      res.send(foundPosts[0]);
+      console.log(foundPosts);
+      res.send(foundPosts); // if posts are found
     }
   })
 });

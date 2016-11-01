@@ -32,53 +32,53 @@
     <hr style="border-top: 1px solid gray">
     <div ng-show="vm.notFound" uib-alert style="background-color:lightblue ;color:white"> {{alert.msg}}</div>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
+      <div class="col-xs-12 col-sm-12 col-md-12 panel-body" ng-repeat="p in vm.posts track by $index">
         <div class="row panel panel-default" ng-show="vm.showPosts">
           <div class="text-left">
             <div class="col-xs-12 col-sm-4 col-md-4 panel-body feed-photo">
               <br/>
-                <img ng-src="{{vm.posts.authorPhoto}}" width="200" height="250"/>
+                <img ng-src="{{p.authorPhoto}}" width="200" height="250"/>
                 <br/>
                   <p>
-                    <em>  @{{vm.posts.author}}</em>
+                    <em>  @{{p.author}}</em>
                   </p>
-                  <strong>{{vm.posts.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
+                  <strong>{{p.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
                 </div>
             <!--POSTS -->
             <div class="col-xs-1"></div>
             <div class="col-xs-10 col-sm-4 col-md-4">
               <strong>Type of interview:</strong>
-              <br/>{{vm.posts.interviewType}}
+              <br/>{{p.interviewType}}
               <br/>
               <strong>Website url:</strong>
-              <br/>{{vm.posts.companyDomain}}
+              <br/>{{p.companyDomain}}
               <br/>
               <strong>Position Title: </strong>
-              <br/>{{vm.posts.positionTitle}}
+              <br/>{{p.positionTitle}}
               <br/>
               <strong>Interview Question #1: </strong>
               <br/>
-              {{vm.posts.question.one}}
+              {{p.question.one}}
               <br/>
               <strong>Interview Question #2: </strong>
               <br/>
-              {{vm.posts.question.two}}
+              {{p.question.two}}
               <br/>
               <strong>Interview Question #3:</strong>
               <br/>
-              {{vm.posts.question.three}}
+              {{p.question.three}}
               <br/>
               <strong>Interview Question #4: </strong>
               <br/>
-              {{vm.posts.question.four}}
+              {{p.question.four}}
               <br/>
               <strong>Interview Question #5:</strong>
               <br/>
-              {{vm.posts.question.five}}
+              {{p.question.five}}
               <br/>
               <strong> Additional Comments: </strong>
               <br/>
-              {{vm.posts.question.six}}
+              {{p.question.six}}
             </div>
             <div class="col-xs-1 col-sm-4 col-md-4"></div>
           </div>
@@ -99,48 +99,48 @@
     <hr style="border-top: 1px solid #080808">
     <div ng-show="vm.notFound" uib-alert style="background-color:lightblue ;color:white"> {{alert.msg}}</div>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
+      <div class="col-xs-12 col-sm-12 col-md-12 panel-body" ng-repeat="p in vm.posts track by $index">
         <div class="row panel panel-default" ng-show="vm.showPosts">
           <div class="text-center">
             <div class="col-xs-12 col-sm-4 col-md-4 panel-body">
               <br/>
-                <img ng-src="{{vm.posts.authorPhoto}}" width="200" height="250"/>
+                <img ng-src="{{p.authorPhoto}}" width="200" height="250"/>
                 <br/>
                   <p>
-                    <em>  @{{vm.posts.author}}</em>
+                    <em>  @{{p.author}}</em>
                   </p>
                   <br/>
-                  <strong>{{vm.posts.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
+                  <strong>{{p.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
                 </div>
             <!--POSTS -->
             <div class="col-xs-1"></div>
             <div class="col-xs-10 col-sm-4 col-md-4">
               <strong>Type of interview:</strong>
-              {{vm.posts.interviewType}}
+              {{p.interviewType}}
               <br/>
               <strong>Website url:</strong>
-              {{vm.posts.companyDomain}}
+              {{p.companyDomain}}
               <br/>
               <strong>Position Title: </strong>
-              {{vm.posts.positionTitle}}
+              {{p.positionTitle}}
               <br/>
               <strong>Interview Question #1: </strong>
-              {{vm.posts.question.one}}
+              {{p.question.one}}
               <br/>
               <strong>Interview Question #2: </strong>
-              {{vm.posts.question.two}}
+              {{p.question.two}}
               <br/>
               <strong>Interview Question #3:</strong>
-              {{vm.posts.question.three}}
+              {{p.question.three}}
               <br/>
               <strong>Interview Question #4: </strong>
-              {{vm.posts.question.four}}
+              {{p.question.four}}
               <br/>
               <strong>Interview Question #5:</strong>
-              {{vm.posts.question.five}}
+              {{p.question.five}}
               <br/>
               <strong> Additional Comments: </strong>
-              {{vm.posts.question.six}}
+              {{p.question.six}}
             </div>
             <div class="col-xs-1 col-sm-4 col-md-4"></div>
           </div>
