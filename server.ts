@@ -7,13 +7,10 @@ import bodyParser = require('body-parser');
 const app = express();
 let mongoose = require ('mongoose');
 
-//database connection
-mongoose.connect('mongodb://localhost/myApp');
-
-  let db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error'));
-  db.once('open', () => {
-  console.log('success database connection')
+// database connection
+let mongo_url = "mongodb://brionnaw:Brionna6@ds059316.mlab.com:59316/enterview";
+mongoose.connect(mongo_url, () => {
+  console.log(`connected to ${mongo_url}`);
 });
 // view engine setup
 app.set('views', './views');
