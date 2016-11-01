@@ -31,12 +31,12 @@
   <br/>
   <h3 class="text-center">My Profile</h3>
   <div ng-repeat="p in vm.posts track by $index">
-    <div class="row profileComments">
+    <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 panel-body">
           <div class="row panel panel-default">
             <div class="col-xs-12 col-sm-3 col-md-3 panel-body">
               <div class="text-center">
-                <img ng-src="{{p.authorPhoto}}" width="75" height="75"/>
+                <img ng-src="{{p.authorPhoto}}" width="200" height="250"/>
                 <div>
                   <p>
                     <em> @{{p.author}}</em>

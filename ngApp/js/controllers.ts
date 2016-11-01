@@ -215,7 +215,7 @@
             question: this.post
           }
           this.feedService.createPost(info).then((res) => {
-            this.$state.go('Feed')
+            this.$state.go('Feed', {info:'true'})
           })
         } else if(this.optionThree ==='checked'){
           console.log(this.optionThree)
@@ -231,7 +231,7 @@
             question: this.post
           }
           this.feedService.createPost(info).then((res) => {
-            this.$state.go('Feed')
+            this.$state.go('Feed',{info:'true'})
           })
         }
       }

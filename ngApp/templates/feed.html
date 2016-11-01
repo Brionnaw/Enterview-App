@@ -29,50 +29,55 @@
 <div class="hidden-xs">
   <div class="pageBackground">
     <h2 class="text-center">Reviews</h2>
-    <hr>
+    <hr style="border-top: 1px solid gray">
     <div ng-show="vm.notFound" uib-alert style="background-color:lightblue ;color:white"> {{alert.msg}}</div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
         <div class="row panel panel-default" ng-show="vm.showPosts">
-          <div class="text-center">
-            <div class="col-xs-12 col-sm-4 col-md-4 panel-body">
+          <div class="text-left">
+            <div class="col-xs-12 col-sm-4 col-md-4 panel-body feed-photo">
               <br/>
-                <img ng-src="{{vm.posts.authorPhoto}}" width="100" height="100"/>
+                <img ng-src="{{vm.posts.authorPhoto}}" width="200" height="250"/>
                 <br/>
                   <p>
                     <em>  @{{vm.posts.author}}</em>
                   </p>
-                  <br/>
                   <strong>{{vm.posts.dateCreated  | date: 'short'}} </strong> <!-- this filter shortens time format -->
                 </div>
             <!--POSTS -->
             <div class="col-xs-1"></div>
             <div class="col-xs-10 col-sm-4 col-md-4">
               <strong>Type of interview:</strong>
-              {{vm.posts.interviewType}}
+              <br/>{{vm.posts.interviewType}}
               <br/>
               <strong>Website url:</strong>
-              {{vm.posts.companyDomain}}
+              <br/>{{vm.posts.companyDomain}}
               <br/>
               <strong>Position Title: </strong>
-              {{vm.posts.positionTitle}}
+              <br/>{{vm.posts.positionTitle}}
               <br/>
               <strong>Interview Question #1: </strong>
+              <br/>
               {{vm.posts.question.one}}
               <br/>
               <strong>Interview Question #2: </strong>
+              <br/>
               {{vm.posts.question.two}}
               <br/>
               <strong>Interview Question #3:</strong>
+              <br/>
               {{vm.posts.question.three}}
               <br/>
               <strong>Interview Question #4: </strong>
+              <br/>
               {{vm.posts.question.four}}
               <br/>
               <strong>Interview Question #5:</strong>
+              <br/>
               {{vm.posts.question.five}}
               <br/>
               <strong> Additional Comments: </strong>
+              <br/>
               {{vm.posts.question.six}}
             </div>
             <div class="col-xs-1 col-sm-4 col-md-4"></div>
@@ -90,8 +95,8 @@
 <!-- SECTION (mobile)-->
 <div class="visible-xs">
   <div class="pageBackground-mobile">
-    <h2 class="text-center">Reviews</h2>
-    <hr>
+    <h2 class="text-center"> Reviews</h2>
+    <hr style="border-top: 1px solid #080808">
     <div ng-show="vm.notFound" uib-alert style="background-color:lightblue ;color:white"> {{alert.msg}}</div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 panel-body ">
@@ -99,7 +104,7 @@
           <div class="text-center">
             <div class="col-xs-12 col-sm-4 col-md-4 panel-body">
               <br/>
-                <img ng-src="{{vm.posts.authorPhoto}}" width="100" height="100"/>
+                <img ng-src="{{vm.posts.authorPhoto}}" width="200" height="250"/>
                 <br/>
                   <p>
                     <em>  @{{vm.posts.author}}</em>
