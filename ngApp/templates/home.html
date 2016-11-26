@@ -12,21 +12,25 @@
     </div>
   </div>
 </nav>
-<!-- NAV SECTION (mobile) -->
+
+
+<!-- nav(mobile)-->
 <nav class="navbar navbar-default navbar-fixed-top visible-xs">
-  <div class="container" style="padding-left:0px">
+  <div class="container" style="padding-left: 0px; color:#4d4d4d;">
     <span onclick="togglevisibility('foo')">
-    <div class="dropdown">
-      <span><h1 style="padding-left:5px"> <i class="fa fa-bars" aria-hidden="true"></i></h1></i></span>
-      <div class="dropdown-content">
-        <p ui-sref="Home">{{vm.user[0].username}}</p>
-        <p ui-sref="Profile">Profile</p>
-        <p ng-click="vm.logout()">Logout</p>
-      </div>
+      <div class="dropdown">
+        <h1 style="padding-left:5px;"> <i class="fa fa-bars" aria-hidden="true"></i></h1>
+        <div id="foo" style="display:none;" class="dropdown-content">
+          <p ui-sref="Home">{{vm.user[0].username}}</p>
+          <p ui-sref="Profile">Profile</p>
+          <p ng-click="vm.logout()">Logout</p>
+        </div>
+      </span>
     </div>
-  </span>
   </div>
 </nav>
+
+
 
 <!-- SECTION (desktop)-->
 <div class="row">
